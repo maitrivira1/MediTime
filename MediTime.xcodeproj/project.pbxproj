@@ -58,16 +58,56 @@
 		B0AC4251269D75600023EC10 /* MediTime */ = {
 			isa = PBXGroup;
 			children = (
-				B0AC4252269D75600023EC10 /* AppDelegate.swift */,
-				B0AC4254269D75600023EC10 /* SceneDelegate.swift */,
-				B0AC4256269D75600023EC10 /* ViewController.swift */,
-				B0AC4258269D75600023EC10 /* Main.storyboard */,
-				B0AC425E269D75600023EC10 /* Assets.xcassets */,
-				B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */,
-				B0AC4263269D75600023EC10 /* Info.plist */,
-				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
+				B0AC426D269D76C30023EC10 /* Model */,
+				B0AC426B269D768F0023EC10 /* Base */,
+				B0AC4269269D76610023EC10 /* Controller */,
+				B0AC426A269D766A0023EC10 /* View */,
+				B0AC426C269D76A80023EC10 /* DataModel */,
 			);
 			path = MediTime;
+			sourceTree = "<group>";
+		};
+		B0AC4269269D76610023EC10 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B0AC4256269D75600023EC10 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B0AC426A269D766A0023EC10 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */,
+				B0AC4258269D75600023EC10 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B0AC426B269D768F0023EC10 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B0AC4252269D75600023EC10 /* AppDelegate.swift */,
+				B0AC4254269D75600023EC10 /* SceneDelegate.swift */,
+				B0AC425E269D75600023EC10 /* Assets.xcassets */,
+				B0AC4263269D75600023EC10 /* Info.plist */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B0AC426C269D76A80023EC10 /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		B0AC426D269D76C30023EC10 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +332,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZUL2AFYNB;
-				INFOPLIST_FILE = MediTime/Info.plist;
+				INFOPLIST_FILE = MediTime/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,7 +351,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SZUL2AFYNB;
-				INFOPLIST_FILE = MediTime/Info.plist;
+				INFOPLIST_FILE = MediTime/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
