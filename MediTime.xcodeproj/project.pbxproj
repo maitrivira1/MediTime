@@ -58,7 +58,6 @@
 		B0AC4251269D75600023EC10 /* MediTime */ = {
 			isa = PBXGroup;
 			children = (
-				B0AC426D269D76C30023EC10 /* Model */,
 				B0AC426B269D768F0023EC10 /* Base */,
 				B0AC4269269D76610023EC10 /* Controller */,
 				B0AC426A269D766A0023EC10 /* View */,
@@ -101,13 +100,6 @@
 				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
 			);
 			path = DataModel;
-			sourceTree = "<group>";
-		};
-		B0AC426D269D76C30023EC10 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
