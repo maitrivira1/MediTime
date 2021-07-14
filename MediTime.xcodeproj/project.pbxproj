@@ -10,9 +10,13 @@
 		B03CA00E269EFE3100C12518 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* Data.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
 		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
+		B049CAF9269F2BDA00D56891 /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B049CAF8269F2BDA00D56891 /* User.storyboard */; };
+		B049CAFB269F2BEF00D56891 /* Medicine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B049CAFA269F2BEF00D56891 /* Medicine.storyboard */; };
+		B049CB00269F2C5C00D56891 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CAFF269F2C5C00D56891 /* UserController.swift */; };
+		B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CB01269F2C6D00D56891 /* MedicineController.swift */; };
 		B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4252269D75600023EC10 /* AppDelegate.swift */; };
 		B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4254269D75600023EC10 /* SceneDelegate.swift */; };
-		B0AC4257269D75600023EC10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4256269D75600023EC10 /* ViewController.swift */; };
+		B0AC4257269D75600023EC10 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4256269D75600023EC10 /* MainController.swift */; };
 		B0AC425A269D75600023EC10 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AC4258269D75600023EC10 /* Main.storyboard */; };
 		B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */; };
 		B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0AC425E269D75600023EC10 /* Assets.xcassets */; };
@@ -24,10 +28,14 @@
 		B03CA00D269EFE3100C12518 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
 		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
+		B049CAF8269F2BDA00D56891 /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		B049CAFA269F2BEF00D56891 /* Medicine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medicine.storyboard; sourceTree = "<group>"; };
+		B049CAFF269F2C5C00D56891 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
+		B049CB01269F2C6D00D56891 /* MedicineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineController.swift; sourceTree = "<group>"; };
 		B0AC424F269D75600023EC10 /* MediTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AC4252269D75600023EC10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0AC4254269D75600023EC10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B0AC4256269D75600023EC10 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B0AC4256269D75600023EC10 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		B0AC4259269D75600023EC10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B0AC425C269D75600023EC10 /* MediTime.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MediTime.xcdatamodel; sourceTree = "<group>"; };
 		B0AC425E269D75600023EC10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -47,6 +55,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B049CAFC269F2C0F00D56891 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
+				B03CA010269F018900C12518 /* MedicineTVC.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		B049CB03269F2C7200D56891 /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				B03CA00D269EFE3100C12518 /* Data.swift */,
+			);
+			path = Modal;
+			sourceTree = "<group>";
+		};
 		B0AC4246269D75600023EC10 = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +91,7 @@
 		B0AC4251269D75600023EC10 /* MediTime */ = {
 			isa = PBXGroup;
 			children = (
+				B049CB03269F2C7200D56891 /* Modal */,
 				B0AC426B269D768F0023EC10 /* Base */,
 				B0AC4269269D76610023EC10 /* Controller */,
 				B0AC426A269D766A0023EC10 /* View */,
@@ -77,9 +103,10 @@
 		B0AC4269269D76610023EC10 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B0AC4256269D75600023EC10 /* ViewController.swift */,
+				B0AC4256269D75600023EC10 /* MainController.swift */,
 				B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */,
-				B03CA00D269EFE3100C12518 /* Data.swift */,
+				B049CAFF269F2C5C00D56891 /* UserController.swift */,
+				B049CB01269F2C6D00D56891 /* MedicineController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -87,10 +114,11 @@
 		B0AC426A269D766A0023EC10 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B049CAFC269F2C0F00D56891 /* cell */,
 				B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */,
 				B0AC4258269D75600023EC10 /* Main.storyboard */,
-				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
-				B03CA010269F018900C12518 /* MedicineTVC.xib */,
+				B049CAF8269F2BDA00D56891 /* User.storyboard */,
+				B049CAFA269F2BEF00D56891 /* Medicine.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -171,7 +199,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B049CAFB269F2BEF00D56891 /* Medicine.storyboard in Resources */,
 				B0AC4262269D75600023EC10 /* LaunchScreen.storyboard in Resources */,
+				B049CAF9269F2BDA00D56891 /* User.storyboard in Resources */,
 				B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */,
 				B0AC425A269D75600023EC10 /* Main.storyboard in Resources */,
 				B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */,
@@ -185,8 +215,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0AC4257269D75600023EC10 /* ViewController.swift in Sources */,
+				B0AC4257269D75600023EC10 /* MainController.swift in Sources */,
+				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
+				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* Data.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,

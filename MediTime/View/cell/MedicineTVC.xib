@@ -4,18 +4,23 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTVC" rowHeight="104" id="KGk-i7-Jjw" customClass="MedicineTVC" customModule="MediTime" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="364" height="104"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTVC" rowHeight="100" id="KGk-i7-Jjw" customClass="MedicineTVC" customModule="MediTime" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="364" height="104"/>
+                <rect key="frame" x="0.0" y="0.0" width="364" height="100"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ded-NC-om4">
+                        <rect key="frame" x="16" y="5" width="332" height="90"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="QeW-RE-DgN">
                         <rect key="frame" x="37" y="20" width="60" height="60"/>
                         <constraints>
@@ -49,7 +54,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKe-tv-NQB">
-                        <rect key="frame" x="161" y="62" width="42" height="21"/>
+                        <rect key="frame" x="161" y="60" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -58,8 +63,11 @@
                 <constraints>
                     <constraint firstItem="Ygl-Is-6Zt" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="16" id="00M-22-Mqd"/>
                     <constraint firstItem="QeW-RE-DgN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="0F0-6h-d6x"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="iKe-tv-NQB" secondAttribute="bottom" constant="6" id="9da-aa-uEC"/>
+                    <constraint firstItem="ded-NC-om4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="8So-yM-6rS"/>
                     <constraint firstItem="pF3-5k-gZi" firstAttribute="top" secondItem="Ygl-Is-6Zt" secondAttribute="bottom" id="Cps-gk-Hp7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iKe-tv-NQB" secondAttribute="bottom" constant="8" id="FgO-YF-Utw"/>
+                    <constraint firstItem="ded-NC-om4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="H0T-cs-sBR"/>
+                    <constraint firstAttribute="bottom" secondItem="ded-NC-om4" secondAttribute="bottom" constant="5" id="Hev-4R-2AU"/>
                     <constraint firstAttribute="trailing" secondItem="XYv-K3-qJt" secondAttribute="trailing" constant="37" id="LZN-Za-h6y"/>
                     <constraint firstItem="iKe-tv-NQB" firstAttribute="leading" secondItem="pF3-5k-gZi" secondAttribute="trailing" constant="6" id="N8p-DO-6bc"/>
                     <constraint firstItem="pF3-5k-gZi" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="16" id="OJI-p7-8M5"/>
@@ -70,17 +78,22 @@
                     <constraint firstAttribute="bottom" secondItem="XYv-K3-qJt" secondAttribute="bottom" constant="20" id="oQI-q3-Kfx"/>
                     <constraint firstItem="9tF-MW-cGx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="qYF-pc-wra"/>
                     <constraint firstItem="Ygl-Is-6Zt" firstAttribute="top" secondItem="9tF-MW-cGx" secondAttribute="bottom" id="wDH-zW-nxN"/>
+                    <constraint firstAttribute="trailing" secondItem="ded-NC-om4" secondAttribute="trailing" constant="16" id="yG6-2h-J38"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="medicineBg" destination="ded-NC-om4" id="bcb-Eq-4g6"/>
                 <outlet property="medicineImg" destination="QeW-RE-DgN" id="u7d-mQ-dLZ"/>
             </connections>
-            <point key="canvasLocation" x="169.56521739130437" y="141.96428571428569"/>
+            <point key="canvasLocation" x="169.56521739130437" y="139.28571428571428"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="checkbox" width="80" height="80"/>
         <image name="uncheckbox" width="80" height="80"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

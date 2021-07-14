@@ -10,10 +10,13 @@ import UIKit
 class MedicineTVC: UITableViewCell {
     
     @IBOutlet weak var medicineImg: UIImageView!
-//    var userIndex: userData
+    @IBOutlet weak var medicineBg: UIView!
+    
+    //    var userIndex: userData
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        medicineBg.layer.cornerRadius = 8
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
