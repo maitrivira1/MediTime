@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B03CA00E269EFE3100C12518 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* Data.swift */; };
+		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
+		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
 		B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4252269D75600023EC10 /* AppDelegate.swift */; };
 		B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4254269D75600023EC10 /* SceneDelegate.swift */; };
 		B0AC4257269D75600023EC10 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4256269D75600023EC10 /* ViewController.swift */; };
@@ -14,9 +17,13 @@
 		B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */; };
 		B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0AC425E269D75600023EC10 /* Assets.xcassets */; };
 		B0AC4262269D75600023EC10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */; };
+		B0FA2E59269EEAC0004DDF08 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B03CA00D269EFE3100C12518 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
+		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
 		B0AC424F269D75600023EC10 /* MediTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AC4252269D75600023EC10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0AC4254269D75600023EC10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +33,7 @@
 		B0AC425E269D75600023EC10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0AC4261269D75600023EC10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0AC4263269D75600023EC10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				B0AC4256269D75600023EC10 /* ViewController.swift */,
+				B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */,
+				B03CA00D269EFE3100C12518 /* Data.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -79,6 +89,8 @@
 			children = (
 				B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */,
 				B0AC4258269D75600023EC10 /* Main.storyboard */,
+				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
+				B03CA010269F018900C12518 /* MedicineTVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -162,6 +174,7 @@
 				B0AC4262269D75600023EC10 /* LaunchScreen.storyboard in Resources */,
 				B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */,
 				B0AC425A269D75600023EC10 /* Main.storyboard in Resources */,
+				B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,8 +186,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0AC4257269D75600023EC10 /* ViewController.swift in Sources */,
+				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
+				B03CA00E269EFE3100C12518 /* Data.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
+				B0FA2E59269EEAC0004DDF08 /* UserCVC.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

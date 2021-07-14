@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MedicineTVC" rowHeight="104" id="KGk-i7-Jjw" customClass="MedicineTVC" customModule="MediTime" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="364" height="104"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="364" height="104"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox" translatesAutoresizingMaskIntoConstraints="NO" id="QeW-RE-DgN">
+                        <rect key="frame" x="37" y="20" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="bnK-dA-BYr"/>
+                            <constraint firstAttribute="width" constant="60" id="pGW-vh-vae"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tF-MW-cGx">
+                        <rect key="frame" x="113" y="20" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ygl-Is-6Zt">
+                        <rect key="frame" x="113" y="41" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pF3-5k-gZi">
+                        <rect key="frame" x="113" y="62" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckbox" translatesAutoresizingMaskIntoConstraints="NO" id="XYv-K3-qJt">
+                        <rect key="frame" x="267" y="20" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="tbc-oz-VZg"/>
+                            <constraint firstAttribute="height" constant="60" id="vgH-Ei-hhg"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iKe-tv-NQB">
+                        <rect key="frame" x="161" y="62" width="42" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Ygl-Is-6Zt" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="16" id="00M-22-Mqd"/>
+                    <constraint firstItem="QeW-RE-DgN" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="37" id="0F0-6h-d6x"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="iKe-tv-NQB" secondAttribute="bottom" constant="6" id="9da-aa-uEC"/>
+                    <constraint firstItem="pF3-5k-gZi" firstAttribute="top" secondItem="Ygl-Is-6Zt" secondAttribute="bottom" id="Cps-gk-Hp7"/>
+                    <constraint firstAttribute="trailing" secondItem="XYv-K3-qJt" secondAttribute="trailing" constant="37" id="LZN-Za-h6y"/>
+                    <constraint firstItem="iKe-tv-NQB" firstAttribute="leading" secondItem="pF3-5k-gZi" secondAttribute="trailing" constant="6" id="N8p-DO-6bc"/>
+                    <constraint firstItem="pF3-5k-gZi" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="16" id="OJI-p7-8M5"/>
+                    <constraint firstAttribute="bottom" secondItem="QeW-RE-DgN" secondAttribute="bottom" constant="20" id="RXw-gb-xsr"/>
+                    <constraint firstItem="9tF-MW-cGx" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="16" id="TIC-n6-Zuc"/>
+                    <constraint firstItem="QeW-RE-DgN" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="fJO-Lc-d6j"/>
+                    <constraint firstItem="XYv-K3-qJt" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="lDV-G3-4uR"/>
+                    <constraint firstAttribute="bottom" secondItem="XYv-K3-qJt" secondAttribute="bottom" constant="20" id="oQI-q3-Kfx"/>
+                    <constraint firstItem="9tF-MW-cGx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="qYF-pc-wra"/>
+                    <constraint firstItem="Ygl-Is-6Zt" firstAttribute="top" secondItem="9tF-MW-cGx" secondAttribute="bottom" id="wDH-zW-nxN"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="medicineImg" destination="QeW-RE-DgN" id="u7d-mQ-dLZ"/>
+            </connections>
+            <point key="canvasLocation" x="169.56521739130437" y="141.96428571428569"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkbox" width="80" height="80"/>
+        <image name="uncheckbox" width="80" height="80"/>
+    </resources>
+</document>
