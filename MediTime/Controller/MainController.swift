@@ -17,10 +17,12 @@ class MainController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupIU()
         
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
+        setupIU()
+        setupItem()
+    }
+    
+    func setupItem(){
         userCollectionView.delegate = self
         userCollectionView.dataSource = self
         userCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
