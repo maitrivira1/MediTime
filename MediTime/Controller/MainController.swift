@@ -22,6 +22,10 @@ class MainController: UIViewController {
         setupItem()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+    }
+    
     func setupItem(){
         userCollectionView.delegate = self
         userCollectionView.dataSource = self

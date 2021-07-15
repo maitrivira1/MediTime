@@ -164,7 +164,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-no-tI8">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
                                                                 <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x96-Ea-7Mc">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x96-Ea-7Mc" userLabel="hari ini">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
@@ -190,7 +190,7 @@
                                                                                             <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
                                                                                         <connections>
-                                                                                            <action selector="addedMedicineBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4I2-b2-hpQ"/>
+                                                                                            <segue destination="MoG-mC-JkR" kind="show" id="M3J-ZN-dSM"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
@@ -204,7 +204,7 @@
                                                                             <constraint firstAttribute="trailing" secondItem="Q8a-LT-srh" secondAttribute="trailing" constant="16" id="w3V-jU-3MN"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-Ni-G0d">
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kDL-Ni-G0d" userLabel="obat">
                                                                         <rect key="frame" x="0.0" y="50" width="414" height="40"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat yang harus diminum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y7u-ZR-25A">
@@ -289,6 +289,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="124.55357142857142"/>
+        </scene>
+        <!--UserController-->
+        <scene sceneID="RS3-5O-a1K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="User" referencedIdentifier="UserController" id="MoG-mC-JkR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qAY-Xo-ux4"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OJw-4t-KCR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1682" y="58"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="A3f-v3-B72">
