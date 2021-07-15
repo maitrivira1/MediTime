@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
 		B03CA00E269EFE3100C12518 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* Data.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
 		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
@@ -21,10 +22,10 @@
 		B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */; };
 		B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0AC425E269D75600023EC10 /* Assets.xcassets */; };
 		B0AC4262269D75600023EC10 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */; };
-		B0FA2E59269EEAC0004DDF08 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 		B03CA00D269EFE3100C12518 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
 		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
@@ -41,7 +42,6 @@
 		B0AC425E269D75600023EC10 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B0AC4261269D75600023EC10 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B0AC4263269D75600023EC10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,15 +55,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B049CAFC269F2C0F00D56891 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
-				B03CA010269F018900C12518 /* MedicineTVC.xib */,
-			);
-			path = cell;
-			sourceTree = "<group>";
-		};
 		B049CB03269F2C7200D56891 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,9 +95,10 @@
 			isa = PBXGroup;
 			children = (
 				B0AC4256269D75600023EC10 /* MainController.swift */,
-				B0FA2E58269EEAC0004DDF08 /* UserCVC.swift */,
 				B049CAFF269F2C5C00D56891 /* UserController.swift */,
 				B049CB01269F2C6D00D56891 /* MedicineController.swift */,
+				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
+				B030C50926A01BEE00DB8797 /* UserCVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -114,11 +106,11 @@
 		B0AC426A269D766A0023EC10 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B049CAFC269F2C0F00D56891 /* cell */,
 				B0AC4260269D75600023EC10 /* LaunchScreen.storyboard */,
 				B0AC4258269D75600023EC10 /* Main.storyboard */,
 				B049CAF8269F2BDA00D56891 /* User.storyboard */,
 				B049CAFA269F2BEF00D56891 /* Medicine.storyboard */,
+				B03CA010269F018900C12518 /* MedicineTVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,7 +214,7 @@
 				B03CA00E269EFE3100C12518 /* Data.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
-				B0FA2E59269EEAC0004DDF08 /* UserCVC.swift in Sources */,
+				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

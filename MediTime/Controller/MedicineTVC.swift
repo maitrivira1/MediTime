@@ -9,11 +9,12 @@ import UIKit
 
 class MedicineTVC: UITableViewCell {
     
-    @IBOutlet weak var medicineImg: UIImageView!
+    @IBOutlet weak var medicineName: UILabel!
+    @IBOutlet weak var medicineAmount: UILabel!
+    @IBOutlet weak var medicineTime: UILabel!
+    @IBOutlet weak var medicineEaten: UILabel!
     @IBOutlet weak var medicineBg: UIView!
     
-    //    var userIndex: userData
-
     override func awakeFromNib() {
         super.awakeFromNib()
         medicineBg.layer.cornerRadius = 8
@@ -23,8 +24,8 @@ class MedicineTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func updateUI(){
-        
+    func setup(with data: Data){
+        medicineName.text = data.name
+        medicineAmount.text = data.sick
     }
-    
 }

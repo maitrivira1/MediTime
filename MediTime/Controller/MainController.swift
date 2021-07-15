@@ -19,6 +19,8 @@ class MainController: UIViewController {
         super.viewDidLoad()
         setupIU()
         
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
         userCollectionView.delegate = self
         userCollectionView.dataSource = self
         userCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
@@ -52,11 +54,11 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let userIndex = userData[indexPath.row]
+        let userIndex = userData[indexPath.row]
         let tableCell = userTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
+        
         tableCell.selectionStyle = .none
-//        tableCell.userIndex = userIndex
-//        tableCell.updateUI()
+        tableCell.setup(with: userIndex)
         
         return tableCell
     }
@@ -66,7 +68,6 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     }
 }
 
-
 //Mark - collection view
 extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -74,11 +75,12 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let userIndex = userData[indexPath.row]
+        
         let collectionCell = userCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCVC", for: indexPath) as! UserCVC
-        
+
+        let userIndex = userData[indexPath.row]
         collectionCell.setup(with: userIndex)
-        
+
         return collectionCell
     }
     
@@ -86,7 +88,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
         print(userData[indexPath.row].name)
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 180, height: 180)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 118, height: 140)
     }
 }

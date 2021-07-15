@@ -14,9 +14,12 @@ struct Data{
 
 let userData: [Data] = [
     Data(name: "adi", sick: "batuk"),
-    Data(name: "budi", sick: "demam"),
+    Data(name: "uzumaki naruto naruto", sick: "demam"),
     Data(name: "ani", sick: "demam"),
     Data(name: "adi", sick: "batuk"),
-    Data(name: "budi", sick: "demam"),
+    Data(name: "uchiha sasuke sasuke", sick: "demam"),
+    Data(name: "ani", sick: "demam"),
+    Data(name: "adi", sick: "batuk"),
+    Data(name: "haruno sakura sakura", sick: "demam"),
     Data(name: "ani", sick: "demam")
 ]
