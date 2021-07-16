@@ -78,17 +78,43 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
 //Mark - collection view
 extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userData.count
+        return userData.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let collectionCell = userCollectionView.dequeueReusableCell(withReuseIdentifier: "UserCVC", for: indexPath) as! UserCVC
+        let cellID = indexPath.row < userData.count ? "UserCVC" : "UserNone"
+        
+        let collectionCell = userCollectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
 
-        let userIndex = userData[indexPath.row]
-        collectionCell.setup(with: userIndex)
+        setupCell(cell: collectionCell, index: indexPath, type: cellID)
 
         return collectionCell
+    }
+    
+    func setupCell(cell: UICollectionViewCell, index: IndexPath, type: String) {
+        switch(type) {
+            case "UserCVC":
+                setupUserCell(cell: cell as! UserCVC, indexPath: index)
+            case "UserNone":
+                setupNoneCell(cell: cell as! NoneCVC, indexPath: index)
+            default:
+                break
+        }
+    }
+    
+    func setupUserCell(cell: UserCVC, indexPath: IndexPath) {
+        let userIndex = userData[indexPath.row]
+        cell.setup(with: userIndex)
+    }
+
+    func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
+        cell.btnAdd.addTarget(self, action: #selector(addButtonTapped), for: UIControl.Event.touchUpInside)
+        cell.setup()
+    }
+    
+    @objc func addButtonTapped(sender: UIButton) {
+        print("add new")
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

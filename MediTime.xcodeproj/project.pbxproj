@@ -15,6 +15,7 @@
 		B049CAFB269F2BEF00D56891 /* Medicine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B049CAFA269F2BEF00D56891 /* Medicine.storyboard */; };
 		B049CB00269F2C5C00D56891 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CAFF269F2C5C00D56891 /* UserController.swift */; };
 		B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CB01269F2C6D00D56891 /* MedicineController.swift */; };
+		B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057AC4426A18CE400742538 /* NoneCVC.swift */; };
 		B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4252269D75600023EC10 /* AppDelegate.swift */; };
 		B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4254269D75600023EC10 /* SceneDelegate.swift */; };
 		B0AC4257269D75600023EC10 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4256269D75600023EC10 /* MainController.swift */; };
@@ -33,6 +34,7 @@
 		B049CAFA269F2BEF00D56891 /* Medicine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Medicine.storyboard; sourceTree = "<group>"; };
 		B049CAFF269F2C5C00D56891 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		B049CB01269F2C6D00D56891 /* MedicineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineController.swift; sourceTree = "<group>"; };
+		B057AC4426A18CE400742538 /* NoneCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneCVC.swift; sourceTree = "<group>"; };
 		B0AC424F269D75600023EC10 /* MediTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AC4252269D75600023EC10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0AC4254269D75600023EC10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				B049CB01269F2C6D00D56891 /* MedicineController.swift */,
 				B03CA00F269F018900C12518 /* MedicineTVC.swift */,
 				B030C50926A01BEE00DB8797 /* UserCVC.swift */,
+				B057AC4426A18CE400742538 /* NoneCVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */,
 				B0AC4257269D75600023EC10 /* MainController.swift in Sources */,
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,

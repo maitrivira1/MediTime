@@ -88,7 +88,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
-                                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="bottom" secondItem="hTj-3l-vli" secondAttribute="bottom" constant="18" id="1Q9-mi-Oac"/>
                                                                 <constraint firstAttribute="trailing" secondItem="OSL-FI-ATh" secondAttribute="trailing" id="8Ha-Eg-xRL"/>
@@ -110,7 +110,7 @@
                                                             <outlet property="userView" destination="XQx-MX-Csp" id="FiR-ZJ-5es"/>
                                                         </connections>
                                                     </collectionViewCell>
-                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="UserNone" id="FZ8-wK-3wK">
+                                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="UserNone" id="FZ8-wK-3wK" customClass="NoneCVC" customModule="MediTime" customModuleProvider="target">
                                                         <rect key="frame" x="144" y="16" width="118" height="133"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MKN-HJ-wO8">
@@ -118,7 +118,7 @@
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gCZ-bo-3aN">
-                                                                    <rect key="frame" x="27" y="21" width="64" height="64"/>
+                                                                    <rect key="frame" x="27" y="15" width="64" height="64"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="height" constant="64" id="fMJ-2y-y0P"/>
                                                                         <constraint firstAttribute="width" constant="64" id="kSE-wj-Mq8"/>
@@ -127,23 +127,28 @@
                                                                     <state key="normal" image="plus"/>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Pengguna" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-3c-9dK">
-                                                                    <rect key="frame" x="5" y="85" width="108" height="38"/>
+                                                                    <rect key="frame" x="5" y="89" width="108" height="26"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                                             <constraints>
-                                                                <constraint firstItem="7n5-3c-9dK" firstAttribute="top" secondItem="gCZ-bo-3aN" secondAttribute="bottom" id="0NC-EC-Wsx"/>
+                                                                <constraint firstItem="7n5-3c-9dK" firstAttribute="top" secondItem="gCZ-bo-3aN" secondAttribute="bottom" constant="10" id="0NC-EC-Wsx"/>
                                                                 <constraint firstItem="7n5-3c-9dK" firstAttribute="leading" secondItem="MKN-HJ-wO8" secondAttribute="leading" constant="5" id="9L1-Fy-tsh"/>
-                                                                <constraint firstAttribute="bottom" secondItem="7n5-3c-9dK" secondAttribute="bottom" constant="10" id="UPC-D3-E7k"/>
-                                                                <constraint firstItem="gCZ-bo-3aN" firstAttribute="top" secondItem="MKN-HJ-wO8" secondAttribute="top" constant="21" id="XeL-YX-wJc"/>
+                                                                <constraint firstAttribute="bottom" secondItem="7n5-3c-9dK" secondAttribute="bottom" constant="18" id="UPC-D3-E7k"/>
+                                                                <constraint firstItem="gCZ-bo-3aN" firstAttribute="top" secondItem="MKN-HJ-wO8" secondAttribute="top" constant="15" id="XeL-YX-wJc"/>
                                                                 <constraint firstAttribute="trailing" secondItem="gCZ-bo-3aN" secondAttribute="trailing" constant="27" id="btI-I0-NZk"/>
                                                                 <constraint firstAttribute="trailing" secondItem="7n5-3c-9dK" secondAttribute="trailing" constant="5" id="ySP-Vh-YSm"/>
                                                                 <constraint firstItem="gCZ-bo-3aN" firstAttribute="leading" secondItem="MKN-HJ-wO8" secondAttribute="leading" constant="27" id="yqs-LB-QuJ"/>
                                                             </constraints>
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="118" height="133"/>
+                                                        <connections>
+                                                            <outlet property="addView" destination="MKN-HJ-wO8" id="sEv-p8-sBI"/>
+                                                            <outlet property="btnAdd" destination="gCZ-bo-3aN" id="SlS-Sv-Irj"/>
+                                                        </connections>
                                                     </collectionViewCell>
                                                 </cells>
                                                 <connections>
