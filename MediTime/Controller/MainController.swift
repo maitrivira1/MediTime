@@ -27,10 +27,6 @@ class MainController: UIViewController {
     }
     
     func setupItem(){
-        userCollectionView.delegate = self
-        userCollectionView.dataSource = self
-        userCollectionView.collectionViewLayout = UICollectionViewFlowLayout()
-        
         userTableView.delegate = self
         userTableView.dataSource = self
     }
@@ -40,6 +36,11 @@ class MainController: UIViewController {
         navigationItem.largeTitleDisplayMode = .never
         
         RoundedView.layer.cornerRadius = 15
+        RoundedView.layer.shadowColor = UIColor.black.cgColor
+        RoundedView.layer.shadowOpacity = 0.3
+        RoundedView.layer.shadowOffset = .zero
+        RoundedView.layer.shadowRadius = 3
+        
         addMedicineBtn.layer.cornerRadius = 10
         medicineTV.tableFooterView = UIView()
         
@@ -75,7 +76,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
 }
 
 //Mark - collection view
-extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userData.count
     }
@@ -92,9 +93,5 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(userData[indexPath.row].name)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 118, height: 140)
     }
 }

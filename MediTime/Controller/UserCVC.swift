@@ -9,13 +9,17 @@ import UIKit
 
 class UserCVC: UICollectionViewCell {
     
-    @IBOutlet weak var userImg: UIView!
+    @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userSick: UILabel!
+    @IBOutlet weak var userView: UIView!
     
     func setup(with data: Data){
         userName.text = data.name
         userSick.text = data.sick
+        
+        userView.layer.cornerRadius = 8
+        userImg.layer.cornerRadius = (userImg.frame.width / 2)
     }
     
 }
