@@ -125,6 +125,9 @@
                                                                     </constraints>
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                                                     <state key="normal" image="plus"/>
+                                                                    <connections>
+                                                                        <segue destination="MoG-mC-JkR" kind="show" id="C7d-vm-pEE"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Pengguna" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-3c-9dK">
                                                                     <rect key="frame" x="5" y="89" width="108" height="26"/>
@@ -203,9 +206,6 @@
                                                                                         <state key="normal" title="+ Tambah Obat">
                                                                                             <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
-                                                                                        <connections>
-                                                                                            <segue destination="MoG-mC-JkR" kind="show" id="M3J-ZN-dSM"/>
-                                                                                        </connections>
                                                                                     </button>
                                                                                 </subviews>
                                                                             </stackView>

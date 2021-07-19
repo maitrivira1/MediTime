@@ -9,6 +9,8 @@ import UIKit
 
 class UserController: UIViewController {
 
+    @IBOutlet weak var btnSimpan: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +20,8 @@ class UserController: UIViewController {
     func setupUI(){
         navigationItem.title = "Isi Data Pengguna"
         navigationItem.largeTitleDisplayMode = .never
+        
+        btnSimpan.layer.cornerRadius = 12
     }
 
     

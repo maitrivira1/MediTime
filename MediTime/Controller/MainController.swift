@@ -118,6 +118,14 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(userData[indexPath.row].name)
+        if indexPath.row == userData.count + 1{
+            let storyboardRestaurant = UIStoryboard(name: "UserController", bundle: .main)
+            let vc = storyboardRestaurant.instantiateViewController(identifier: "UserController") as! UserController
+            self.presentingViewController?.navigationController?.pushViewController(vc, animated: true)
+        }else{
+            print(userData.count, "userdata")
+            print(userData[indexPath.row].name)
+        }
+                
     }
 }
