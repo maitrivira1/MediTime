@@ -22,7 +22,7 @@ class MainController: UIViewController {
         setupItem()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
     }
     
@@ -47,10 +47,7 @@ class MainController: UIViewController {
         let nib = UINib(nibName: "MedicineTVC", bundle: nil)
         userTableView.register(nib, forCellReuseIdentifier: "MedicineTVC")
         userTableView.separatorStyle = .none
-    }
-    
-    @IBAction func addedMedicineBtn(_ sender: UIButton) {
-        print("add")
+        userTableView.backgroundColor = .white
     }
 }
 
@@ -109,21 +106,16 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
 
     func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
-        cell.btnAdd.addTarget(self, action: #selector(addButtonTapped), for: UIControl.Event.touchUpInside)
         cell.setup()
     }
     
-    @objc func addButtonTapped(sender: UIButton) {
-        print("add new")
-    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == userData.count + 1{
-            let storyboardRestaurant = UIStoryboard(name: "UserController", bundle: .main)
-            let vc = storyboardRestaurant.instantiateViewController(identifier: "UserController") as! UserController
-            self.presentingViewController?.navigationController?.pushViewController(vc, animated: true)
+        if indexPath.row == userData.count{
+//            let storyboardRestaurant = UIStoryboard(name: "User", bundle: .main)
+//            let vc = storyboardRestaurant.instantiateViewController(identifier: "UserController") as! UserController
+//            self.presentingViewController?.navigationController?.pushViewController(vc, animated: true)
+            performSegue(withIdentifier: "UserController", sender: indexPath.row)
         }else{
-            print(userData.count, "userdata")
             print(userData[indexPath.row].name)
         }
                 

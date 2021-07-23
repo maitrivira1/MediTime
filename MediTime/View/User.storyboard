@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Poppins-Regular.ttf">
+            <string>Poppins-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--User Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -21,7 +26,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlt-c9-LgG" userLabel="top margin">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="hFF-6c-cIp"/>
                                         </constraints>
@@ -38,7 +43,7 @@
                                                 <state key="normal" image="plus"/>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="1N7-k0-FOg" firstAttribute="centerY" secondItem="teg-Xj-h8T" secondAttribute="centerY" id="0rk-1R-wSl"/>
                                             <constraint firstItem="1N7-k0-FOg" firstAttribute="centerX" secondItem="teg-Xj-h8T" secondAttribute="centerX" id="6Un-Cv-fJ2"/>
@@ -50,12 +55,12 @@
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09W-3W-5TQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="16"/>
+                                                <color key="textColor" red="0.24313725490196078" green="0.59215686274509804" blue="0.54509803921568623" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="bottom" secondItem="09W-3W-5TQ" secondAttribute="bottom" id="5tg-GJ-NRL"/>
                                             <constraint firstItem="09W-3W-5TQ" firstAttribute="top" secondItem="6nP-ja-lkd" secondAttribute="top" id="CX4-N7-Gh6"/>
@@ -70,24 +75,25 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-eu-9Gd" userLabel="nama">
                                                 <rect key="frame" x="0.0" y="10" width="414" height="40"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lJ2-DV-hX8">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lJ2-DV-hX8">
                                                         <rect key="frame" x="16" y="5" width="382" height="35"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4xa-9I-D7M">
-                                                                <rect key="frame" x="0.0" y="0.0" width="191" height="35"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="56" height="35"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                                                <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Nama" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtK-WR-k43">
-                                                                <rect key="frame" x="191" y="0.0" width="191" height="35"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="contoh: Ayah, Ibu, Nenek" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtK-WR-k43">
+                                                                <rect key="frame" x="56" y="0.0" width="326" height="35"/>
+                                                                <color key="textColor" red="0.71764705882352942" green="0.77254901960784317" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="lJ2-DV-hX8" firstAttribute="leading" secondItem="OQ3-eu-9Gd" secondAttribute="leading" constant="16" id="3C7-kN-s96"/>
                                                     <constraint firstAttribute="trailing" secondItem="lJ2-DV-hX8" secondAttribute="trailing" constant="16" id="Hza-di-CSr"/>
@@ -104,7 +110,7 @@
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="10" id="BK7-A9-QlN"/>
                                                     <constraint firstItem="kKU-GY-Jcn" firstAttribute="top" secondItem="X57-bY-m5Q" secondAttribute="top" constant="4" id="ClH-xE-d7N"/>
@@ -116,24 +122,25 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYi-q0-ZcD" userLabel="penyakit">
                                                 <rect key="frame" x="0.0" y="60" width="414" height="40"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-kb-iIh">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AeV-kb-iIh">
                                                         <rect key="frame" x="16" y="0.0" width="382" height="40"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Penyakit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WPA-5n-26P">
-                                                                <rect key="frame" x="0.0" y="0.0" width="191" height="40"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="76" height="40"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
+                                                                <color key="textColor" red="0.023529411764705882" green="0.32549019607843138" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Penyakit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7R-bz-1r0">
-                                                                <rect key="frame" x="191" y="0.0" width="191" height="40"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="isi nama penyakit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7R-bz-1r0">
+                                                                <rect key="frame" x="76" y="0.0" width="306" height="40"/>
+                                                                <color key="textColor" red="0.71764705880000002" green="0.7725490196" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="AeV-kb-iIh" secondAttribute="trailing" constant="16" id="6W1-Qw-yuc"/>
                                                     <constraint firstItem="AeV-kb-iIh" firstAttribute="top" secondItem="aYi-q0-ZcD" secondAttribute="top" id="N0F-zQ-m1U"/>
@@ -150,7 +157,7 @@
                                                         <color key="backgroundColor" systemColor="systemGray4Color"/>
                                                     </view>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="MOa-eW-aKc" secondAttribute="trailing" id="4Sx-lc-Jaw"/>
                                                     <constraint firstAttribute="height" constant="10" id="DOs-6H-OVG"/>
@@ -171,7 +178,7 @@
                                                         </state>
                                                     </button>
                                                 </subviews>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstItem="VoE-TC-s5W" firstAttribute="centerX" secondItem="wUq-r7-vJY" secondAttribute="centerX" id="6qh-VE-Gyi"/>
                                                     <constraint firstItem="VoE-TC-s5W" firstAttribute="centerY" secondItem="wUq-r7-vJY" secondAttribute="centerY" id="A6K-aU-Jlh"/>
@@ -183,7 +190,7 @@
                                                 </constraints>
                                             </view>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="OQ3-eu-9Gd" secondAttribute="trailing" id="2XG-mh-Ttc"/>
                                             <constraint firstItem="aYi-q0-ZcD" firstAttribute="leading" secondItem="iLq-GI-vE3" secondAttribute="leading" id="3hu-Na-Vd7"/>
@@ -204,10 +211,11 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dal-hQ-VID" secondAttribute="trailing" id="2Yo-bc-3Kl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="dal-hQ-VID" secondAttribute="bottom" id="Bxo-PU-Q4i"/>
@@ -226,9 +234,6 @@
     </scenes>
     <resources>
         <image name="plus" width="256" height="256"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
