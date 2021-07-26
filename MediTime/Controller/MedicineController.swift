@@ -80,5 +80,164 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
             eatingTextField.text = eat[row]
         }
     }
-    
+
 }
+
+
+//import UIKit
+//import UserNotifications
+//
+//class ViewController: UIViewController, UNUserNotificationCenterDelegate {
+//
+//    struct Notification {
+//
+//        struct Category {
+//            static let tutorial = "tutorial"
+//        }
+//
+//        struct Action {
+//            static let readLater = "readLater"
+//            static let showDetails = "showDetails"
+//            static let unsubscribe = "unsubscribe"
+//        }
+//
+//    }
+//
+//    // Input dari Date
+//
+//    var tahun: Int = 0
+//    var bulan: Int = 0
+//    var hari: Int = 0
+//    var jam: Int = 0
+//    var menit: Int = 0
+//    var detik: Int = 0
+//    var stahun: Int = 0
+//    var sbulan: Int = 0
+//    var shari: Int = 0
+//    var sjam: Int = 0
+//    var smenit: Int = 0
+//    var sdetik: Int = 0
+//
+//    var dlmSehari: Int = 0
+//    var brpHari: Int = 0
+//    var detik2: Int = 10
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        // 2 kali makan obat jam 8, jam 20; 3 kali makan obat, jam 8, jam 16, jam 24, jam 8, jam 14, jam 20, jam 2
+//        // jika sehari 2 kali, dlmSehari = 2, jika 3 kali, dlmSehari = 3
+//        // dlmSehari 1x s/d 4x
+//        dlmSehari = 3
+//        brpHari = 5
+//
+//        let date = Date()
+//        let calendar = Calendar.current
+//        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+//        tahun = components.year ?? 0
+//        bulan = components.month ?? 0
+//        hari = components.day ?? 0
+//        jam = components.hour ?? 0
+//        menit = components.minute ?? 0
+//        detik = 0
+//
+//        print(detik)
+//        menit += 1
+//        detik += 10
+//        print(detik)
+//
+//        // test
+//        print(tahun)
+//        print(bulan)
+//        print(hari)
+//        print(jam)
+//        print(menit)
+//        print(detik)
+//
+//        for indek1 in 1...brpHari {
+//            // hitung future, kemudian future diambil tahun.... s/d detik
+//
+//            for indek2 in 1...dlmSehari {
+//                detik += 3
+//                notif(mes: indek2, stahun:tahun, sbulan: bulan, shari: hari, sjam: jam, smenit: menit, sdetik: detik)
+//                print("Hari ke: \(indek1)")
+//                print("Obat ke: \(indek2)")
+//            }
+//            detik2 = detik
+//        }
+//
+//    }
+//
+//    func notif(mes: Int, stahun: Int, sbulan: Int, shari: Int, sjam: Int, smenit: Int, sdetik: Int) {
+//
+//        // Step 1: Ask for permission
+//        let center = UNUserNotificationCenter.current()
+//        center.delegate = self
+//
+//        // Define Actions
+//        let actionReadLater = UNNotificationAction(identifier: Notification.Action.readLater, title: "Aksi Satu", options: [])
+//        let actionShowDetails = UNNotificationAction(identifier: Notification.Action.showDetails, title: "Aksi Dua", options: [.foreground])
+//        let actionUnsubscribe = UNNotificationAction(identifier: Notification.Action.unsubscribe, title: "Aksi Tiga", options: [.destructive, .authenticationRequired])
+//
+//        // Define Category
+//        let tutorialCategory = UNNotificationCategory(identifier: Notification.Category.tutorial, actions: [actionReadLater, actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
+//
+//        // Register Category
+//        UNUserNotificationCenter.current().setNotificationCategories([tutorialCategory])
+//
+//        // Step 2: Create th enotification content
+//        let content = UNMutableNotificationContent()
+//        if mes == 1 {
+//            content.title = "1. Obat Pertama"
+//            content.body = "Tetap semangat untuk kesembuhan 💪"
+//        } else if mes == 2 {
+//            content.title = "2. Obat Kedua"
+//            content.body = "Semangat lagi untuk kesembuhan 💪"
+//        } else {
+//            content.title = "3. Obat Ketiga"
+//            content.body = "Lagi-lagi, semangat lagi untuk kesembuhan 💪"
+//        }
+//        content.categoryIdentifier = Notification.Category.tutorial
+//        content.sound = .default
+//
+//        // Step 3: Create the notification trigger
+//        let dateComponents = DateComponents(year: tahun, month: bulan, day: hari, hour: jam, minute: menit, second: detik)
+//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+//
+//        // Step 4: Create the request
+//        let uuidString = UUID().uuidString
+//        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+//
+//        // Step 5: Register & request
+//        center.add(request) {(error) in
+//
+//        }
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter,
+//                didReceive response: UNNotificationResponse,
+//                withCompletionHandler completionHandler:
+//                   @escaping () -> Void) {
+//
+//        switch response.actionIdentifier {
+//        case Notification.Action.readLater:
+//            print("Save Tutorial For Later")
+//        case Notification.Action.unsubscribe:
+//            print("Unsubscribe Reader")
+//        default:
+//            print("Other Action")
+//        }
+//        completionHandler()
+//    }
+//
+//    func userNotificationCenter(_ center: UNUserNotificationCenter,
+//             willPresent notification: UNNotification,
+//             withCompletionHandler completionHandler:
+//                @escaping (UNNotificationPresentationOptions) -> Void) {
+//
+//       // Don't alert the user for other types.
+//       completionHandler(UNNotificationPresentationOptions(rawValue: 0))
+//    }
+//
+//}
+
