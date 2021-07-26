@@ -12,6 +12,7 @@ class MedicineController: UIViewController {
     @IBOutlet weak var saveButton: UIView!
     @IBOutlet weak var dosisTextField: UITextField!
     @IBOutlet weak var eatingTextField: UITextField!
+    @IBOutlet weak var imageButton: UIButton!
     
     let dosisPicker = UIPickerView()
     let eatPicker = UIPickerView()
@@ -23,6 +24,10 @@ class MedicineController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+    }
+    
+    @IBAction func imageTapped(_ sender: UIButton) {
+        showImagePickerController()
     }
     
 }
@@ -47,7 +52,7 @@ extension MedicineController: Setup{
     
 }
 
-// MARK: - Picker View
+// MARK: - picker view
 extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -83,6 +88,29 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
 
 }
 
+// MARK: - image picker
+extension MedicineController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    
+    func showImagePickerController(){
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            imageButton.setImage(editedImage, for: .normal)
+        }else{
+            imageButton.setImage(UIImage.init(systemName: "photo"), for: .normal)
+        }
+        
+        dismiss(animated: true, completion: nil)
+    }
+    
+}
 
 //import UIKit
 //import UserNotifications
