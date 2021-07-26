@@ -13,24 +13,33 @@ class MedicineTVC: UITableViewCell {
     @IBOutlet weak var medicineAmount: UILabel!
     @IBOutlet weak var medicineTime: UILabel!
     @IBOutlet weak var medicineEaten: UILabel!
-    @IBOutlet weak var medicineBg: UIView!
-    @IBOutlet weak var timeBg: UIView!
-    @IBOutlet weak var eatBg: UIView!
+    @IBOutlet weak var medicineBackground: UIView!
+    @IBOutlet weak var timeBackground: UIView!
+    @IBOutlet weak var eatBackground: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        medicineBg.layer.cornerRadius = 8
-        timeBg.layer.cornerRadius = 8
-        eatBg.layer.cornerRadius = 8
+        setupUI()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func setup(with data: Data){
+}
+
+extension MedicineTVC: Setup{
+    
+    func setupUI() {
+        medicineBackground.layer.cornerRadius = 8
+        timeBackground.layer.cornerRadius = 8
+        eatBackground.layer.cornerRadius = 8
+    }
+    
+    func userData(with data: Data){
 //        medicineName.text = data.name
 //        medicineAmount.text = data.sick
     }
+    
 }

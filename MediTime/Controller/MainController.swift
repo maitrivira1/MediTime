@@ -9,50 +9,51 @@ import UIKit
 
 class MainController: UIViewController {
     
-    @IBOutlet weak var RoundedView: UIView!
-    @IBOutlet weak var addMedicineBtn: UIButton!
-    @IBOutlet weak var medicineTV: UITableView!
+    @IBOutlet weak var roundedView: UIView!
+    @IBOutlet weak var addMedicineButton: UIButton!
+    @IBOutlet weak var medicineTableView: UITableView!
     @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var userTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupIU()
-        setupItem()
+        setupUI()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
     }
-    
-    func setupItem(){
-        userTableView.delegate = self
-        userTableView.dataSource = self
-    }
+}
 
-    func setupIU(){
+extension MainController: Setup{
+    
+    func setupUI() {
         navigationItem.title = "MediTime"
         navigationItem.largeTitleDisplayMode = .never
         
-        RoundedView.layer.cornerRadius = 15
-        RoundedView.layer.shadowColor = UIColor.black.cgColor
-        RoundedView.layer.shadowOpacity = 0.3
-        RoundedView.layer.shadowOffset = .zero
-        RoundedView.layer.shadowRadius = 3
+        roundedView.layer.cornerRadius = 15
+        roundedView.layer.shadowColor = UIColor.black.cgColor
+        roundedView.layer.shadowOpacity = 0.3
+        roundedView.layer.shadowOffset = .zero
+        roundedView.layer.shadowRadius = 3
         
-        addMedicineBtn.layer.cornerRadius = 10
-        medicineTV.tableFooterView = UIView()
+        addMedicineButton.layer.cornerRadius = 10
+        medicineTableView.tableFooterView = UIView()
+        
+        userTableView.delegate = self
+        userTableView.dataSource = self
         
         let nib = UINib(nibName: "MedicineTVC", bundle: nil)
         userTableView.register(nib, forCellReuseIdentifier: "MedicineTVC")
         userTableView.separatorStyle = .none
         userTableView.backgroundColor = .white
     }
+    
 }
 
-//Mark - table view
 extension MainController: UITableViewDataSource, UITableViewDelegate{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         userData.count
     }
@@ -62,7 +63,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
         let tableCell = userTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
         
         tableCell.selectionStyle = .none
-        tableCell.setup(with: userIndex)
+        tableCell.userData(with: userIndex)
         
         return tableCell
     }
@@ -70,10 +71,11 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }
 
-//Mark - collection view
 extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return userData.count + 1
     }
@@ -102,7 +104,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func setupUserCell(cell: UserCVC, indexPath: IndexPath) {
         let userIndex = userData[indexPath.row]
-        cell.setup(with: userIndex)
+        cell.userData(with: userIndex)
     }
 
     func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
@@ -111,13 +113,10 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == userData.count{
-//            let storyboardRestaurant = UIStoryboard(name: "User", bundle: .main)
-//            let vc = storyboardRestaurant.instantiateViewController(identifier: "UserController") as! UserController
-//            self.presentingViewController?.navigationController?.pushViewController(vc, animated: true)
             performSegue(withIdentifier: "UserController", sender: indexPath.row)
         }else{
             print(userData[indexPath.row].name)
         }
-                
     }
+    
 }

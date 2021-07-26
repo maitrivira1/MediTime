@@ -14,7 +14,13 @@ class UserCVC: UICollectionViewCell {
     @IBOutlet weak var userSick: UILabel!
     @IBOutlet weak var userView: UIView!
     
-    func setup(with data: Data){
+}
+
+extension UserCVC: Setup{
+    
+    func setupUI() {}
+    
+    func userData(with data: Data){
         userName.text = data.name
         userSick.text = data.sick
         

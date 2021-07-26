@@ -32,16 +32,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="3Dx-Jr-V8I">
-                                                <rect key="frame" x="16" y="16" width="382" height="34"/>
+                                                <rect key="frame" x="16" y="30" width="382" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pengguna Obat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZS-Yf-Uib">
-                                                        <rect key="frame" x="0.0" y="0.0" width="191" height="34"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="191" height="20"/>
                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="14"/>
                                                         <color key="textColor" red="0.023529411764705882" green="0.32549019607843138" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-By-SmL">
-                                                        <rect key="frame" x="191" y="0.0" width="191" height="34"/>
+                                                        <rect key="frame" x="191" y="0.0" width="191" height="20"/>
                                                         <state key="normal" title="Lihat Semua">
                                                             <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
@@ -58,7 +58,7 @@
                                             <constraint firstAttribute="trailing" secondItem="3Dx-Jr-V8I" secondAttribute="trailing" constant="16" id="F1r-dS-1zE"/>
                                             <constraint firstAttribute="height" constant="50" id="Sia-E8-cgl"/>
                                             <constraint firstAttribute="bottom" secondItem="3Dx-Jr-V8I" secondAttribute="bottom" id="mpA-8q-Fwg"/>
-                                            <constraint firstItem="3Dx-Jr-V8I" firstAttribute="top" secondItem="E92-Lx-QbY" secondAttribute="top" constant="16" id="odo-Ej-ewv"/>
+                                            <constraint firstItem="3Dx-Jr-V8I" firstAttribute="top" secondItem="E92-Lx-QbY" secondAttribute="top" constant="30" id="odo-Ej-ewv"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-0C-1M3" userLabel="Collection View">
@@ -319,9 +319,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ohy-VG-TAd"/>
                     <connections>
-                        <outlet property="RoundedView" destination="mSW-ZS-fbw" id="742-CH-4IK"/>
-                        <outlet property="addMedicineBtn" destination="WuE-Eg-dgk" id="CNV-eb-KWQ"/>
-                        <outlet property="medicineTV" destination="bRQ-Tf-g6t" id="CO4-4u-A9d"/>
+                        <outlet property="addMedicineButton" destination="WuE-Eg-dgk" id="CNV-eb-KWQ"/>
+                        <outlet property="medicineTableView" destination="bRQ-Tf-g6t" id="CO4-4u-A9d"/>
+                        <outlet property="roundedView" destination="mSW-ZS-fbw" id="742-CH-4IK"/>
                         <outlet property="userCollectionView" destination="bXQ-cW-s4R" id="8Jz-GB-lGR"/>
                         <outlet property="userTableView" destination="bRQ-Tf-g6t" id="BYY-Ws-zP4"/>
                     </connections>

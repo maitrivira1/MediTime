@@ -14,10 +14,14 @@ class UserListController: UIViewController {
 
         setupUI()
     }
+
+}
+
+extension UserListController: Setup{
     
     func setupUI(){
         navigationItem.title = "Daftar Pengguna"
         navigationItem.largeTitleDisplayMode = .never
     }
-
+    
 }

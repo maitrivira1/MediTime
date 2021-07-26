@@ -9,7 +9,7 @@ import UIKit
 
 class UserController: UIViewController {
 
-    @IBOutlet weak var btnSimpan: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,12 +17,15 @@ class UserController: UIViewController {
         setupUI()
     }
     
+}
+
+extension UserController: Setup{
+    
     func setupUI(){
         navigationItem.title = "Isi Data Pengguna"
         navigationItem.largeTitleDisplayMode = .never
         
-        btnSimpan.layer.cornerRadius = 12
+        saveButton.layer.cornerRadius = 12
     }
-
     
 }
