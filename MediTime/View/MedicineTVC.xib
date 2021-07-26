@@ -146,7 +146,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="eatBackground" destination="t8R-je-eQW" id="mlY-Ey-ovP"/>
+                <outlet property="medicineAmount" destination="s2m-2I-UaO" id="bRk-Sl-bWm"/>
                 <outlet property="medicineBackground" destination="CnT-72-Tzl" id="zVG-xZ-QDS"/>
+                <outlet property="medicineName" destination="AQp-8b-J7Q" id="BAW-gW-1Rv"/>
                 <outlet property="timeBackground" destination="ST4-dJ-4OK" id="LGb-EA-Hsm"/>
             </connections>
             <point key="canvasLocation" x="168.84057971014494" y="146.31696428571428"/>

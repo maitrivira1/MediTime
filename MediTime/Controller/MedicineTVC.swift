@@ -38,8 +38,8 @@ extension MedicineTVC: Setup{
     }
     
     func userData(with data: Data){
-//        medicineName.text = data.name
-//        medicineAmount.text = data.sick
+        medicineName.text = data.name
+        medicineAmount.text = data.sick
     }
     
 }
