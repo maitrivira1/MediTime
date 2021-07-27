@@ -48,6 +48,13 @@ extension MedicineController: Setup{
         eatingTextField.inputView = eatPicker
         
         saveButton.layer.cornerRadius = 12
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
     }
     
 }

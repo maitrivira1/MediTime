@@ -51,6 +51,13 @@ extension UserController: Setup{
         navigationItem.largeTitleDisplayMode = .never
         
         saveButton.layer.cornerRadius = 12
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard(){
+        self.view.endEditing(true)
     }
     
 }
