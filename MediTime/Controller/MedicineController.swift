@@ -53,6 +53,7 @@ extension MedicineController: Setup{
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
         toolbar.setItems([cancelButton], animated: true)
+        self.toolbar.tintColor = UIColor.systemBlue
         dosisTextField.inputAccessoryView = toolbar
         eatingTextField.inputAccessoryView = toolbar
         
