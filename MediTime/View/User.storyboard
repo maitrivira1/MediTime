@@ -89,7 +89,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="contoh: Ayah, Ibu, Nenek" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OtK-WR-k43">
                                                                 <rect key="frame" x="56" y="0.0" width="326" height="35"/>
-                                                                <color key="textColor" red="0.71764705882352942" green="0.77254901960784317" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
@@ -136,7 +136,7 @@
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="isi nama penyakit" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e7R-bz-1r0">
                                                                 <rect key="frame" x="76" y="0.0" width="306" height="40"/>
-                                                                <color key="textColor" red="0.71764705880000002" green="0.7725490196" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
