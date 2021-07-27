@@ -17,6 +17,8 @@ class MedicineController: UIViewController {
     let dosisPicker = UIPickerView()
     let eatPicker = UIPickerView()
     
+    let toolbar = UIToolbar()
+    
     let dosis = ["1 x sehari", "2 x sehari", "3 x sehari", "4 x sehari"]
     let eat = ["Sebelum Makan", "Sesudah Makan"]
     
@@ -46,6 +48,13 @@ extension MedicineController: Setup{
         
         dosisTextField.inputView = dosisPicker
         eatingTextField.inputView = eatPicker
+        
+        toolbar.sizeToFit()
+        
+        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
+        toolbar.setItems([cancelButton], animated: true)
+        dosisTextField.inputAccessoryView = toolbar
+        eatingTextField.inputAccessoryView = toolbar
         
         saveButton.layer.cornerRadius = 12
         
