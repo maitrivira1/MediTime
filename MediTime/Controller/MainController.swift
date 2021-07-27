@@ -52,7 +52,6 @@ extension MainController: Setup{
     
 }
 
-// MARK: - table view
 extension MainController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,7 +73,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     }
     
 }
-// MARK: - collection view
+
 extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

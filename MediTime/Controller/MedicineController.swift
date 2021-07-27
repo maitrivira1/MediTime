@@ -52,7 +52,6 @@ extension MedicineController: Setup{
     
 }
 
-// MARK: - picker view
 extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -88,7 +87,6 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
 
 }
 
-// MARK: - image picker
 extension MedicineController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func showImagePickerController(){

@@ -19,7 +19,27 @@ class UserController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: Any) {
-        showImagePickerController()
+        showActionSheet()
+    }
+    
+    func showActionSheet(){
+        let actionsheet = UIAlertController(title: "Choose the photo from", message: "", preferredStyle: .actionSheet)
+        
+        let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
+            self.showImagePickerController()
+        }
+        
+        let cameraButton = UIAlertAction(title: "Camera", style: .default) { (action) in
+            print("camera")
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
+        
+        actionsheet.addAction(galleryButton)
+        actionsheet.addAction(cameraButton)
+        actionsheet.addAction(cancelButton)
+        
+        present(actionsheet, animated: true, completion: nil)
     }
     
 }
@@ -35,7 +55,6 @@ extension UserController: Setup{
     
 }
 
-// MARK: - image picker
 extension UserController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func showImagePickerController(){
