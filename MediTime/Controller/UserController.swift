@@ -48,7 +48,7 @@ extension UserController: Setup{
         }
         
         let cameraButton = UIAlertAction(title: "Camera", style: .default) { (action) in
-            print("camera")
+            self.showCameraController()
         }
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
@@ -66,11 +66,20 @@ extension UserController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func showImagePickerController(){
         let imagePickerController = UIImagePickerController()
+        imagePickerController.view.tintColor = UIColor.systemBlue
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .photoLibrary
-        imagePickerController.view.tintColor = UIColor.systemBlue
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func showCameraController(){
+        let imageCameraController = UIImagePickerController()
+        imageCameraController.view.tintColor = UIColor.systemBlue
+        imageCameraController.delegate = self
+        imageCameraController.allowsEditing = true
+        imageCameraController.sourceType = .camera
+        present(imageCameraController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -75,7 +75,7 @@ extension MedicineController: Setup{
         }
         
         let cameraButton = UIAlertAction(title: "Camera", style: .default) { (action) in
-            print("camera")
+            self.showCameraController()
         }
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
@@ -133,6 +133,15 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
         imagePickerController.sourceType = .photoLibrary
         imagePickerController.view.tintColor = UIColor.systemBlue
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    func showCameraController(){
+        let imageCameraController = UIImagePickerController()
+        imageCameraController.view.tintColor = UIColor.systemBlue
+        imageCameraController.delegate = self
+        imageCameraController.allowsEditing = true
+        imageCameraController.sourceType = .camera
+        present(imageCameraController, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
