@@ -14,6 +14,11 @@ class MedicineController: UIViewController {
     @IBOutlet weak var eatingTextField: UITextField!
     @IBOutlet weak var imageButton: UIButton!
     
+    @IBOutlet weak var padatButton: UIButton!
+    @IBOutlet weak var cairButton: UIButton!
+    @IBOutlet weak var tetesButton: UIButton!
+    @IBOutlet weak var olesButton: UIButton!
+    
     let dosisPicker = UIPickerView()
     let eatPicker = UIPickerView()
     
@@ -30,6 +35,17 @@ class MedicineController: UIViewController {
     
     @IBAction func imageTapped(_ sender: UIButton) {
         showActionSheet()
+    }
+    
+    @IBAction func bentukObatPressed(_ sender: UIButton) {
+        
+        let selectedButton = sender.currentTitle!
+        
+        padatButton.setImage(UIImage(named: selectedButton != "padat" ? "padat ijo" : "padat putih"), for: .normal)
+        cairButton.setImage(UIImage(named: selectedButton != "cair" ? "cair ijo" : "cair putih"), for: .normal)
+        tetesButton.setImage(UIImage(named: selectedButton != "tetes" ? "oles ijo" : "oles putih"), for: .normal)
+        olesButton.setImage(UIImage(named: selectedButton != "oles" ? "oles ijo" : "oles putih"), for: .normal)
+        
     }
     
 }
@@ -86,6 +102,8 @@ extension MedicineController: Setup{
         
         present(actionsheet, animated: true, completion: nil)
     }
+    
+    
     
 }
 
