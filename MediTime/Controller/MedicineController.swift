@@ -29,7 +29,7 @@ class MedicineController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {
-        showImagePickerController()
+        showActionSheet()
     }
     
 }
@@ -65,6 +65,26 @@ extension MedicineController: Setup{
     
     @objc func dismissKeyboard(){
         self.view.endEditing(true)
+    }
+    
+    func showActionSheet(){
+        let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
+        
+        let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
+            self.showImagePickerController()
+        }
+        
+        let cameraButton = UIAlertAction(title: "Camera", style: .default) { (action) in
+            print("camera")
+        }
+        
+        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
+        
+        actionsheet.addAction(galleryButton)
+        actionsheet.addAction(cameraButton)
+        actionsheet.addAction(cancelButton)
+        
+        present(actionsheet, animated: true, completion: nil)
     }
     
 }
@@ -111,6 +131,7 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
         imagePickerController.sourceType = .photoLibrary
+        imagePickerController.view.tintColor = UIColor.systemBlue
         present(imagePickerController, animated: true, completion: nil)
     }
     
