@@ -27,7 +27,7 @@
 		B024C46626A978A8005A5931 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45426A978A8005A5931 /* Poppins-Italic.ttf */; };
 		B024C46826A97A22005A5931 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024C46726A97A22005A5931 /* Extension.swift */; };
 		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
-		B03CA00E269EFE3100C12518 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* Data.swift */; };
+		B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* DataExample.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
 		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
 		B049590526A9C68C00BD1E87 /* UserList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B049590426A9C68C00BD1E87 /* UserList.storyboard */; };
@@ -70,7 +70,7 @@
 		B024C45426A978A8005A5931 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		B024C46726A97A22005A5931 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
-		B03CA00D269EFE3100C12518 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		B03CA00D269EFE3100C12518 /* DataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExample.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
 		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
 		B049590426A9C68C00BD1E87 /* UserList.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserList.storyboard; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 		B049CB03269F2C7200D56891 /* Modal */ = {
 			isa = PBXGroup;
 			children = (
-				B03CA00D269EFE3100C12518 /* Data.swift */,
+				B03CA00D269EFE3100C12518 /* DataExample.swift */,
 			);
 			path = Modal;
 			sourceTree = "<group>";
@@ -319,7 +319,7 @@
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
-				B03CA00E269EFE3100C12518 /* Data.swift in Sources */,
+				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
 				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
