@@ -13,6 +13,9 @@ class MedicineController: UIViewController {
     @IBOutlet weak var dosisTextField: UITextField!
     @IBOutlet weak var eatingTextField: UITextField!
     @IBOutlet weak var imageButton: UIButton!
+    @IBOutlet weak var jumlahObatTextField: UITextField!
+    @IBOutlet weak var jumlahPemakaiTextField: UITextField!
+    @IBOutlet weak var hariLabel: UILabel!
     
     @IBOutlet weak var padatButton: UIButton!
     @IBOutlet weak var cairButton: UIButton!
@@ -26,6 +29,9 @@ class MedicineController: UIViewController {
     
     let dosis = ["1 x sehari", "2 x sehari", "3 x sehari", "4 x sehari"]
     let eat = ["Sebelum Makan", "Sesudah Makan"]
+    
+    var jumlahObat = 0.0
+    var jumlahPemakaian = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,8 +59,11 @@ class MedicineController: UIViewController {
 extension MedicineController: Setup{
     
     func setupUI(){
+        
         navigationItem.title = "Keterangan Obat"
         navigationItem.largeTitleDisplayMode = .never
+        
+        hariLabel.text = ""
         
         dosisPicker.delegate = self
         dosisPicker.dataSource = self
@@ -77,13 +86,22 @@ extension MedicineController: Setup{
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
+        
     }
     
     @objc func dismissKeyboard(){
+        
         self.view.endEditing(true)
+        
+        guard let obatText = jumlahObatTextField.text, !obatText.isEmpty, let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty else {
+            return
+        }
+        hariLabel.text = "Obat akan habis dalam \(jumlahHari()) hari"
+        
     }
     
     func showActionSheet(){
+        
         let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
         
         let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
@@ -101,9 +119,24 @@ extension MedicineController: Setup{
         actionsheet.addAction(cancelButton)
         
         present(actionsheet, animated: true, completion: nil)
+        
     }
     
-    
+    func jumlahHari() -> Int{
+        
+        if let obat = jumlahObatTextField.text {
+            jumlahObat = Double(obat) ?? 0
+        }
+        
+        if let pemakaian = jumlahPemakaiTextField.text {
+            jumlahPemakaian = Double(pemakaian) ?? 0
+        }
+        
+        let jumlahHari = jumlahObat / jumlahPemakaian
+        let hari = Int(ceil(jumlahHari))
+        
+        return hari
+    }
     
 }
 
