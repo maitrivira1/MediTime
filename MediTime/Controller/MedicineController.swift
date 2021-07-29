@@ -30,8 +30,9 @@ class MedicineController: UIViewController {
     let dosis = ["1 x sehari", "2 x sehari", "3 x sehari", "4 x sehari"]
     let eat = ["Sebelum Makan", "Sesudah Makan"]
     
-    var jumlahObat = 0.0
-    var jumlahPemakaian = 0.0
+    var jumlahObat = 0
+    var jumlahPemakaian = 0
+    var jumlahDosis = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -93,7 +94,10 @@ extension MedicineController: Setup{
         
         self.view.endEditing(true)
         
-        guard let obatText = jumlahObatTextField.text, !obatText.isEmpty, let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty else {
+        guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
+            let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
+            let dosisText = dosisTextField.text, !dosisText.isEmpty
+        else {
             return
         }
         hariLabel.text = "Obat akan habis dalam \(jumlahHari()) hari"
@@ -125,14 +129,20 @@ extension MedicineController: Setup{
     func jumlahHari() -> Int{
         
         if let obat = jumlahObatTextField.text {
-            jumlahObat = Double(obat) ?? 0
+            jumlahObat = Int(obat) ?? 0
         }
         
         if let pemakaian = jumlahPemakaiTextField.text {
-            jumlahPemakaian = Double(pemakaian) ?? 0
+            jumlahPemakaian = Int(pemakaian) ?? 0
         }
         
-        let jumlahHari = jumlahObat / jumlahPemakaian
+        if let dosis = dosisTextField.text {
+            let dosisSuffix = dosis.prefix(1)
+            jumlahDosis = Int(dosisSuffix) ?? 0
+        }
+        
+        let perhari = jumlahDosis * jumlahPemakaian
+        let jumlahHari = Double(jumlahObat) / Double(perhari)
         let hari = Int(ceil(jumlahHari))
         
         return hari
