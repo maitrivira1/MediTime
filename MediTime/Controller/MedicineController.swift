@@ -10,17 +10,28 @@ import UIKit
 class MedicineController: UIViewController {
     
     @IBOutlet weak var saveButton: UIView!
-    @IBOutlet weak var dosisTextField: UITextField!
-    @IBOutlet weak var eatingTextField: UITextField!
     @IBOutlet weak var imageButton: UIButton!
-    @IBOutlet weak var jumlahObatTextField: UITextField!
-    @IBOutlet weak var jumlahPemakaiTextField: UITextField!
-    @IBOutlet weak var hariLabel: UILabel!
     
     @IBOutlet weak var padatButton: UIButton!
     @IBOutlet weak var cairButton: UIButton!
     @IBOutlet weak var tetesButton: UIButton!
     @IBOutlet weak var olesButton: UIButton!
+    
+    @IBOutlet weak var namaTextField: UITextField!
+    @IBOutlet weak var unitTextField: UITextField!
+    @IBOutlet weak var jumlahObatTextField: UITextField!
+    @IBOutlet weak var dosisTextField: UITextField!
+    @IBOutlet weak var jumlahPemakaiTextField: UITextField!
+    @IBOutlet weak var eatingTextField: UITextField!
+    
+    @IBOutlet weak var unitView: UIView!
+    @IBOutlet weak var unitLine: UIView!
+    @IBOutlet weak var eatingView: UIView!
+    @IBOutlet weak var eatingLine: UIView!
+    @IBOutlet weak var jumlahPemakaianView: UIView!
+    @IBOutlet weak var jumlahPemakaianLine: UIView!
+    
+    @IBOutlet weak var hariLabel: UILabel!
     
     let dosisPicker = UIPickerView()
     let eatPicker = UIPickerView()
@@ -34,6 +45,8 @@ class MedicineController: UIViewController {
     var jumlahPemakaian = 0
     var jumlahDosis = 0
     
+    var type = "padat"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,15 +57,10 @@ class MedicineController: UIViewController {
         showActionSheet()
     }
     
-    @IBAction func bentukObatPressed(_ sender: UIButton) {
-        
-        let selectedButton = sender.currentTitle!
-        
-        padatButton.setImage(UIImage(named: selectedButton != "padat" ? "padat ijo" : "padat putih"), for: .normal)
-        cairButton.setImage(UIImage(named: selectedButton != "cair" ? "cair ijo" : "cair putih"), for: .normal)
-        tetesButton.setImage(UIImage(named: selectedButton != "tetes" ? "oles ijo" : "oles putih"), for: .normal)
-        olesButton.setImage(UIImage(named: selectedButton != "oles" ? "oles ijo" : "oles putih"), for: .normal)
-        
+    @IBAction func bentukObatTapped(_ sender: UIButton) {
+        type = sender.currentTitle!
+        getMedicine()
+        showDay()
     }
     
 }
@@ -88,19 +96,16 @@ extension MedicineController: Setup{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
+        getMedicine()
+        showDay()
     }
+    
+    
     
     @objc func dismissKeyboard(){
         
         self.view.endEditing(true)
-        
-        guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
-            let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
-            let dosisText = dosisTextField.text, !dosisText.isEmpty
-        else {
-            return
-        }
-        hariLabel.text = "Obat akan habis dalam \(jumlahHari()) hari"
+        showDay()
         
     }
     
@@ -126,26 +131,85 @@ extension MedicineController: Setup{
         
     }
     
-    func jumlahHari() -> Int{
-        
-        if let obat = jumlahObatTextField.text {
-            jumlahObat = Int(obat) ?? 0
+    func showDay(){
+        guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
+            let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
+            let dosisText = dosisTextField.text, !dosisText.isEmpty
+        else {
+            return
         }
+        hariLabel.text = "Obat akan habis dalam \(getDay()) hari"
+    }
+    
+    func getDay() -> Int{
         
-        if let pemakaian = jumlahPemakaiTextField.text {
-            jumlahPemakaian = Int(pemakaian) ?? 0
-        }
-        
-        if let dosis = dosisTextField.text {
-            let dosisSuffix = dosis.prefix(1)
+        if type == "padat" || type == "cair" {
+            
+            hariLabel.isHidden = false
+            
+            guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
+                let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
+                let dosisText = dosisTextField.text, !dosisText.isEmpty
+            else {
+                return 0
+            }
+            
+            jumlahObat = Int(obatText) ?? 0
+            jumlahPemakaian = Int(pemakaianText) ?? 0
+            let dosisSuffix = dosisText.prefix(1)
             jumlahDosis = Int(dosisSuffix) ?? 0
+            
+            let perhari = jumlahDosis * jumlahPemakaian
+            let jumlahHari = Double(jumlahObat) / Double(perhari)
+            let hari = Int(ceil(jumlahHari))
+            
+            return hari
+        }else {
+            hariLabel.isHidden = true
         }
         
-        let perhari = jumlahDosis * jumlahPemakaian
-        let jumlahHari = Double(jumlahObat) / Double(perhari)
-        let hari = Int(ceil(jumlahHari))
-        
-        return hari
+        return 0
+    }
+    
+    func getMedicine() {
+        padatButton.setImage(UIImage(named: type != "padat" ? "padat ijo" : "padat putih"), for: .normal)
+        cairButton.setImage(UIImage(named: type != "cair" ? "cair ijo" : "cair putih"), for: .normal)
+        tetesButton.setImage(UIImage(named: type != "tetes" ? "oles ijo" : "oles putih"), for: .normal)
+        olesButton.setImage(UIImage(named: type != "oles" ? "oles ijo" : "oles putih"), for: .normal)
+    
+        if type == "cair" {
+            unitView.isHidden = true
+            unitLine.isHidden = true
+            eatingView.isHidden = false
+            eatingLine.isHidden = false
+            jumlahPemakaianView.isHidden = false
+            jumlahPemakaianLine.isHidden = false
+            hariLabel.isHidden = false
+        }else if type == "tetes" {
+            unitView.isHidden = true
+            unitLine.isHidden = true
+            eatingView.isHidden = true
+            eatingLine.isHidden = true
+            jumlahPemakaianView.isHidden = false
+            jumlahPemakaianLine.isHidden = false
+            hariLabel.isHidden = true
+        }else if type == "oles"{
+            unitView.isHidden = true
+            unitLine.isHidden = true
+            eatingView.isHidden = true
+            eatingLine.isHidden = true
+            jumlahPemakaianView.isHidden = true
+            jumlahPemakaianLine.isHidden = true
+            hariLabel.isHidden = true
+        }else{
+            unitView.isHidden = false
+            unitLine.isHidden = false
+            eatingView.isHidden = false
+            eatingLine.isHidden = false
+            jumlahPemakaianView.isHidden = false
+            jumlahPemakaianLine.isHidden = false
+            hariLabel.isHidden = false
+        }
     }
     
 }

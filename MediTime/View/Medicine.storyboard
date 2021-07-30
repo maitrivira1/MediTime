@@ -125,18 +125,18 @@
                                                                                 <rect key="frame" x="0.0" y="0.0" width="98.5" height="70"/>
                                                                                 <subviews>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-9Z-5gM">
-                                                                                        <rect key="frame" x="30" y="10" width="36" height="36"/>
+                                                                                        <rect key="frame" x="30" y="5" width="36" height="36"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="36" id="Mlc-m4-NKC"/>
                                                                                             <constraint firstAttribute="width" constant="36" id="jG7-sp-TP5"/>
                                                                                         </constraints>
                                                                                         <state key="normal" title="padat" image="padat ijo"/>
                                                                                         <connections>
-                                                                                            <action selector="bentukObatPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gdM-ZO-WdV"/>
+                                                                                            <action selector="bentukObatTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gdM-ZO-WdV"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Padat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EMu-6W-xbV">
-                                                                                        <rect key="frame" x="0.0" y="56" width="98.5" height="9"/>
+                                                                                        <rect key="frame" x="0.0" y="51" width="98.5" height="14"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                         <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -145,7 +145,7 @@
                                                                                 <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="bottom" secondItem="EMu-6W-xbV" secondAttribute="bottom" constant="5" id="DE4-04-ZST"/>
-                                                                                    <constraint firstItem="CWD-9Z-5gM" firstAttribute="top" secondItem="DFc-gl-oeh" secondAttribute="top" constant="10" id="QNk-Wp-4Mk"/>
+                                                                                    <constraint firstItem="CWD-9Z-5gM" firstAttribute="top" secondItem="DFc-gl-oeh" secondAttribute="top" constant="5" id="QNk-Wp-4Mk"/>
                                                                                     <constraint firstItem="EMu-6W-xbV" firstAttribute="top" secondItem="CWD-9Z-5gM" secondAttribute="bottom" constant="10" id="enh-Lc-dFL"/>
                                                                                     <constraint firstAttribute="trailing" secondItem="EMu-6W-xbV" secondAttribute="trailing" id="mA1-yd-8Fi"/>
                                                                                     <constraint firstItem="EMu-6W-xbV" firstAttribute="leading" secondItem="DFc-gl-oeh" secondAttribute="leading" id="ofj-me-XMP"/>
@@ -163,7 +163,7 @@
                                                                                         </constraints>
                                                                                         <state key="normal" title="cair" image="cair ijo"/>
                                                                                         <connections>
-                                                                                            <action selector="bentukObatPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZqD-k6-TIm"/>
+                                                                                            <action selector="bentukObatTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ZqD-k6-TIm"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Cair" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNI-Ps-7hi">
@@ -194,7 +194,7 @@
                                                                                         </constraints>
                                                                                         <state key="normal" title="tetes" image="tetes ijo"/>
                                                                                         <connections>
-                                                                                            <action selector="bentukObatPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="g3z-yl-NYF"/>
+                                                                                            <action selector="bentukObatTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="g3z-yl-NYF"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Tetes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wq-iQ-0Y1">
@@ -225,7 +225,7 @@
                                                                                         </constraints>
                                                                                         <state key="normal" title="oles" image="oles ijo"/>
                                                                                         <connections>
-                                                                                            <action selector="bentukObatPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Htc-0B-PoW"/>
+                                                                                            <action selector="bentukObatTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Htc-0B-PoW"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Oles" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UDV-e7-ZQB">
@@ -637,15 +637,23 @@
                     <connections>
                         <outlet property="cairButton" destination="i0C-Py-Pc6" id="50D-9p-VU8"/>
                         <outlet property="dosisTextField" destination="48g-Mx-UZa" id="SSz-t3-Hnr"/>
+                        <outlet property="eatingLine" destination="pCT-RB-KWq" id="SKO-YF-0bv"/>
                         <outlet property="eatingTextField" destination="qmn-IH-t5p" id="X3v-yJ-luY"/>
+                        <outlet property="eatingView" destination="Ac6-EA-FTZ" id="3xT-s6-dNz"/>
                         <outlet property="hariLabel" destination="feh-0y-IcV" id="XCz-wh-Es2"/>
                         <outlet property="imageButton" destination="C4A-43-lps" id="y3P-Lf-eL9"/>
                         <outlet property="jumlahObatTextField" destination="0gI-5F-lb1" id="7q0-QC-jjr"/>
                         <outlet property="jumlahPemakaiTextField" destination="P83-QS-rGs" id="5ld-04-GkW"/>
+                        <outlet property="jumlahPemakaianLine" destination="XhA-wR-stM" id="Rna-zG-iyh"/>
+                        <outlet property="jumlahPemakaianView" destination="Rvl-ij-zRz" id="aze-dj-xaE"/>
+                        <outlet property="namaTextField" destination="JwM-pz-mJa" id="XUE-IV-zX0"/>
                         <outlet property="olesButton" destination="QL5-PC-VLN" id="iKP-hR-xPM"/>
                         <outlet property="padatButton" destination="CWD-9Z-5gM" id="nPN-lp-dG9"/>
                         <outlet property="saveButton" destination="OTw-P7-4fc" id="8cj-7g-MsA"/>
                         <outlet property="tetesButton" destination="s9V-fm-Ubs" id="NcM-H3-ePp"/>
+                        <outlet property="unitLine" destination="arX-zT-Z1g" id="gQQ-KJ-heV"/>
+                        <outlet property="unitTextField" destination="mnI-6P-Lhw" id="zG2-kb-74l"/>
+                        <outlet property="unitView" destination="ffG-c6-qpI" id="bzi-iA-0BZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
