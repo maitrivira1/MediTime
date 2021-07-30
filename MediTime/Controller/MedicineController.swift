@@ -98,9 +98,8 @@ extension MedicineController: Setup{
         
         getMedicine()
         showDay()
+        
     }
-    
-    
     
     @objc func dismissKeyboard(){
         
@@ -132,6 +131,7 @@ extension MedicineController: Setup{
     }
     
     func showDay(){
+        
         guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
             let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
             let dosisText = dosisTextField.text, !dosisText.isEmpty
@@ -139,6 +139,7 @@ extension MedicineController: Setup{
             return
         }
         hariLabel.text = "Obat akan habis dalam \(getDay()) hari"
+        
     }
     
     func getDay() -> Int{
@@ -169,9 +170,11 @@ extension MedicineController: Setup{
         }
         
         return 0
+        
     }
     
     func getMedicine() {
+        
         padatButton.setImage(UIImage(named: type != "padat" ? "padat ijo" : "padat putih"), for: .normal)
         cairButton.setImage(UIImage(named: type != "cair" ? "cair ijo" : "cair putih"), for: .normal)
         tetesButton.setImage(UIImage(named: type != "tetes" ? "oles ijo" : "oles putih"), for: .normal)
@@ -210,6 +213,7 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = false
             hariLabel.isHidden = false
         }
+        
     }
     
 }
