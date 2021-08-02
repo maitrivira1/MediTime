@@ -43,3 +43,7 @@ let four: [ReminderData] = [
     ReminderData(hour: 18),
     ReminderData(hour: 24),
 ]
+
+struct Time {
+    let fullDate: Date
+}

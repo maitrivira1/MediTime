@@ -26,10 +26,13 @@ extension ScheduleListTVC: Setup{
     
     func setupUI() {}
     
-    func userData(with data: ReminderData, index: Int){
+    func userData(with data: Time, index: Int){
+        
+        let timeFormat = DateFormatter()
+        timeFormat.dateFormat = "HH : mm"
         
         nameLabel.text = String("Waktu Minum \(index + 1)")
-        timeLabel.text = String("\(data.hour) : 00")
+        timeLabel.text = String("\(timeFormat.string(from: data.fullDate))")
     }
     
 }

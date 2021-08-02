@@ -63,13 +63,7 @@ extension MainController: Setup{
         }
     }
     
-    func showAlert(){
-        let alert = UIAlertController(title: "", message: "Please allow notification permission in setting", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { action in
-            print("ok")
-        }))
-        present(alert, animated: true)
-    }
+    
     
 }
 

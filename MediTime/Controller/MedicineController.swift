@@ -52,6 +52,7 @@ class MedicineController: UIViewController {
     var type = "padat"
     
     var reminderDatas = [ReminderData]()
+    var times = [Time]()
     
     var dosisSelected = 0
     var dosisCount = ""
@@ -72,6 +73,14 @@ class MedicineController: UIViewController {
         showDay()
     }
     
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        print("tapped")
+        showAlert()
+        
+//        for i in times {
+//            makeNotification(date: i.fullDate)
+//        }
+    }
 }
 
 extension MedicineController: Setup{
@@ -152,6 +161,22 @@ extension MedicineController: Setup{
         
     }
     
+    func showAlert(){
+        
+        let alert = UIAlertController(title: "Keterangan Obat", message: "Apakah data yang anda masukan sudah benar?", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Tidak", style: .default, handler: { action in
+            print("no")
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Ya", style: .default, handler: { action in
+            print("yes")
+        }))
+        
+        present(alert, animated: true)
+        
+    }
+    
     func showSchedule(){
         
         guard let dosisText = dosisTextField.text, !dosisText.isEmpty else{
@@ -162,21 +187,36 @@ extension MedicineController: Setup{
         jadwalView.isHidden = false
         tableView.isHidden = false
         
-        reminderDatas = []
+        let timeOneFirst = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date())!
+
+        let timeTwoFirst = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: Date())!
+        let timeTwoSecond = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: Date())!
+
+        let timeThreeFirst = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: Date())!
+        let timeThreeSecond = Calendar.current.date(bySettingHour: 15, minute: 0, second: 0, of: Date())!
+        let timeThreeThird = Calendar.current.date(bySettingHour: 23, minute: 0, second: 0, of: Date())!
+
+        let timeFourFirst = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: Date())!
+        let timeFourSecond = Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: Date())!
+        let timeFourThird = Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: Date())!
+        let timeFourFouth = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
+        
+        times = []
+        
         if dosisSelected == 2 {
-            reminderDatas.append(ReminderData(hour: 8))
-            reminderDatas.append(ReminderData(hour: 20))
+            times.append(Time(fullDate: timeTwoFirst))
+            times.append(Time(fullDate: timeTwoSecond))
         }else if dosisSelected == 3 {
-            reminderDatas.append(ReminderData(hour: 7))
-            reminderDatas.append(ReminderData(hour: 15))
-            reminderDatas.append(ReminderData(hour: 23))
+            times.append(Time(fullDate: timeThreeFirst))
+            times.append(Time(fullDate: timeThreeSecond))
+            times.append(Time(fullDate: timeThreeThird))
         }else if dosisSelected == 4 {
-            reminderDatas.append(ReminderData(hour: 6))
-            reminderDatas.append(ReminderData(hour: 12))
-            reminderDatas.append(ReminderData(hour: 18))
-            reminderDatas.append(ReminderData(hour: 24))
+            times.append(Time(fullDate: timeFourFirst))
+            times.append(Time(fullDate: timeFourSecond))
+            times.append(Time(fullDate: timeFourThird))
+            times.append(Time(fullDate: timeFourFouth))
         }else{
-            reminderDatas.append(ReminderData(hour: 9))
+            times.append(Time(fullDate: timeOneFirst))
         }
         
     }
@@ -292,6 +332,31 @@ extension MedicineController: Setup{
         
     }
     
+    func makeNotification(date: Date){
+        UNUserNotificationCenter.current().delegate = self
+        
+        let center = UNUserNotificationCenter.current()
+        let content = UNMutableNotificationContent()
+        content.title = "Hore... waktunya minum obat"
+        content.sound = .default
+        content.body = "Cek jadwal obat sekarang yuk"
+        
+        let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
+        let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
+
+        let uuidString = UUID().uuidString
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        center.add(request)
+        print(request)
+        
+        center.add(request, withCompletionHandler: { error in
+            if error != nil {
+                print("something went wrong")
+            }
+        })
+        
+    }
+    
 }
 
 extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
@@ -364,12 +429,12 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
 
 extension MedicineController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        reminderDatas.count
+        times.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let userIndex = reminderDatas[indexPath.row]
+        let userIndex = times[indexPath.row]
         let cell = scheduleTable.dequeueReusableCell(withIdentifier: "ScheduleListTVC", for: indexPath) as! ScheduleListTVC
         
         cell.userData(with: userIndex, index: indexPath.row)
@@ -382,160 +447,8 @@ extension MedicineController : UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-//import UIKit
-//import UserNotifications
-//
-//class ViewController: UIViewController, UNUserNotificationCenterDelegate {
-//
-//    struct Notification {
-//
-//        struct Category {
-//            static let tutorial = "tutorial"
-//        }
-//
-//        struct Action {
-//            static let readLater = "readLater"
-//            static let showDetails = "showDetails"
-//            static let unsubscribe = "unsubscribe"
-//        }
-//
-//    }
-//
-//    // Input dari Date
-//
-//    var tahun: Int = 0
-//    var bulan: Int = 0
-//    var hari: Int = 0
-//    var jam: Int = 0
-//    var menit: Int = 0
-//    var detik: Int = 0
-//    var stahun: Int = 0
-//    var sbulan: Int = 0
-//    var shari: Int = 0
-//    var sjam: Int = 0
-//    var smenit: Int = 0
-//    var sdetik: Int = 0
-//
-//    var dlmSehari: Int = 0
-//    var brpHari: Int = 0
-//    var detik2: Int = 10
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // 2 kali makan obat jam 8, jam 20; 3 kali makan obat, jam 8, jam 16, jam 24, jam 8, jam 14, jam 20, jam 2
-//        // jika sehari 2 kali, dlmSehari = 2, jika 3 kali, dlmSehari = 3
-//        // dlmSehari 1x s/d 4x
-//        dlmSehari = 3
-//        brpHari = 5
-//
-//        let date = Date()
-//        let calendar = Calendar.current
-//        let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
-//        tahun = components.year ?? 0
-//        bulan = components.month ?? 0
-//        hari = components.day ?? 0
-//        jam = components.hour ?? 0
-//        menit = components.minute ?? 0
-//        detik = 0
-//
-//        print(detik)
-//        menit += 1
-//        detik += 10
-//        print(detik)
-//
-//        // test
-//        print(tahun)
-//        print(bulan)
-//        print(hari)
-//        print(jam)
-//        print(menit)
-//        print(detik)
-//
-//        for indek1 in 1...brpHari {
-//            // hitung future, kemudian future diambil tahun.... s/d detik
-//
-//            for indek2 in 1...dlmSehari {
-//                detik += 3
-//                notif(mes: indek2, stahun:tahun, sbulan: bulan, shari: hari, sjam: jam, smenit: menit, sdetik: detik)
-//                print("Hari ke: \(indek1)")
-//                print("Obat ke: \(indek2)")
-//            }
-//            detik2 = detik
-//        }
-//
-//    }
-//
-//    func notif(mes: Int, stahun: Int, sbulan: Int, shari: Int, sjam: Int, smenit: Int, sdetik: Int) {
-//
-//        // Step 1: Ask for permission
-//        let center = UNUserNotificationCenter.current()
-//        center.delegate = self
-//
-//        // Define Actions
-//        let actionReadLater = UNNotificationAction(identifier: Notification.Action.readLater, title: "Aksi Satu", options: [])
-//        let actionShowDetails = UNNotificationAction(identifier: Notification.Action.showDetails, title: "Aksi Dua", options: [.foreground])
-//        let actionUnsubscribe = UNNotificationAction(identifier: Notification.Action.unsubscribe, title: "Aksi Tiga", options: [.destructive, .authenticationRequired])
-//
-//        // Define Category
-//        let tutorialCategory = UNNotificationCategory(identifier: Notification.Category.tutorial, actions: [actionReadLater, actionShowDetails, actionUnsubscribe], intentIdentifiers: [], options: [])
-//
-//        // Register Category
-//        UNUserNotificationCenter.current().setNotificationCategories([tutorialCategory])
-//
-//        // Step 2: Create th enotification content
-//        let content = UNMutableNotificationContent()
-//        if mes == 1 {
-//            content.title = "1. Obat Pertama"
-//            content.body = "Tetap semangat untuk kesembuhan 💪"
-//        } else if mes == 2 {
-//            content.title = "2. Obat Kedua"
-//            content.body = "Semangat lagi untuk kesembuhan 💪"
-//        } else {
-//            content.title = "3. Obat Ketiga"
-//            content.body = "Lagi-lagi, semangat lagi untuk kesembuhan 💪"
-//        }
-//        content.categoryIdentifier = Notification.Category.tutorial
-//        content.sound = .default
-//
-//        // Step 3: Create the notification trigger
-//        let dateComponents = DateComponents(year: tahun, month: bulan, day: hari, hour: jam, minute: menit, second: detik)
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
-//
-//        // Step 4: Create the request
-//        let uuidString = UUID().uuidString
-//        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
-//
-//        // Step 5: Register & request
-//        center.add(request) {(error) in
-//
-//        }
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter,
-//                didReceive response: UNNotificationResponse,
-//                withCompletionHandler completionHandler:
-//                   @escaping () -> Void) {
-//
-//        switch response.actionIdentifier {
-//        case Notification.Action.readLater:
-//            print("Save Tutorial For Later")
-//        case Notification.Action.unsubscribe:
-//            print("Unsubscribe Reader")
-//        default:
-//            print("Other Action")
-//        }
-//        completionHandler()
-//    }
-//
-//    func userNotificationCenter(_ center: UNUserNotificationCenter,
-//             willPresent notification: UNNotification,
-//             withCompletionHandler completionHandler:
-//                @escaping (UNNotificationPresentationOptions) -> Void) {
-//
-//       // Don't alert the user for other types.
-//       completionHandler(UNNotificationPresentationOptions(rawValue: 0))
-//    }
-//
-//}
-
+extension MedicineController: UNUserNotificationCenterDelegate{
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.banner, .list, .sound])
+    }
+}
