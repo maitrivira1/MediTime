@@ -30,7 +30,11 @@ class MedicineController: UIViewController {
     @IBOutlet weak var eatingLine: UIView!
     @IBOutlet weak var jumlahPemakaianView: UIView!
     @IBOutlet weak var jumlahPemakaianLine: UIView!
+    @IBOutlet weak var jadwalView: UIView!
+    @IBOutlet weak var tableView: UIView!
     
+    @IBOutlet weak var scheduleTable: UITableView!
+    @IBOutlet weak var hariView: UIView!
     @IBOutlet weak var hariLabel: UILabel!
     
     let dosisPicker = UIPickerView()
@@ -47,6 +51,11 @@ class MedicineController: UIViewController {
     
     var type = "padat"
     
+    var reminderDatas = [ReminderData]()
+    
+    var dosisSelected = 0
+    var dosisCount = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -54,7 +63,7 @@ class MedicineController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {
-        showActionSheet()
+        showAction()
     }
     
     @IBAction func bentukObatTapped(_ sender: UIButton) {
@@ -72,13 +81,15 @@ extension MedicineController: Setup{
         navigationItem.title = "Keterangan Obat"
         navigationItem.largeTitleDisplayMode = .never
         
-        hariLabel.text = ""
-        
         dosisPicker.delegate = self
         dosisPicker.dataSource = self
         
         eatPicker.delegate = self
         eatPicker.dataSource = self
+        
+        scheduleTable.delegate = self
+        scheduleTable.dataSource = self
+        scheduleTable.tableFooterView = UIView()
         
         dosisTextField.inputView = dosisPicker
         eatingTextField.inputView = eatPicker
@@ -96,6 +107,15 @@ extension MedicineController: Setup{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
+        hariLabel.text = ""
+        hariLabel.isHidden = true
+        hariView.isHidden = true
+        jadwalView.isHidden = true
+        tableView.isHidden = true
+        
+        let nib = UINib(nibName: "ScheduleListTVC", bundle: nil)
+        scheduleTable.register(nib, forCellReuseIdentifier: "ScheduleListTVC")
+        
         getMedicine()
         showDay()
         
@@ -105,12 +125,14 @@ extension MedicineController: Setup{
         
         self.view.endEditing(true)
         showDay()
+        showSchedule()
+        scheduleTable.reloadData()
         
     }
     
-    func showActionSheet(){
+    func showAction(){
         
-        let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
+        let action = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
         
         let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
             self.showImagePickerController()
@@ -122,11 +144,40 @@ extension MedicineController: Setup{
         
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
         
-        actionsheet.addAction(galleryButton)
-        actionsheet.addAction(cameraButton)
-        actionsheet.addAction(cancelButton)
+        action.addAction(galleryButton)
+        action.addAction(cameraButton)
+        action.addAction(cancelButton)
         
-        present(actionsheet, animated: true, completion: nil)
+        present(action, animated: true, completion: nil)
+        
+    }
+    
+    func showSchedule(){
+        
+        guard let dosisText = dosisTextField.text, !dosisText.isEmpty else{
+            return
+        }
+        dosisSelected =  Int(dosisText.prefix(1))!
+        
+        jadwalView.isHidden = false
+        tableView.isHidden = false
+        
+        reminderDatas = []
+        if dosisSelected == 2 {
+            reminderDatas.append(ReminderData(hour: 8))
+            reminderDatas.append(ReminderData(hour: 20))
+        }else if dosisSelected == 3 {
+            reminderDatas.append(ReminderData(hour: 7))
+            reminderDatas.append(ReminderData(hour: 15))
+            reminderDatas.append(ReminderData(hour: 23))
+        }else if dosisSelected == 4 {
+            reminderDatas.append(ReminderData(hour: 6))
+            reminderDatas.append(ReminderData(hour: 12))
+            reminderDatas.append(ReminderData(hour: 18))
+            reminderDatas.append(ReminderData(hour: 24))
+        }else{
+            reminderDatas.append(ReminderData(hour: 9))
+        }
         
     }
     
@@ -138,6 +189,9 @@ extension MedicineController: Setup{
         else {
             return
         }
+        
+        hariLabel.isHidden = false
+        hariView.isHidden = false
         hariLabel.text = "Obat akan habis dalam \(getDay()) hari"
         
     }
@@ -145,8 +199,6 @@ extension MedicineController: Setup{
     func getDay() -> Int{
         
         if type == "padat" || type == "cair" {
-            
-            hariLabel.isHidden = false
             
             guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
                 let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
@@ -167,6 +219,7 @@ extension MedicineController: Setup{
             return hari
         }else {
             hariLabel.isHidden = true
+            hariView.isHidden = true
         }
         
         return 0
@@ -187,7 +240,18 @@ extension MedicineController: Setup{
             eatingLine.isHidden = false
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
-            hariLabel.isHidden = false
+            
+            if hariLabel.text != ""{
+                hariLabel.isHidden = false
+                hariView.isHidden = false
+            }
+            
+            if reminderDatas.count != 0 {
+                jadwalView.isHidden = false
+                tableView.isHidden = false
+            }
+            
+            
         }else if type == "tetes" {
             unitView.isHidden = true
             unitLine.isHidden = true
@@ -196,6 +260,7 @@ extension MedicineController: Setup{
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
             hariLabel.isHidden = true
+            hariView.isHidden = true
         }else if type == "oles"{
             unitView.isHidden = true
             unitLine.isHidden = true
@@ -204,6 +269,7 @@ extension MedicineController: Setup{
             jumlahPemakaianView.isHidden = true
             jumlahPemakaianLine.isHidden = true
             hariLabel.isHidden = true
+            hariView.isHidden = true
         }else{
             unitView.isHidden = false
             unitLine.isHidden = false
@@ -211,7 +277,17 @@ extension MedicineController: Setup{
             eatingLine.isHidden = false
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
-            hariLabel.isHidden = false
+            
+            if hariLabel.text != ""{
+                hariLabel.isHidden = false
+                hariView.isHidden = false
+            }
+            
+            if reminderDatas.count != 0 {
+                jadwalView.isHidden = false
+                tableView.isHidden = false
+            }
+            
         }
         
     }
@@ -284,6 +360,26 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension MedicineController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        reminderDatas.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let userIndex = reminderDatas[indexPath.row]
+        let cell = scheduleTable.dequeueReusableCell(withIdentifier: "ScheduleListTVC", for: indexPath) as! ScheduleListTVC
+        
+        cell.userData(with: userIndex, index: indexPath.row)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 //import UIKit

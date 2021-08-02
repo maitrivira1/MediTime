@@ -27,6 +27,8 @@
 		B024C46626A978A8005A5931 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45426A978A8005A5931 /* Poppins-Italic.ttf */; };
 		B024C46826A97A22005A5931 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024C46726A97A22005A5931 /* Extension.swift */; };
 		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
+		B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */; };
+		B036BAD326B786740030CEB5 /* ScheduleListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */; };
 		B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* DataExample.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
 		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
@@ -70,6 +72,8 @@
 		B024C45426A978A8005A5931 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		B024C46726A97A22005A5931 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
+		B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListTVC.swift; sourceTree = "<group>"; };
+		B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleListTVC.xib; sourceTree = "<group>"; };
 		B03CA00D269EFE3100C12518 /* DataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExample.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
 		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
@@ -177,6 +181,7 @@
 				B057AC4426A18CE400742538 /* NoneCVC.swift */,
 				B049590626A9C6B800BD1E87 /* UserListController.swift */,
 				B0A31E9326AE531C00B4F864 /* UserListTVC.swift */,
+				B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -191,6 +196,7 @@
 				B03CA010269F018900C12518 /* MedicineTVC.xib */,
 				B049590426A9C68C00BD1E87 /* UserList.storyboard */,
 				B0A31E9426AE531C00B4F864 /* UserListTVC.xib */,
+				B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +292,7 @@
 				B024C45726A978A8005A5931 /* Poppins-Regular.ttf in Resources */,
 				B024C46026A978A8005A5931 /* Poppins-Black.ttf in Resources */,
 				B024C45E26A978A8005A5931 /* Poppins-Thin.ttf in Resources */,
+				B036BAD326B786740030CEB5 /* ScheduleListTVC.xib in Resources */,
 				B049CAF9269F2BDA00D56891 /* User.storyboard in Resources */,
 				B049590526A9C68C00BD1E87 /* UserList.storyboard in Resources */,
 				B0AC425F269D75600023EC10 /* Assets.xcassets in Resources */,
@@ -315,6 +322,7 @@
 				B0AC4257269D75600023EC10 /* MainController.swift in Sources */,
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
+				B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */,
 				B024C46826A97A22005A5931 /* Extension.swift in Sources */,
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,

@@ -19,6 +19,7 @@ class MainController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        permission()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -48,6 +49,26 @@ extension MainController: Setup{
         userTableView.register(nib, forCellReuseIdentifier: "MedicineTVC")
         userTableView.separatorStyle = .none
         userTableView.backgroundColor = .white
+    }
+    
+    func permission(){
+        let center = UNUserNotificationCenter.current()
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        center.requestAuthorization(options: options) { (granted, error) in
+            if !granted {
+                print("User has declined notifications")
+            }else{
+                print("success permission")
+            }
+        }
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "", message: "Please allow notification permission in setting", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: { action in
+            print("ok")
+        }))
+        present(alert, animated: true)
     }
     
 }
