@@ -179,6 +179,9 @@
                                                         <state key="normal" title="Simpan">
                                                             <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
+                                                        <connections>
+                                                            <action selector="saveButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="anb-qo-2VX"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -227,8 +230,10 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="nameTextfield" destination="OtK-WR-k43" id="CLR-TT-ojF"/>
                         <outlet property="profileImageButton" destination="1N7-k0-FOg" id="LFk-AY-h9o"/>
                         <outlet property="saveButton" destination="VoE-TC-s5W" id="jHf-RD-scC"/>
+                        <outlet property="sickTextfield" destination="e7R-bz-1r0" id="PZq-Fx-gjv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

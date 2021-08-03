@@ -25,10 +25,15 @@
 		B024C46426A978A8005A5931 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45226A978A8005A5931 /* Poppins-ExtraLightItalic.ttf */; };
 		B024C46526A978A8005A5931 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45326A978A8005A5931 /* Poppins-Light.ttf */; };
 		B024C46626A978A8005A5931 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45426A978A8005A5931 /* Poppins-Italic.ttf */; };
-		B024C46826A97A22005A5931 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024C46726A97A22005A5931 /* Extension.swift */; };
+		B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024C46726A97A22005A5931 /* DatabaseHandler.swift */; };
 		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
 		B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */; };
 		B036BAD326B786740030CEB5 /* ScheduleListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */; };
+		B036BAD826B7D4B90030CEB5 /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */; };
+		B036BAD926B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */; };
+		B036BADA26B7D4B90030CEB5 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */; };
+		B036BADB26B7D4B90030CEB5 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */; };
+		B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BADC26B7E0E80030CEB5 /* Extension.swift */; };
 		B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* DataExample.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
 		B03CA012269F018900C12518 /* MedicineTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B03CA010269F018900C12518 /* MedicineTVC.xib */; };
@@ -70,10 +75,15 @@
 		B024C45226A978A8005A5931 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		B024C45326A978A8005A5931 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		B024C45426A978A8005A5931 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
-		B024C46726A97A22005A5931 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		B024C46726A97A22005A5931 /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
 		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 		B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListTVC.swift; sourceTree = "<group>"; };
 		B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleListTVC.xib; sourceTree = "<group>"; };
+		B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B036BADC26B7E0E80030CEB5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B03CA00D269EFE3100C12518 /* DataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExample.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
 		B03CA010269F018900C12518 /* MedicineTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MedicineTVC.xib; sourceTree = "<group>"; };
@@ -209,8 +219,9 @@
 				B0AC4254269D75600023EC10 /* SceneDelegate.swift */,
 				B0AC425E269D75600023EC10 /* Assets.xcassets */,
 				B0AC4263269D75600023EC10 /* Info.plist */,
-				B024C46726A97A22005A5931 /* Extension.swift */,
+				B024C46726A97A22005A5931 /* DatabaseHandler.swift */,
 				B08A0ED826AC71BC00521158 /* Protocol.swift */,
+				B036BADC26B7E0E80030CEB5 /* Extension.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -218,6 +229,10 @@
 		B0AC426C269D76A80023EC10 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
+				B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */,
+				B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */,
+				B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */,
+				B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */,
 				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -323,13 +338,18 @@
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
 				B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */,
-				B024C46826A97A22005A5931 /* Extension.swift in Sources */,
+				B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */,
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
+				B036BAD826B7D4B90030CEB5 /* Medicine+CoreDataClass.swift in Sources */,
+				B036BADB26B7D4B90030CEB5 /* User+CoreDataProperties.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
+				B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */,
+				B036BADA26B7D4B90030CEB5 /* User+CoreDataClass.swift in Sources */,
+				B036BAD926B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift in Sources */,
 				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,
 			);

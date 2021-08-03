@@ -57,6 +57,8 @@ class MedicineController: UIViewController {
     var dosisSelected = 0
     var dosisCount = ""
     
+    let ext = Extension()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,10 +77,10 @@ class MedicineController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         print("tapped")
-        showAlert()
+//        showAlert()
         
-//        for i in times {
-//            makeNotification(date: i.fullDate)
+//        for time in times {
+//            makeNotification(date: time.fullDate)
 //        }
     }
 }
@@ -158,22 +160,6 @@ extension MedicineController: Setup{
         action.addAction(cancelButton)
         
         present(action, animated: true, completion: nil)
-        
-    }
-    
-    func showAlert(){
-        
-        let alert = UIAlertController(title: "Keterangan Obat", message: "Apakah data yang anda masukan sudah benar?", preferredStyle: .alert)
-        
-        alert.addAction(UIAlertAction(title: "Tidak", style: .default, handler: { action in
-            print("no")
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Ya", style: .default, handler: { action in
-            print("yes")
-        }))
-        
-        present(alert, animated: true)
         
     }
     
@@ -274,6 +260,7 @@ extension MedicineController: Setup{
         olesButton.setImage(UIImage(named: type != "oles" ? "oles ijo" : "oles putih"), for: .normal)
     
         if type == "cair" {
+            
             unitView.isHidden = true
             unitLine.isHidden = true
             eatingView.isHidden = false
@@ -291,8 +278,8 @@ extension MedicineController: Setup{
                 tableView.isHidden = false
             }
             
-            
         }else if type == "tetes" {
+            
             unitView.isHidden = true
             unitLine.isHidden = true
             eatingView.isHidden = true
@@ -301,7 +288,9 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = false
             hariLabel.isHidden = true
             hariView.isHidden = true
+            
         }else if type == "oles"{
+            
             unitView.isHidden = true
             unitLine.isHidden = true
             eatingView.isHidden = true
@@ -310,7 +299,9 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = true
             hariLabel.isHidden = true
             hariView.isHidden = true
+            
         }else{
+            
             unitView.isHidden = false
             unitLine.isHidden = false
             eatingView.isHidden = false
@@ -333,6 +324,7 @@ extension MedicineController: Setup{
     }
     
     func makeNotification(date: Date){
+        
         UNUserNotificationCenter.current().delegate = self
         
         let center = UNUserNotificationCenter.current()
@@ -347,7 +339,6 @@ extension MedicineController: Setup{
         let uuidString = UUID().uuidString
         let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         center.add(request)
-        print(request)
         
         center.add(request, withCompletionHandler: { error in
             if error != nil {
@@ -437,7 +428,7 @@ extension MedicineController : UITableViewDelegate, UITableViewDataSource{
         let userIndex = times[indexPath.row]
         let cell = scheduleTable.dequeueReusableCell(withIdentifier: "ScheduleListTVC", for: indexPath) as! ScheduleListTVC
         
-        cell.userData(with: userIndex, index: indexPath.row)
+        cell.userData(data: userIndex, index: indexPath.row)
         
         return cell
     }
@@ -448,7 +439,9 @@ extension MedicineController : UITableViewDelegate, UITableViewDataSource{
 }
 
 extension MedicineController: UNUserNotificationCenterDelegate{
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .list, .sound])
     }
+    
 }

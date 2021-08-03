@@ -15,15 +15,23 @@ class MainController: UIViewController {
     @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var userTableView: UITableView!
     
+    var userSelected = ""
+    var selected = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         permission()
+        
+        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
+        userCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+        
+        collectionView(userCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
     }
 }
 
@@ -62,8 +70,6 @@ extension MainController: Setup{
             }
         }
     }
-    
-    
     
 }
 
@@ -119,7 +125,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func setupUserCell(cell: UserCVC, indexPath: IndexPath) {
         let userIndex = userData[indexPath.row]
-        cell.userData(with: userIndex)
+        cell.userData(data: userIndex)
     }
 
     func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
@@ -131,6 +137,22 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
             performSegue(withIdentifier: "UserController", sender: indexPath.row)
         }else{
             print(userData[indexPath.row].name)
+        }
+        
+        if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
+            selected = true
+            cell.changeBackgroundSelected()
+        }
+        
+        if selected == false {
+            collectionView.cellForItem(at: [0, 0])?.backgroundColor = UIColor(red: 0.02, green: 0.33, blue: 0.28, alpha: 1.00)
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
+            cell.changeBackgrounUnselected()
         }
     }
     

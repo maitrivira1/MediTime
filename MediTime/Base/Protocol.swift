@@ -10,3 +10,10 @@ import Foundation
 protocol Setup {
     func setupUI()
 }
+
+protocol SetupData {
+    func addData()
+    func loadData()
+    func updateData()
+    func deleteData()
+}

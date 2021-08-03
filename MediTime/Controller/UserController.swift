@@ -6,20 +6,39 @@
 //
 
 import UIKit
+import CoreData
 
 class UserController: UIViewController {
 
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var profileImageButton: UIButton!
+    @IBOutlet weak var nameTextfield: UITextField!
+    @IBOutlet weak var sickTextfield: UITextField!
+    
+    var users = [User]()
+    var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
+    let ext = Extension()
+    
+    var profileImage: UIImage? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
 
         setupUI()
+        loadData()
     }
     
     @IBAction func imageTapped(_ sender: Any) {
-        showActionSheet()
+        showAction()
+    }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        addData()
+        loadData()
     }
     
 }
@@ -40,7 +59,7 @@ extension UserController: Setup{
         self.view.endEditing(true)
     }
     
-    func showActionSheet(){
+    func showAction(){
         let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
         
         let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
@@ -58,6 +77,55 @@ extension UserController: Setup{
         actionsheet.addAction(cancelButton)
         
         present(actionsheet, animated: true, completion: nil)
+    }
+    
+}
+
+extension UserController: SetupData{
+    
+    func addData() {
+        let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
+        
+        let newUser = NSManagedObject(entity: entity!, insertInto: manageObjectContext)
+        
+        guard let name = nameTextfield.text, !name.isEmpty,
+              let sick = sickTextfield.text, !sick.isEmpty,
+              profileImage != nil
+        else{
+            self.ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            return
+        }
+        
+        newUser.setValue(name, forKey: "name")
+        newUser.setValue(sick, forKey: "sick")
+        
+        let databaseHandler = DatabaseHandler()
+        databaseHandler.image = profileImage
+        databaseHandler.saveImage()
+        
+        do {
+            try manageObjectContext.save()
+            print("save: \(newUser)")
+            
+            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Berhasil ditambahkan", status: "berhasil")
+            
+        } catch let error as NSError {
+            print("error: \(error)")
+            
+            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Gagal ditambahkan", status: "gagal")
+        }
+    }
+    
+    func loadData() {
+        return
+    }
+    
+    func updateData() {
+        return
+    }
+    
+    func deleteData() {
+        return
     }
     
 }
@@ -85,6 +153,7 @@ extension UserController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            profileImage = editedImage
             profileImageButton.setImage(editedImage, for: .normal)
         }else{
             profileImageButton.setImage(UIImage.init(systemName: "photo"), for: .normal)
