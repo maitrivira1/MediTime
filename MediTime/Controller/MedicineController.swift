@@ -59,10 +59,13 @@ class MedicineController: UIViewController {
     
     let ext = Extension()
     
+    var userSelected = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
+        print("user selected medicine controller", userSelected)
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {

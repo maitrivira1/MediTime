@@ -57,7 +57,7 @@
                                                             </attributedString>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="TY7-DE-v7G" kind="show" id="khI-kT-W6M"/>
+                                                            <segue destination="TY7-DE-v7G" kind="show" id="4Hx-oI-Oki"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -159,7 +159,7 @@
                                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="31"/>
                                                                     <state key="normal" image="plus"/>
                                                                     <connections>
-                                                                        <segue destination="MoG-mC-JkR" kind="show" identifier="UserController" id="C7d-vm-pEE"/>
+                                                                        <segue destination="MoG-mC-JkR" kind="show" id="K72-jA-Dkc"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tambah Pengguna" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n5-3c-9dK">
@@ -240,7 +240,7 @@
                                                                                             <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         </state>
                                                                                         <connections>
-                                                                                            <segue destination="L1I-bP-2b5" kind="show" id="ezN-BQ-s2g"/>
+                                                                                            <segue destination="L1I-bP-2b5" kind="show" identifier="medicineController" id="ezN-BQ-s2g"/>
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>

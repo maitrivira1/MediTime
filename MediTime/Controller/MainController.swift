@@ -32,6 +32,15 @@ class MainController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
         collectionView(userCollectionView, didSelectItemAt: index)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "medicineController" {
+            let destinationVC = segue.destination as! MedicineController
+            destinationVC.userSelected = userSelected
+        }
+        
+    }
 }
 
 extension MainController: Setup{
@@ -140,7 +149,6 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
             userSelected = userData[indexPath.row].name
             todayLabel.text = "Obat \(userSelected) hari ini"
             index = IndexPath(row: indexPath.row, section: indexPath.section)
-            print(userSelected)
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
