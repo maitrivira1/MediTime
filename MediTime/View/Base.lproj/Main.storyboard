@@ -225,7 +225,7 @@
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="iFP-4R-dPy"/>
                                                                                         </constraints>
-                                                                                        <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="18"/>
+                                                                                        <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                         <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
@@ -315,6 +315,7 @@
                         <outlet property="addMedicineButton" destination="WuE-Eg-dgk" id="CNV-eb-KWQ"/>
                         <outlet property="medicineTableView" destination="bRQ-Tf-g6t" id="CO4-4u-A9d"/>
                         <outlet property="roundedView" destination="mSW-ZS-fbw" id="742-CH-4IK"/>
+                        <outlet property="todayLabel" destination="Q5D-3c-5ej" id="l50-89-oGI"/>
                         <outlet property="userCollectionView" destination="bXQ-cW-s4R" id="8Jz-GB-lGR"/>
                         <outlet property="userTableView" destination="bRQ-Tf-g6t" id="BYY-Ws-zP4"/>
                     </connections>

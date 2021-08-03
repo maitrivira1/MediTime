@@ -14,6 +14,7 @@ class MainController: UIViewController {
     @IBOutlet weak var medicineTableView: UITableView!
     @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var userTableView: UITableView!
+    @IBOutlet weak var todayLabel: UILabel!
     
     var userSelected = ""
     var selected = false
@@ -57,6 +58,8 @@ extension MainController: Setup{
         userTableView.register(nib, forCellReuseIdentifier: "MedicineTVC")
         userTableView.separatorStyle = .none
         userTableView.backgroundColor = .white
+        
+        todayLabel.text = "Obat hari ini"
     }
     
     func permission(){
@@ -136,18 +139,15 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
         if indexPath.row == userData.count{
             performSegue(withIdentifier: "UserController", sender: indexPath.row)
         }else{
-            print(userData[indexPath.row].name)
+            userSelected = userData[indexPath.row].name
+            todayLabel.text = "Obat \(userSelected) hari ini"
+            print(userSelected)
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
             selected = true
             cell.changeBackgroundSelected()
         }
-        
-        if selected == false {
-            collectionView.cellForItem(at: [0, 0])?.backgroundColor = UIColor(red: 0.02, green: 0.33, blue: 0.28, alpha: 1.00)
-        }
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
