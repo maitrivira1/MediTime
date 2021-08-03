@@ -270,7 +270,7 @@ extension MedicineController: Setup{
         
         padatButton.setImage(UIImage(named: type != "padat" ? "padat ijo" : "padat putih"), for: .normal)
         cairButton.setImage(UIImage(named: type != "cair" ? "cair ijo" : "cair putih"), for: .normal)
-        tetesButton.setImage(UIImage(named: type != "tetes" ? "oles ijo" : "oles putih"), for: .normal)
+        tetesButton.setImage(UIImage(named: type != "tetes" ? "tetes ijo" : "tetes putih"), for: .normal)
         olesButton.setImage(UIImage(named: type != "oles" ? "oles ijo" : "oles putih"), for: .normal)
     
         if type == "cair" {

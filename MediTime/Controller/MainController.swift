@@ -17,7 +17,7 @@ class MainController: UIViewController {
     @IBOutlet weak var todayLabel: UILabel!
     
     var userSelected = ""
-    var selected = false
+    var index:IndexPath = IndexPath(row: 0, section: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +25,12 @@ class MainController: UIViewController {
         setupUI()
         permission()
         
-        let indexPath:IndexPath = IndexPath(row: 0, section: 0)
-        userCollectionView?.selectItem(at: indexPath, animated: false, scrollPosition: .top)
+        userCollectionView?.selectItem(at: index, animated: false, scrollPosition: .top)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
-        
-        collectionView(userCollectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        collectionView(userCollectionView, didSelectItemAt: index)
     }
 }
 
@@ -59,7 +57,7 @@ extension MainController: Setup{
         userTableView.separatorStyle = .none
         userTableView.backgroundColor = .white
         
-        todayLabel.text = "Obat hari ini"
+        todayLabel.text = "Obat \(userSelected) hari ini"
     }
     
     func permission(){
@@ -141,11 +139,11 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
         }else{
             userSelected = userData[indexPath.row].name
             todayLabel.text = "Obat \(userSelected) hari ini"
+            index = IndexPath(row: indexPath.row, section: indexPath.section)
             print(userSelected)
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
-            selected = true
             cell.changeBackgroundSelected()
         }
     }
