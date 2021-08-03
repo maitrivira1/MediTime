@@ -10,7 +10,6 @@ import UIKit
 class Extension: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     //alert
-    
     func showAlertConfirmation(on vc: UIViewController, title: String, message: String, status: String){
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
