@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MedicineController: UIViewController {
     
@@ -37,6 +38,12 @@ class MedicineController: UIViewController {
     @IBOutlet weak var hariView: UIView!
     @IBOutlet weak var hariLabel: UILabel!
     
+    var medicine = [Medicine]()
+    var userSelected: User?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     let dosisPicker = UIPickerView()
     let eatPicker = UIPickerView()
     
@@ -59,13 +66,19 @@ class MedicineController: UIViewController {
     
     let ext = Extension()
     
-    var userSelected = ""
+    var profileImage: UIImage? = nil
+    
+    var pickerIndex: Int?
+    var pickerCount = 0
+    var pickerSelect = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        
         setupUI()
-        print("user selected medicine controller", userSelected)
+        print("user selected medicine controller", userSelected!)
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {
@@ -80,6 +93,7 @@ class MedicineController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         print("tapped")
+        addData()
 //        showAlert()
         
 //        for time in times {
@@ -111,7 +125,9 @@ extension MedicineController: Setup{
         toolbar.sizeToFit()
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
-        toolbar.setItems([cancelButton], animated: true)
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(dismissKeyboard))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
         self.toolbar.tintColor = UIColor.systemBlue
         dosisTextField.inputAccessoryView = toolbar
         eatingTextField.inputAccessoryView = toolbar
@@ -138,17 +154,14 @@ extension MedicineController: Setup{
     }
     
     @objc func dismissKeyboard(){
-        
         self.view.endEditing(true)
         showDay()
         showSchedule()
-        scheduleTable.reloadData()
-        
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
         if self.view.frame.origin.y == 0 {
-            self.view.frame.origin.y -= 100
+            self.view.frame.origin.y -= 180
         }
     }
 
@@ -221,7 +234,7 @@ extension MedicineController: Setup{
         }else{
             times.append(Time(fullDate: timeOneFirst))
         }
-        
+        print("time", times)
     }
     
     func showDay(){
@@ -367,6 +380,64 @@ extension MedicineController: Setup{
     
 }
 
+extension MedicineController : SetupData{
+    
+    func addData() {
+        
+        guard let name = namaTextField.text, !name.isEmpty,
+              var unit = unitTextField.text, !unit.isEmpty,
+              let total = jumlahObatTextField.text , !total.isEmpty,
+              let dosis = dosisTextField.text, !dosis.isEmpty,
+              var pemakaian = jumlahPemakaiTextField.text, !pemakaian.isEmpty,
+              var waktu = eatingTextField.text, !waktu.isEmpty,
+              !type.isEmpty,
+              profileImage != nil
+        else{
+            self.ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            return
+        }
+        
+        if type == "cair"{
+            unit = ""
+        }else if type == "tetes"{
+            unit = ""
+            waktu = ""
+        }else if type == "oles"{
+            pemakaian = ""
+        }
+        
+        let medicine = Medicine(context: self.context)
+        medicine.bentukObat = type
+        medicine.nama = name
+        medicine.unit = unit
+        medicine.jumlahObat = total
+        medicine.dosis = dosis
+        medicine.jumlahPemakaian = pemakaian
+        medicine.waktuMakan = waktu
+        medicine.users = userSelected
+        
+        let databaseHandler = DatabaseHandler()
+        databaseHandler.entity = "Medicine"
+        databaseHandler.image = profileImage
+        databaseHandler.saveImage()
+        
+        self.medicine.append(medicine)
+        
+        do {
+            try context.save()
+            print("save: \(medicine)")
+            
+            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Berhasil ditambahkan", status: "berhasil")
+            
+        } catch let error as NSError {
+            print("error: \(error)")
+            
+            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Gagal ditambahkan", status: "gagal")
+        }
+    }
+    
+}
+
 extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -375,9 +446,13 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView == dosisPicker {
+            pickerCount = dosis.count
+            pickerSelect = "dosisPicker"
             return dosis.count
         } else if pickerView == eatPicker{
-             return eat.count
+            pickerCount = eat.count
+            pickerSelect = "eatPicker"
+            return eat.count
         }
 
         return 1
@@ -393,6 +468,7 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        pickerIndex = row
         if pickerView == dosisPicker {
             dosisTextField.text = dosis[row]
         }else if pickerView == eatPicker {
@@ -423,8 +499,8 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+            profileImage = editedImage
             imageButton.setImage(editedImage, for: .normal)
         }else{
             imageButton.setImage(UIImage.init(systemName: "photo"), for: .normal)
@@ -441,7 +517,6 @@ extension MedicineController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let userIndex = times[indexPath.row]
         let cell = scheduleTable.dequeueReusableCell(withIdentifier: "ScheduleListTVC", for: indexPath) as! ScheduleListTVC
         
@@ -456,9 +531,7 @@ extension MedicineController : UITableViewDelegate, UITableViewDataSource{
 }
 
 extension MedicineController: UNUserNotificationCenterDelegate{
-    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.banner, .list, .sound])
     }
-    
 }

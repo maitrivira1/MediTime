@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainController: UIViewController {
     
@@ -19,28 +20,39 @@ class MainController: UIViewController {
     var userSelected = ""
     var index:IndexPath = IndexPath(row: 0, section: 0)
     
+    var users = [User]()
+    var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
         permission()
         
-        userCollectionView?.selectItem(at: index, animated: false, scrollPosition: .top)
+        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        
+//        collectionView(userCollectionView, didSelectItemAt: index)
+//        userCollectionView?.selectItem(at: index, animated: false, scrollPosition: .top)
+        
+        loadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+        
         collectionView(userCollectionView, didSelectItemAt: index)
+        
+        loadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if segue.identifier == "medicineController" {
             let destinationVC = segue.destination as! MedicineController
-            destinationVC.userSelected = userSelected
+            destinationVC.userSelected = users[index.row]
         }
-        
     }
+    
 }
 
 extension MainController: Setup{
@@ -83,14 +95,31 @@ extension MainController: Setup{
     
 }
 
+extension MainController: SetupData{
+    func loadData(){
+        let userRequest:NSFetchRequest<User> = User.fetchRequest()
+        let sort = [NSSortDescriptor(key: "id", ascending: false)]
+        userRequest.sortDescriptors = sort
+        
+        do {
+            try users = manageObjectContext.fetch(userRequest)
+            userCollectionView?.reloadData()
+        } catch {
+            print("error")
+        }
+        
+        userCollectionView.reloadData()
+    }
+}
+
 extension MainController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        userData.count
+        users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let userIndex = userData[indexPath.row]
+        let userIndex = users[indexPath.row]
         let tableCell = userTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
         
         tableCell.selectionStyle = .none
@@ -108,12 +137,12 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
 extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userData.count + 1
+        return users.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cellID = indexPath.row < userData.count ? "UserCVC" : "UserNone"
+        let cellID = indexPath.row < users.count ? "UserCVC" : "UserNone"
+//        let cellID = indexPath.row == 0 ? "UserCVC" : "UserNone"
         
         let collectionCell = userCollectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
 
@@ -134,7 +163,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
     
     func setupUserCell(cell: UserCVC, indexPath: IndexPath) {
-        let userIndex = userData[indexPath.row]
+        let userIndex = users[indexPath.row]
         cell.userData(data: userIndex)
     }
 
@@ -143,12 +172,14 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == userData.count{
-            performSegue(withIdentifier: "UserController", sender: indexPath.row)
+        if indexPath.row == users.count{
+//            performSegue(withIdentifier: "UserController", sender: indexPath.row)
         }else{
-            userSelected = userData[indexPath.row].name
-            todayLabel.text = "Obat \(userSelected) hari ini"
+            userSelected = "\(users[indexPath.row].name!) "
+            todayLabel.text = "Obat \(userSelected)hari ini"
             index = IndexPath(row: indexPath.row, section: indexPath.section)
+            print("index", index)
+            print("user", userSelected)
         }
         
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {

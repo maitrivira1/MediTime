@@ -19,6 +19,8 @@ class UserController: UIViewController {
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
+    weak var delegate: UserDataDelegate?
+    
     let ext = Extension()
     
     var profileImage: UIImage? = nil
@@ -38,7 +40,6 @@ class UserController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         addData()
-        loadData()
     }
     
 }
@@ -85,47 +86,45 @@ extension UserController: SetupData{
     
     func addData() {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
-        
         let newUser = NSManagedObject(entity: entity!, insertInto: manageObjectContext)
         
         guard let name = nameTextfield.text, !name.isEmpty,
               let sick = sickTextfield.text, !sick.isEmpty,
               profileImage != nil
         else{
-            self.ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
             return
         }
         
-        newUser.setValue(name, forKey: "name")
-        newUser.setValue(sick, forKey: "sick")
+        let photo = profileImage!.jpegData(compressionQuality: 1)
         
-        let databaseHandler = DatabaseHandler()
-        databaseHandler.image = profileImage
-        databaseHandler.saveImage()
+        let id = users.count + 1
+        newUser.setValue(id, forKey: "id")
+        newUser.setValue(name, forKey: "name")
+        newUser.setValue(photo, forKey: "photo")
+        newUser.setValue(sick, forKey: "sick")
         
         do {
             try manageObjectContext.save()
             print("save: \(newUser)")
             
-            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Berhasil ditambahkan", status: "berhasil")
+            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
             
         } catch let error as NSError {
             print("error: \(error)")
             
-            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Gagal ditambahkan", status: "gagal")
+            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
         }
     }
     
-    func loadData() {
-        return
-    }
-    
-    func updateData() {
-        return
-    }
-    
-    func deleteData() {
-        return
+    func loadData(){
+        let userRequest:NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            try users = manageObjectContext.fetch(userRequest)
+        } catch {
+            print("error")
+        }
     }
     
 }

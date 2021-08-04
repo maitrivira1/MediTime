@@ -2,7 +2,7 @@
 //  Medicine+CoreDataProperties.swift
 //  MediTime
 //
-//  Created by Maitri Vira on 02/08/21.
+//  Created by Maitri Vira on 04/08/21.
 //
 //
 
@@ -16,13 +16,13 @@ extension Medicine {
         return NSFetchRequest<Medicine>(entityName: "Medicine")
     }
 
-    @NSManaged public var photo: Data?
     @NSManaged public var bentukObat: String?
-    @NSManaged public var nama: String?
-    @NSManaged public var unit: String?
-    @NSManaged public var jumlahObat: String?
     @NSManaged public var dosis: String?
-    @NSManaged public var jumlahPemakaian: Int16
+    @NSManaged public var jumlahObat: String?
+    @NSManaged public var jumlahPemakaian: String?
+    @NSManaged public var nama: String?
+    @NSManaged public var photo: Data?
+    @NSManaged public var unit: String?
     @NSManaged public var waktuMakan: String?
     @NSManaged public var users: User?
 

@@ -20,7 +20,7 @@ extension UserCVC: Setup{
     
     func setupUI() {}
     
-    func userData(data: DataExample){
+    func userData(data: User){
         userName.text = data.name
         userSick.text = data.sick
         

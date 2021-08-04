@@ -11,9 +11,8 @@ protocol Setup {
     func setupUI()
 }
 
-protocol SetupData {
-    func addData()
-    func loadData()
-    func updateData()
-    func deleteData()
+protocol SetupData { }
+
+protocol UserDataDelegate: AnyObject{
+    func saveUserData(_ data: [User])
 }

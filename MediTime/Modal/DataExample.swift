@@ -12,11 +12,11 @@ struct DataExample{
     let sick: String
 }
 
-let userData: [DataExample] = [
-    DataExample(name: "adi", sick: "batuk"),
-    DataExample(name: "bapak", sick: "demam"),
-    DataExample(name: "ani", sick: "demam"),
-]
+//let userData: [DataExample] = [
+//    DataExample(name: "adi", sick: "batuk"),
+//    DataExample(name: "bapak", sick: "demam"),
+//    DataExample(name: "ani", sick: "demam"),
+//]
 
 struct ReminderData{
     let hour: Int

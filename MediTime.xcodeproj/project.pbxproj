@@ -29,10 +29,6 @@
 		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
 		B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */; };
 		B036BAD326B786740030CEB5 /* ScheduleListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */; };
-		B036BAD826B7D4B90030CEB5 /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */; };
-		B036BAD926B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */; };
-		B036BADA26B7D4B90030CEB5 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */; };
-		B036BADB26B7D4B90030CEB5 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */; };
 		B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BADC26B7E0E80030CEB5 /* Extension.swift */; };
 		B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00D269EFE3100C12518 /* DataExample.swift */; };
 		B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03CA00F269F018900C12518 /* MedicineTVC.swift */; };
@@ -44,6 +40,10 @@
 		B049CB00269F2C5C00D56891 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CAFF269F2C5C00D56891 /* UserController.swift */; };
 		B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CB01269F2C6D00D56891 /* MedicineController.swift */; };
 		B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057AC4426A18CE400742538 /* NoneCVC.swift */; };
+		B066F4D926BAADE50078652E /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B066F4D526BAADE50078652E /* Medicine+CoreDataClass.swift */; };
+		B066F4DA26BAADE50078652E /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B066F4D626BAADE50078652E /* Medicine+CoreDataProperties.swift */; };
+		B066F4DB26BAADE50078652E /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B066F4D726BAADE50078652E /* User+CoreDataClass.swift */; };
+		B066F4DC26BAADE50078652E /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B066F4D826BAADE50078652E /* User+CoreDataProperties.swift */; };
 		B08A0ED926AC71BC00521158 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A0ED826AC71BC00521158 /* Protocol.swift */; };
 		B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A31E9326AE531C00B4F864 /* UserListTVC.swift */; };
 		B0A31E9626AE531C00B4F864 /* UserListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A31E9426AE531C00B4F864 /* UserListTVC.xib */; };
@@ -79,10 +79,6 @@
 		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 		B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListTVC.swift; sourceTree = "<group>"; };
 		B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScheduleListTVC.xib; sourceTree = "<group>"; };
-		B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B036BADC26B7E0E80030CEB5 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		B03CA00D269EFE3100C12518 /* DataExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExample.swift; sourceTree = "<group>"; };
 		B03CA00F269F018900C12518 /* MedicineTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineTVC.swift; sourceTree = "<group>"; };
@@ -94,6 +90,10 @@
 		B049CAFF269F2C5C00D56891 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		B049CB01269F2C6D00D56891 /* MedicineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineController.swift; sourceTree = "<group>"; };
 		B057AC4426A18CE400742538 /* NoneCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneCVC.swift; sourceTree = "<group>"; };
+		B066F4D526BAADE50078652E /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B066F4D626BAADE50078652E /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B066F4D726BAADE50078652E /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B066F4D826BAADE50078652E /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B08A0ED826AC71BC00521158 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		B0A31E9326AE531C00B4F864 /* UserListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTVC.swift; sourceTree = "<group>"; };
 		B0A31E9426AE531C00B4F864 /* UserListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTVC.xib; sourceTree = "<group>"; };
@@ -229,10 +229,10 @@
 		B0AC426C269D76A80023EC10 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				B036BAD426B7D4B90030CEB5 /* Medicine+CoreDataClass.swift */,
-				B036BAD526B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift */,
-				B036BAD626B7D4B90030CEB5 /* User+CoreDataClass.swift */,
-				B036BAD726B7D4B90030CEB5 /* User+CoreDataProperties.swift */,
+				B066F4D526BAADE50078652E /* Medicine+CoreDataClass.swift */,
+				B066F4D626BAADE50078652E /* Medicine+CoreDataProperties.swift */,
+				B066F4D726BAADE50078652E /* User+CoreDataClass.swift */,
+				B066F4D826BAADE50078652E /* User+CoreDataProperties.swift */,
 				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -335,22 +335,22 @@
 				B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */,
 				B08A0ED926AC71BC00521158 /* Protocol.swift in Sources */,
 				B0AC4257269D75600023EC10 /* MainController.swift in Sources */,
+				B066F4DB26BAADE50078652E /* User+CoreDataClass.swift in Sources */,
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
 				B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */,
+				B066F4D926BAADE50078652E /* Medicine+CoreDataClass.swift in Sources */,
 				B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */,
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
-				B036BAD826B7D4B90030CEB5 /* Medicine+CoreDataClass.swift in Sources */,
-				B036BADB26B7D4B90030CEB5 /* User+CoreDataProperties.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
 				B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */,
-				B036BADA26B7D4B90030CEB5 /* User+CoreDataClass.swift in Sources */,
-				B036BAD926B7D4B90030CEB5 /* Medicine+CoreDataProperties.swift in Sources */,
+				B066F4DA26BAADE50078652E /* Medicine+CoreDataProperties.swift in Sources */,
 				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
+				B066F4DC26BAADE50078652E /* User+CoreDataProperties.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
