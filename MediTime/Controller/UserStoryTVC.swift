@@ -1,24 +1,23 @@
 //
-//  UserListTVC.swift
+//  UserStoryTVC.swift
 //  MediTime
 //
-//  Created by Maitri Vira on 26/07/21.
+//  Created by Dian Tresnawan on 06/08/21.
 //
 
 import UIKit
 
-class UserListTVC: UITableViewCell {
+class UserStoryTVC: UITableViewCell {
 
-    @IBOutlet weak var userImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var userMedicine: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
+        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
     }
     
 }

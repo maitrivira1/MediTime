@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8329334226BCDCEF00371B49 /* UserStoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329334026BCDCEF00371B49 /* UserStoryTVC.swift */; };
+		8329334326BCDCEF00371B49 /* UserStoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8329334126BCDCEF00371B49 /* UserStoryTVC.xib */; };
 		B024C45526A978A8005A5931 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44326A978A7005A5931 /* Poppins-SemiBold.ttf */; };
 		B024C45626A978A8005A5931 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44426A978A7005A5931 /* Poppins-LightItalic.ttf */; };
 		B024C45726A978A8005A5931 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44526A978A7005A5931 /* Poppins-Regular.ttf */; };
@@ -57,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8329334026BCDCEF00371B49 /* UserStoryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStoryTVC.swift; sourceTree = "<group>"; };
+		8329334126BCDCEF00371B49 /* UserStoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserStoryTVC.xib; sourceTree = "<group>"; };
 		B024C44326A978A7005A5931 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		B024C44426A978A7005A5931 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		B024C44526A978A7005A5931 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				B030C50926A01BEE00DB8797 /* UserCVC.swift */,
 				B057AC4426A18CE400742538 /* NoneCVC.swift */,
 				B049590626A9C6B800BD1E87 /* UserListController.swift */,
+				8329334026BCDCEF00371B49 /* UserStoryTVC.swift */,
 				B0A31E9326AE531C00B4F864 /* UserListTVC.swift */,
 				B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */,
 			);
@@ -205,6 +210,7 @@
 				B049CAFA269F2BEF00D56891 /* Medicine.storyboard */,
 				B03CA010269F018900C12518 /* MedicineTVC.xib */,
 				B049590426A9C68C00BD1E87 /* UserList.storyboard */,
+				8329334126BCDCEF00371B49 /* UserStoryTVC.xib */,
 				B0A31E9426AE531C00B4F864 /* UserListTVC.xib */,
 				B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */,
 			);
@@ -297,6 +303,7 @@
 			files = (
 				B024C46226A978A8005A5931 /* Poppins-ExtraLight.ttf in Resources */,
 				B049CAFB269F2BEF00D56891 /* Medicine.storyboard in Resources */,
+				8329334326BCDCEF00371B49 /* UserStoryTVC.xib in Resources */,
 				B024C46126A978A8005A5931 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				B024C45526A978A8005A5931 /* Poppins-SemiBold.ttf in Resources */,
 				B024C45826A978A8005A5931 /* Poppins-BlackItalic.ttf in Resources */,
@@ -344,6 +351,7 @@
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
+				8329334226BCDCEF00371B49 /* UserStoryTVC.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
