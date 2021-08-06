@@ -234,7 +234,8 @@ extension MedicineController: Setup{
         }else{
             times.append(Time(fullDate: timeOneFirst))
         }
-        print("time", times)
+        
+        scheduleTable.reloadData()
     }
     
     func showDay(){
@@ -407,6 +408,10 @@ extension MedicineController : SetupData{
         }
         
         let medicine = Medicine(context: self.context)
+        let id = self.medicine.count + 1
+        let photo = profileImage!.jpegData(compressionQuality: 1)
+        
+        medicine.id = Int16(id)
         medicine.bentukObat = type
         medicine.nama = name
         medicine.unit = unit
@@ -415,11 +420,7 @@ extension MedicineController : SetupData{
         medicine.jumlahPemakaian = pemakaian
         medicine.waktuMakan = waktu
         medicine.users = userSelected
-        
-        let databaseHandler = DatabaseHandler()
-        databaseHandler.entity = "Medicine"
-        databaseHandler.image = profileImage
-        databaseHandler.saveImage()
+        medicine.photo = photo
         
         self.medicine.append(medicine)
         
@@ -513,7 +514,7 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
 
 extension MedicineController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        times.count
+        return times.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  MediTime
 //
-//  Created by Maitri Vira on 04/08/21.
+//  Created by Maitri Vira on 05/08/21.
 //
 //
 
@@ -16,10 +16,10 @@ extension User {
         return NSFetchRequest<User>(entityName: "User")
     }
 
+    @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var photo: Data?
     @NSManaged public var sick: String?
-    @NSManaged public var id: Int16
     @NSManaged public var medicines: NSSet?
 
 }

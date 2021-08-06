@@ -37,9 +37,9 @@ extension MedicineTVC: Setup{
         eatBackground.layer.cornerRadius = 8
     }
     
-    func userData(with data: User){
-        medicineName.text = data.name
-        medicineAmount.text = data.sick
+    func userData(with data: Medicine){
+        medicineName.text = data.nama
+        medicineAmount.text = data.nama
     }
     
 }
