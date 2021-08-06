@@ -9,6 +9,11 @@ import UIKit
 
 class UserStoryTVC: UITableViewCell {
 
+    @IBOutlet weak var userStoryImg: UIImageView!
+    @IBOutlet weak var userStoryMed: UILabel!
+    @IBOutlet weak var userStoryUnit: UILabel!
+    @IBOutlet weak var userStoryDosis: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

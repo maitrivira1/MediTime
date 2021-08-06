@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8329334926BD75EB00371B49 /* UserStoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8329334826BD75EB00371B49 /* UserStoryTVC.swift */; };
+		8329334B26BD762300371B49 /* UserStoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8329334A26BD762300371B49 /* UserStoryTVC.xib */; };
 		B00C527626BB96C400EB7ACD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527226BB96C400EB7ACD /* User+CoreDataClass.swift */; };
 		B00C527726BB96C400EB7ACD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527326BB96C400EB7ACD /* User+CoreDataProperties.swift */; };
 		B00C527826BB96C400EB7ACD /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527426BB96C400EB7ACD /* Medicine+CoreDataClass.swift */; };
@@ -57,6 +59,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8329334826BD75EB00371B49 /* UserStoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserStoryTVC.swift; path = "../../../MediTime copy 5/MediTime/Controller/UserStoryTVC.swift"; sourceTree = "<group>"; };
+		8329334A26BD762300371B49 /* UserStoryTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserStoryTVC.xib; path = "../../../MediTime copy 5/MediTime/View/UserStoryTVC.xib"; sourceTree = "<group>"; };
 		B00C527226BB96C400EB7ACD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
 		B00C527326BB96C400EB7ACD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B00C527426BB96C400EB7ACD /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -192,7 +196,7 @@
 				B030C50926A01BEE00DB8797 /* UserCVC.swift */,
 				B057AC4426A18CE400742538 /* NoneCVC.swift */,
 				B049590626A9C6B800BD1E87 /* UserListController.swift */,
-				8329334026BCDCEF00371B49 /* UserStoryTVC.swift */,
+				8329334826BD75EB00371B49 /* UserStoryTVC.swift */,
 				B0A31E9326AE531C00B4F864 /* UserListTVC.swift */,
 				B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */,
 			);
@@ -208,7 +212,7 @@
 				B049CAFA269F2BEF00D56891 /* Medicine.storyboard */,
 				B03CA010269F018900C12518 /* MedicineTVC.xib */,
 				B049590426A9C68C00BD1E87 /* UserList.storyboard */,
-				8329334126BCDCEF00371B49 /* UserStoryTVC.xib */,
+				8329334A26BD762300371B49 /* UserStoryTVC.xib */,
 				B0A31E9426AE531C00B4F864 /* UserListTVC.xib */,
 				B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */,
 			);
@@ -301,7 +305,7 @@
 			files = (
 				B024C46226A978A8005A5931 /* Poppins-ExtraLight.ttf in Resources */,
 				B049CAFB269F2BEF00D56891 /* Medicine.storyboard in Resources */,
-				8329334326BCDCEF00371B49 /* UserStoryTVC.xib in Resources */,
+				8329334B26BD762300371B49 /* UserStoryTVC.xib in Resources */,
 				B024C46126A978A8005A5931 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				B024C45526A978A8005A5931 /* Poppins-SemiBold.ttf in Resources */,
 				B024C45826A978A8005A5931 /* Poppins-BlackItalic.ttf in Resources */,
@@ -349,8 +353,8 @@
 				B00C527726BB96C400EB7ACD /* User+CoreDataProperties.swift in Sources */,
 				B00C527626BB96C400EB7ACD /* User+CoreDataClass.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
+				8329334926BD75EB00371B49 /* UserStoryTVC.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
-				8329334226BCDCEF00371B49 /* UserStoryTVC.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
