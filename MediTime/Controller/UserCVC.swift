@@ -30,11 +30,11 @@ extension UserCVC: Setup{
     }
     
     func changeBackgroundSelected(){
-        userView.backgroundColor = UIColor(red: 0.02, green: 0.33, blue: 0.28, alpha: 1.00)
+        userView.backgroundColor = UIColor(red: 0.18, green: 0.76, blue: 0.67, alpha: 1.00)
     }
     
     func changeBackgrounUnselected(){
-        userView.backgroundColor = UIColor(red: 0.24, green: 0.59, blue: 0.55, alpha: 1.00)
+        userView.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.00)
     }
     
 }

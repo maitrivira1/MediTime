@@ -386,11 +386,11 @@ extension MedicineController : SetupData{
     func addData() {
         
         guard let name = namaTextField.text, !name.isEmpty,
-              var unit = unitTextField.text, !unit.isEmpty,
+              var unit = unitTextField.text,
               let total = jumlahObatTextField.text , !total.isEmpty,
               let dosis = dosisTextField.text, !dosis.isEmpty,
-              var pemakaian = jumlahPemakaiTextField.text, !pemakaian.isEmpty,
-              var waktu = eatingTextField.text, !waktu.isEmpty,
+              var pemakaian = jumlahPemakaiTextField.text,
+              var waktu = eatingTextField.text,
               !type.isEmpty,
               profileImage != nil
         else{
