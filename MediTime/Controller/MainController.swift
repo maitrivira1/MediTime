@@ -36,8 +36,6 @@ class MainController: UIViewController {
         permission()
         
         collectionView(userCollectionView, didSelectItemAt: index)
-        print("set did select did load")
-        userCollectionView?.selectItem(at: index, animated: false, scrollPosition: .top)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -45,10 +43,16 @@ class MainController: UIViewController {
         loadDataMedicine()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+    
+        if users.count == 0{
+            addMedicineButton.isEnabled = false
+            addMedicineButton.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.00)
+        }else{
+            addMedicineButton.isEnabled = true
+            addMedicineButton.backgroundColor = UIColor(red: 0.94, green: 0.96, blue: 0.56, alpha: 1.00)
+        }
         
         collectionView(userCollectionView, didSelectItemAt: index)
-        print("set did select did view")
-        userCollectionView?.selectItem(at: index, animated: false, scrollPosition:.top)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,11 +128,31 @@ extension MainController: SetupData{
         
         do {
             try medicines = manageObjectContext.fetch(request)
+            print("all medicine")
+            
+            let date = Date()
+            let timeFormat = DateFormatter()
+            timeFormat.dateFormat = "yyyy-MM-dd"
+            let current = timeFormat.string(from: date)
+            
+            medicines = medicines.filter{$0.date == current}
+            
+            print("medicine", medicines)
         } catch {
             print("Error fetching data from context \(error)")
         }
         
         medicineTableView.reloadData()
+    }
+    
+    func saveData(){
+        do{
+            try manageObjectContext.save()
+        } catch{
+            print(error)
+        }
+
+        self.medicineTableView.reloadData()
     }
 }
 
@@ -177,6 +201,15 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        medicines[indexPath.row].setValue(true, forKey: "isFinish")
+        saveData()
+        
+//        let tableCell = medicineTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
+//        tableCell.setupUI()
+        
+        medicineTableView.reloadData()
+        print(medicines[indexPath.row].isFinish)
     }
     
 }
@@ -235,7 +268,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
             cell.changeBackgroundSelected()
-            print("change color")
+            
             cell.layer.cornerRadius = 15.0
             cell.layer.borderWidth = 0.0
             cell.layer.shadowColor = UIColor.black.cgColor

@@ -25,14 +25,14 @@
                         <rect key="frame" x="16" y="5" width="343" height="100"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="QeW-RE-DgN">
-                                <rect key="frame" x="20" y="21" width="60" height="57.5"/>
+                                <rect key="frame" x="16" y="21" width="60" height="57.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="bnK-dA-BYr"/>
                                     <constraint firstAttribute="width" constant="60" id="pGW-vh-vae"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ST4-dJ-4OK" userLabel="waktu">
-                                <rect key="frame" x="90" y="66" width="57" height="20"/>
+                                <rect key="frame" x="86" y="66" width="57" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="jam ijo" translatesAutoresizingMaskIntoConstraints="NO" id="apx-2Z-DQw">
                                         <rect key="frame" x="6" y="5" width="10" height="10"/>
@@ -62,27 +62,20 @@
                                     <constraint firstItem="apx-2Z-DQw" firstAttribute="leading" secondItem="ST4-dJ-4OK" secondAttribute="leading" constant="6" id="yqM-Im-CZJ"/>
                                 </constraints>
                             </view>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uncheckbox" translatesAutoresizingMaskIntoConstraints="NO" id="XYv-K3-qJt">
-                                <rect key="frame" x="295" y="30" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="tbc-oz-VZg"/>
-                                    <constraint firstAttribute="height" constant="40" id="vgH-Ei-hhg"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQp-8b-J7Q">
-                                <rect key="frame" x="94" y="14" width="48" height="25.5"/>
+                                <rect key="frame" x="90" y="14" width="48" height="25.5"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                 <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2m-2I-UaO">
-                                <rect key="frame" x="94" y="39.5" width="37.5" height="20"/>
+                                <rect key="frame" x="86" y="39.5" width="37.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fAy-lT-1Ch">
-                                <rect key="frame" x="94" y="61" width="185" height="1"/>
+                                <rect key="frame" x="90" y="61" width="185" height="1"/>
                                 <color key="backgroundColor" red="0.0039215686274509803" green="0.21176470588235294" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="185" id="5Vv-1W-DZQ"/>
@@ -90,7 +83,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8R-je-eQW" userLabel="makan">
-                                <rect key="frame" x="152" y="67" width="132" height="20"/>
+                                <rect key="frame" x="148" y="67" width="132" height="20"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="makan ijo" translatesAutoresizingMaskIntoConstraints="NO" id="Zmq-2T-Cs3">
                                         <rect key="frame" x="10" y="5" width="10" height="10"/>
@@ -118,13 +111,18 @@
                                     <constraint firstAttribute="trailing" secondItem="5Y0-OY-Z0A" secondAttribute="trailing" id="jjn-fR-AtD"/>
                                 </constraints>
                             </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkblank" translatesAutoresizingMaskIntoConstraints="NO" id="Q8n-Uz-5BB">
+                                <rect key="frame" x="287" y="30" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="YwY-7C-YqR"/>
+                                    <constraint firstAttribute="width" constant="40" id="mLd-49-8HY"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.99215686274509807" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="t8R-je-eQW" firstAttribute="top" secondItem="fAy-lT-1Ch" secondAttribute="bottom" constant="5" id="3QH-4d-VVz"/>
-                            <constraint firstItem="XYv-K3-qJt" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="30" id="5Zk-Ej-Twv"/>
                             <constraint firstAttribute="bottom" secondItem="QeW-RE-DgN" secondAttribute="bottom" constant="20" id="7rK-du-Mk8"/>
-                            <constraint firstAttribute="trailing" secondItem="XYv-K3-qJt" secondAttribute="trailing" constant="8" id="CL5-aq-e1B"/>
                             <constraint firstItem="s2m-2I-UaO" firstAttribute="top" secondItem="AQp-8b-J7Q" secondAttribute="bottom" id="Dkw-hk-KWU"/>
                             <constraint firstAttribute="width" constant="343" id="SM8-GO-zfJ"/>
                             <constraint firstItem="ST4-dJ-4OK" firstAttribute="top" secondItem="fAy-lT-1Ch" secondAttribute="bottom" constant="4" id="U38-Yj-lMh"/>
@@ -132,14 +130,16 @@
                             <constraint firstItem="fAy-lT-1Ch" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="14" id="Wzh-Vd-EDJ"/>
                             <constraint firstAttribute="height" constant="100" id="YOy-iJ-DjO"/>
                             <constraint firstItem="s2m-2I-UaO" firstAttribute="top" secondItem="AQp-8b-J7Q" secondAttribute="bottom" id="a2m-cO-0Yn"/>
-                            <constraint firstAttribute="bottom" secondItem="XYv-K3-qJt" secondAttribute="bottom" constant="30" id="bdh-DJ-2Ws"/>
+                            <constraint firstAttribute="trailing" secondItem="Q8n-Uz-5BB" secondAttribute="trailing" constant="16" id="b3e-An-E2d"/>
                             <constraint firstItem="AQp-8b-J7Q" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="14" id="bhf-OK-Ab5"/>
                             <constraint firstItem="AQp-8b-J7Q" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="14" id="e7N-HI-1Y8"/>
                             <constraint firstItem="fAy-lT-1Ch" firstAttribute="top" secondItem="s2m-2I-UaO" secondAttribute="bottom" constant="1.5" id="fnw-3N-vuC"/>
-                            <constraint firstItem="s2m-2I-UaO" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="14" id="fpD-fa-DJo"/>
+                            <constraint firstItem="s2m-2I-UaO" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="10" id="fpD-fa-DJo"/>
                             <constraint firstItem="t8R-je-eQW" firstAttribute="leading" secondItem="ST4-dJ-4OK" secondAttribute="trailing" constant="5" id="fw6-jH-XRZ"/>
+                            <constraint firstItem="Q8n-Uz-5BB" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="30" id="fxX-Dt-lxi"/>
                             <constraint firstItem="t8R-je-eQW" firstAttribute="leading" secondItem="ST4-dJ-4OK" secondAttribute="trailing" constant="5" id="k8M-dm-JbN"/>
-                            <constraint firstItem="QeW-RE-DgN" firstAttribute="leading" secondItem="CnT-72-Tzl" secondAttribute="leading" constant="20" id="qcH-b1-jSo"/>
+                            <constraint firstAttribute="bottom" secondItem="Q8n-Uz-5BB" secondAttribute="bottom" constant="30" id="lp3-de-cfa"/>
+                            <constraint firstItem="QeW-RE-DgN" firstAttribute="leading" secondItem="CnT-72-Tzl" secondAttribute="leading" constant="16" id="qcH-b1-jSo"/>
                             <constraint firstAttribute="bottom" secondItem="ST4-dJ-4OK" secondAttribute="bottom" constant="14" id="qjH-ca-aeX"/>
                             <constraint firstItem="QeW-RE-DgN" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="20" id="qrN-n5-YCK"/>
                         </constraints>
@@ -159,16 +159,21 @@
                 <outlet property="eatBackground" destination="t8R-je-eQW" id="mlY-Ey-ovP"/>
                 <outlet property="medicineAmount" destination="s2m-2I-UaO" id="bRk-Sl-bWm"/>
                 <outlet property="medicineBackground" destination="CnT-72-Tzl" id="zVG-xZ-QDS"/>
+                <outlet property="medicineCheck" destination="Q8n-Uz-5BB" id="Vsm-tN-yKm"/>
+                <outlet property="medicineEaten" destination="5Y0-OY-Z0A" id="kHV-MI-wwz"/>
+                <outlet property="medicineImage" destination="QeW-RE-DgN" id="viD-UM-LF0"/>
+                <outlet property="medicineLine" destination="fAy-lT-1Ch" id="hOv-Lj-Xij"/>
                 <outlet property="medicineName" destination="AQp-8b-J7Q" id="BAW-gW-1Rv"/>
+                <outlet property="medicineTime" destination="Dqd-KT-7ub" id="NPO-rG-9Zw"/>
                 <outlet property="timeBackground" destination="ST4-dJ-4OK" id="LGb-EA-Hsm"/>
             </connections>
             <point key="canvasLocation" x="168.84057971014494" y="146.31696428571428"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="checkblank" width="160" height="160"/>
         <image name="jam ijo" width="240" height="240"/>
         <image name="makan ijo" width="42" height="48"/>
         <image name="photo" catalog="system" width="128" height="93"/>
-        <image name="uncheckbox" width="160" height="160"/>
     </resources>
 </document>

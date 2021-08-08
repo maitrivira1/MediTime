@@ -2,7 +2,7 @@
 //  Medicine+CoreDataProperties.swift
 //  MediTime
 //
-//  Created by Maitri Vira on 05/08/21.
+//  Created by Maitri Vira on 08/08/21.
 //
 //
 
@@ -17,14 +17,17 @@ extension Medicine {
     }
 
     @NSManaged public var bentukObat: String?
+    @NSManaged public var date: String?
     @NSManaged public var dosis: String?
+    @NSManaged public var id: Int16
+    @NSManaged public var isFinish: Bool
     @NSManaged public var jumlahObat: String?
     @NSManaged public var jumlahPemakaian: String?
     @NSManaged public var nama: String?
     @NSManaged public var photo: Data?
     @NSManaged public var unit: String?
     @NSManaged public var waktuMakan: String?
-    @NSManaged public var id: Int16
+    @NSManaged public var time: Int16
     @NSManaged public var users: User?
 
 }

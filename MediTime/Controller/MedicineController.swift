@@ -92,13 +92,40 @@ class MedicineController: UIViewController {
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        print("tapped")
-        addData()
-//        showAlert()
+        saveAllData()
+    }
+    
+    func saveAllData(){
+        var id = self.medicine.count + 1
         
-//        for time in times {
-//            makeNotification(date: time.fullDate)
-//        }
+        var date = Date()
+        var dateComponent = DateComponents()
+        let timeFormat = DateFormatter()
+        timeFormat.dateFormat = "yyyy-MM-dd"
+        
+        let hari = getDay()
+        let waktu = dosisSelected
+        var jam = [9 ,8, 7, 6]
+        let interval = [0, 12, 8, 6]
+        
+        for _ in 0..<hari{
+            
+            for _ in 0..<waktu{
+                
+                addData(id: id, date: timeFormat.string(from: date), time: jam[waktu - 1])
+                
+                id+=1
+                jam[waktu - 1] += interval[waktu - 1]
+                
+            }
+            
+            dateComponent.day = 1
+            let currentTime = Calendar.current.date(byAdding: dateComponent, to: date)
+            date = currentTime!
+            jam = [9 ,8, 7, 6]
+            
+        }
+        
     }
 }
 
@@ -226,6 +253,7 @@ extension MedicineController: Setup{
             times.append(Time(fullDate: timeThreeFirst))
             times.append(Time(fullDate: timeThreeSecond))
             times.append(Time(fullDate: timeThreeThird))
+            print(times)
         }else if dosisSelected == 4 {
             times.append(Time(fullDate: timeFourFirst))
             times.append(Time(fullDate: timeFourSecond))
@@ -279,7 +307,7 @@ extension MedicineController: Setup{
             hariView.isHidden = true
         }
         
-        return 0
+        return 3
         
     }
     
@@ -383,7 +411,7 @@ extension MedicineController: Setup{
 
 extension MedicineController : SetupData{
     
-    func addData() {
+    func addData(id: Int, date: String, time: Int) {
         
         guard let name = namaTextField.text, !name.isEmpty,
               var unit = unitTextField.text,
@@ -408,19 +436,21 @@ extension MedicineController : SetupData{
         }
         
         let medicine = Medicine(context: self.context)
-        let id = self.medicine.count + 1
         let photo = profileImage!.jpegData(compressionQuality: 1)
         
-        medicine.id = Int16(id)
         medicine.bentukObat = type
-        medicine.nama = name
-        medicine.unit = unit
-        medicine.jumlahObat = total
+        medicine.date = date
         medicine.dosis = dosis
+        medicine.id = Int16(id)
+        medicine.isFinish = false
+        medicine.jumlahObat = total
         medicine.jumlahPemakaian = pemakaian
+        medicine.nama = name
+        medicine.photo = photo
+        medicine.time = Int16(time)
+        medicine.unit = unit
         medicine.waktuMakan = waktu
         medicine.users = userSelected
-        medicine.photo = photo
         
         self.medicine.append(medicine)
         

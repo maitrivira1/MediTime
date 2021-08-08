@@ -225,7 +225,7 @@
                                                                                 <rect key="frame" x="16" y="10" width="382" height="33"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Hari Ini" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5D-3c-5ej">
-                                                                                        <rect key="frame" x="0.0" y="7.6666666666666838" width="262" height="25.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="12" width="101.33333333333333" height="21"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="iFP-4R-dPy"/>
                                                                                         </constraints>
@@ -234,7 +234,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuE-Eg-dgk">
-                                                                                        <rect key="frame" x="262" y="4" width="120" height="29"/>
+                                                                                        <rect key="frame" x="101.33333333333334" y="7" width="280.66666666666663" height="26"/>
                                                                                         <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="IdQ-NS-NOY"/>
@@ -292,8 +292,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="DES-3y-NRt" secondAttribute="trailing" id="4ng-EC-N3R"/>
+                                            <constraint firstItem="DES-3y-NRt" firstAttribute="leading" secondItem="mSW-ZS-fbw" secondAttribute="leading" id="6U9-Un-xri"/>
                                             <constraint firstAttribute="bottom" secondItem="DES-3y-NRt" secondAttribute="bottom" id="Hct-56-FS3"/>
-                                            <constraint firstItem="DES-3y-NRt" firstAttribute="leading" secondItem="mSW-ZS-fbw" secondAttribute="leading" id="Wqy-pr-BqT"/>
                                             <constraint firstItem="DES-3y-NRt" firstAttribute="top" secondItem="mSW-ZS-fbw" secondAttribute="top" id="iK1-2t-dSH"/>
                                         </constraints>
                                     </view>

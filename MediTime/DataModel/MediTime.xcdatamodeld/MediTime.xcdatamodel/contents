@@ -2,25 +2,29 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Medicine" representedClassName="Medicine" syncable="YES">
         <attribute name="bentukObat" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
         <attribute name="dosis" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFinish" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="jumlahObat" optional="YES" attributeType="String"/>
         <attribute name="jumlahPemakaian" optional="YES" attributeType="String"/>
         <attribute name="nama" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="time" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="unit" optional="YES" attributeType="String"/>
         <attribute name="waktuMakan" optional="YES" attributeType="String"/>
         <relationship name="users" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="medicines" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="isFinish" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="photo" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="sick" optional="YES" attributeType="String"/>
         <relationship name="medicines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Medicine" inverseName="users" inverseEntity="Medicine"/>
     </entity>
     <elements>
-        <element name="Medicine" positionX="-54" positionY="18" width="128" height="179"/>
-        <element name="User" positionX="-63" positionY="-18" width="128" height="104"/>
+        <element name="Medicine" positionX="-54" positionY="18" width="128" height="224"/>
+        <element name="User" positionX="-63" positionY="-18" width="128" height="119"/>
     </elements>
 </model>

@@ -9,10 +9,6 @@
 /* Begin PBXBuildFile section */
 		B007673D26BD87B400230349 /* UserStoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B007673C26BD87B400230349 /* UserStoryTVC.xib */; };
 		B007673F26BD87C500230349 /* UserStoryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B007673E26BD87C500230349 /* UserStoryTVC.swift */; };
-		B00C527626BB96C400EB7ACD /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527226BB96C400EB7ACD /* User+CoreDataClass.swift */; };
-		B00C527726BB96C400EB7ACD /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527326BB96C400EB7ACD /* User+CoreDataProperties.swift */; };
-		B00C527826BB96C400EB7ACD /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527426BB96C400EB7ACD /* Medicine+CoreDataClass.swift */; };
-		B00C527926BB96C400EB7ACD /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00C527526BB96C400EB7ACD /* Medicine+CoreDataProperties.swift */; };
 		B024C45526A978A8005A5931 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44326A978A7005A5931 /* Poppins-SemiBold.ttf */; };
 		B024C45626A978A8005A5931 /* Poppins-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44426A978A7005A5931 /* Poppins-LightItalic.ttf */; };
 		B024C45726A978A8005A5931 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C44526A978A7005A5931 /* Poppins-Regular.ttf */; };
@@ -49,6 +45,10 @@
 		B08A0ED926AC71BC00521158 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A0ED826AC71BC00521158 /* Protocol.swift */; };
 		B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A31E9326AE531C00B4F864 /* UserListTVC.swift */; };
 		B0A31E9626AE531C00B4F864 /* UserListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A31E9426AE531C00B4F864 /* UserListTVC.xib */; };
+		B0A4477026BFC3B200172807 /* Medicine+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4476C26BFC3B200172807 /* Medicine+CoreDataClass.swift */; };
+		B0A4477126BFC3B200172807 /* Medicine+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4476D26BFC3B200172807 /* Medicine+CoreDataProperties.swift */; };
+		B0A4477226BFC3B200172807 /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4476E26BFC3B200172807 /* User+CoreDataClass.swift */; };
+		B0A4477326BFC3B200172807 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A4476F26BFC3B200172807 /* User+CoreDataProperties.swift */; };
 		B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4252269D75600023EC10 /* AppDelegate.swift */; };
 		B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4254269D75600023EC10 /* SceneDelegate.swift */; };
 		B0AC4257269D75600023EC10 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AC4256269D75600023EC10 /* MainController.swift */; };
@@ -61,10 +61,6 @@
 /* Begin PBXFileReference section */
 		B007673C26BD87B400230349 /* UserStoryTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserStoryTVC.xib; sourceTree = "<group>"; };
 		B007673E26BD87C500230349 /* UserStoryTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStoryTVC.swift; sourceTree = "<group>"; };
-		B00C527226BB96C400EB7ACD /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B00C527326BB96C400EB7ACD /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		B00C527426BB96C400EB7ACD /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
-		B00C527526BB96C400EB7ACD /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B024C44326A978A7005A5931 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 		B024C44426A978A7005A5931 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		B024C44526A978A7005A5931 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
@@ -102,6 +98,10 @@
 		B08A0ED826AC71BC00521158 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		B0A31E9326AE531C00B4F864 /* UserListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTVC.swift; sourceTree = "<group>"; };
 		B0A31E9426AE531C00B4F864 /* UserListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTVC.xib; sourceTree = "<group>"; };
+		B0A4476C26BFC3B200172807 /* Medicine+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B0A4476D26BFC3B200172807 /* Medicine+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Medicine+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B0A4476E26BFC3B200172807 /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B0A4476F26BFC3B200172807 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		B0AC424F269D75600023EC10 /* MediTime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MediTime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0AC4252269D75600023EC10 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0AC4254269D75600023EC10 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -237,10 +237,10 @@
 		B0AC426C269D76A80023EC10 /* DataModel */ = {
 			isa = PBXGroup;
 			children = (
-				B00C527226BB96C400EB7ACD /* User+CoreDataClass.swift */,
-				B00C527326BB96C400EB7ACD /* User+CoreDataProperties.swift */,
-				B00C527426BB96C400EB7ACD /* Medicine+CoreDataClass.swift */,
-				B00C527526BB96C400EB7ACD /* Medicine+CoreDataProperties.swift */,
+				B0A4476C26BFC3B200172807 /* Medicine+CoreDataClass.swift */,
+				B0A4476D26BFC3B200172807 /* Medicine+CoreDataProperties.swift */,
+				B0A4476E26BFC3B200172807 /* User+CoreDataClass.swift */,
+				B0A4476F26BFC3B200172807 /* User+CoreDataProperties.swift */,
 				B0AC425B269D75600023EC10 /* MediTime.xcdatamodeld */,
 			);
 			path = DataModel;
@@ -343,25 +343,25 @@
 			files = (
 				B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */,
 				B08A0ED926AC71BC00521158 /* Protocol.swift in Sources */,
+				B0A4477126BFC3B200172807 /* Medicine+CoreDataProperties.swift in Sources */,
 				B0AC4257269D75600023EC10 /* MainController.swift in Sources */,
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
 				B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */,
 				B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */,
-				B00C527926BB96C400EB7ACD /* Medicine+CoreDataProperties.swift in Sources */,
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
-				B00C527726BB96C400EB7ACD /* User+CoreDataProperties.swift in Sources */,
-				B00C527626BB96C400EB7ACD /* User+CoreDataClass.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
 				B007673F26BD87C500230349 /* UserStoryTVC.swift in Sources */,
 				B049590726A9C6B800BD1E87 /* UserListController.swift in Sources */,
 				B03CA00E269EFE3100C12518 /* DataExample.swift in Sources */,
 				B0AC4253269D75600023EC10 /* AppDelegate.swift in Sources */,
+				B0A4477226BFC3B200172807 /* User+CoreDataClass.swift in Sources */,
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
 				B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */,
+				B0A4477326BFC3B200172807 /* User+CoreDataProperties.swift in Sources */,
+				B0A4477026BFC3B200172807 /* Medicine+CoreDataClass.swift in Sources */,
 				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,
-				B00C527826BB96C400EB7ACD /* Medicine+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,14 +510,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MediTime/MediTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SZUL2AFYNB;
 				INFOPLIST_FILE = MediTime/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maitri.MediTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -532,14 +532,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = MediTime/MediTime.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SZUL2AFYNB;
 				INFOPLIST_FILE = MediTime/Base/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.0;
+				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.maitri.MediTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
