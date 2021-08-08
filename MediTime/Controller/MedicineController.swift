@@ -40,6 +40,7 @@ class MedicineController: UIViewController {
     
     var medicine = [Medicine]()
     var userSelected: User?
+    var status = ""
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate

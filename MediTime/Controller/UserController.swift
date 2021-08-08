@@ -16,6 +16,8 @@ class UserController: UIViewController {
     @IBOutlet weak var sickTextfield: UITextField!
     
     var users = [User]()
+    var userSelected: User?
+    var status = ""
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
@@ -34,12 +36,18 @@ class UserController: UIViewController {
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        print("user selected: ", userSelected)
+    }
+    
     @IBAction func imageTapped(_ sender: Any) {
         showAction()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        addData()
+        
+        status == "edit" ? updateData() : addData()
+        
     }
     
 }
@@ -54,6 +62,12 @@ extension UserController: Setup{
         
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
+        
+        if status == "edit"{
+            nameTextfield.text = userSelected?.name
+            sickTextfield.text = userSelected?.sick
+            profileImageButton.setImage(UIImage(data: userSelected!.photo!), for: .normal)
+        }
     }
     
     @objc func dismissKeyboard(){
@@ -117,6 +131,36 @@ extension UserController: SetupData{
         }
     }
     
+    func updateData(){
+        
+        profileImage = profileImage == nil ? profileImageButton.image(for: .normal) : profileImage
+        
+        guard let name = nameTextfield.text, !name.isEmpty,
+              let sick = sickTextfield.text, !sick.isEmpty,
+              profileImage != nil
+        else{
+            self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            return
+        }
+        
+        let photo = profileImage!.jpegData(compressionQuality: 1)
+        
+        userSelected?.setValue(name, forKey: "name")
+        userSelected?.setValue(sick, forKey: "sick")
+        userSelected?.setValue(photo, forKey: "photo")
+        
+        do{
+            try manageObjectContext.save()
+            
+            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
+        } catch{
+            print(error)
+            
+            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
+        }
+        
+    }
+    
     func loadData(){
         let userRequest:NSFetchRequest<User> = User.fetchRequest()
         
@@ -126,7 +170,7 @@ extension UserController: SetupData{
             print("error")
         }
     }
-    
+
 }
 
 extension UserController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{

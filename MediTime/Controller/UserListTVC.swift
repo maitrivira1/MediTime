@@ -21,4 +21,10 @@ class UserListTVC: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func userData(data: User){
+        userImage.image = UIImage(data: (data.photo)!)
+        userName.text = data.name
+        userMedicine.text = data.sick
+    }
+    
 }

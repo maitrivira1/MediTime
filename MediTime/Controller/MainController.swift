@@ -59,6 +59,7 @@ class MainController: UIViewController {
         if segue.identifier == "medicineController" {
             let destinationVC = segue.destination as! MedicineController
             destinationVC.userSelected = users[index.row]
+            destinationVC.status = "create"
         }
     }
     
@@ -77,7 +78,6 @@ extension MainController: Setup{
         roundedView.layer.shadowRadius = 3
         
         addMedicineButton.layer.cornerRadius = 10
-        medicineTableView.tableFooterView = UIView()
         
         medicineTableView.delegate = self
         medicineTableView.dataSource = self
@@ -86,6 +86,7 @@ extension MainController: Setup{
         medicineTableView.register(nib, forCellReuseIdentifier: "MedicineTVC")
         medicineTableView.separatorStyle = .none
         medicineTableView.backgroundColor = .white
+        medicineTableView.tableFooterView = UIView()
     }
     
     func permission(){
@@ -110,6 +111,8 @@ extension MainController: SetupData{
         
         do {
             try users = manageObjectContext.fetch(userRequest)
+            
+            users = users.filter{$0.isFinish == false}
         } catch {
             print("error")
         }
@@ -128,7 +131,6 @@ extension MainController: SetupData{
         
         do {
             try medicines = manageObjectContext.fetch(request)
-            print("all medicine")
             
             let date = Date()
             let timeFormat = DateFormatter()
@@ -136,8 +138,6 @@ extension MainController: SetupData{
             let current = timeFormat.string(from: date)
             
             medicines = medicines.filter{$0.date == current}
-            
-            print("medicine", medicines)
         } catch {
             print("Error fetching data from context \(error)")
         }
@@ -205,11 +205,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
         medicines[indexPath.row].setValue(true, forKey: "isFinish")
         saveData()
         
-//        let tableCell = medicineTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
-//        tableCell.setupUI()
-        
         medicineTableView.reloadData()
-        print(medicines[indexPath.row].isFinish)
     }
     
 }
