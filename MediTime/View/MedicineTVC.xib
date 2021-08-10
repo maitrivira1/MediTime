@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s2m-2I-UaO">
-                                <rect key="frame" x="86" y="39.5" width="37.5" height="20"/>
+                                <rect key="frame" x="90" y="39.5" width="37.5" height="20"/>
                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="14"/>
                                 <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -134,7 +134,7 @@
                             <constraint firstItem="AQp-8b-J7Q" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="14" id="bhf-OK-Ab5"/>
                             <constraint firstItem="AQp-8b-J7Q" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="14" id="e7N-HI-1Y8"/>
                             <constraint firstItem="fAy-lT-1Ch" firstAttribute="top" secondItem="s2m-2I-UaO" secondAttribute="bottom" constant="1.5" id="fnw-3N-vuC"/>
-                            <constraint firstItem="s2m-2I-UaO" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="10" id="fpD-fa-DJo"/>
+                            <constraint firstItem="s2m-2I-UaO" firstAttribute="leading" secondItem="QeW-RE-DgN" secondAttribute="trailing" constant="14" id="fpD-fa-DJo"/>
                             <constraint firstItem="t8R-je-eQW" firstAttribute="leading" secondItem="ST4-dJ-4OK" secondAttribute="trailing" constant="5" id="fw6-jH-XRZ"/>
                             <constraint firstItem="Q8n-Uz-5BB" firstAttribute="top" secondItem="CnT-72-Tzl" secondAttribute="top" constant="30" id="fxX-Dt-lxi"/>
                             <constraint firstItem="t8R-je-eQW" firstAttribute="leading" secondItem="ST4-dJ-4OK" secondAttribute="trailing" constant="5" id="k8M-dm-JbN"/>

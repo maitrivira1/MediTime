@@ -22,7 +22,13 @@ class UserListTVC: UITableViewCell {
     }
     
     func userData(data: User){
-        userImage.image = UIImage(data: (data.photo)!)
+        
+        guard let photo = data.photo else{
+            userImage.image = UIImage.init(systemName: "photo")
+            return
+        }
+        
+        userImage.image = UIImage(data: (photo))
         userName.text = data.name
         userMedicine.text = data.sick
     }

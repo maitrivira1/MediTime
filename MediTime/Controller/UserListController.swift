@@ -30,7 +30,13 @@ class UserListController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+    }
+    
     @IBAction func segmentedChange(_ sender: UISegmentedControl) {
+        loadUserFinishFalse()
+        loadUserFinishTrue()
         userListTableView.reloadData()
     }
     
@@ -88,10 +94,39 @@ extension UserListController: SetupData{
             try usersTrue = manageObjectContext.fetch(userRequest)
             
             usersTrue = usersTrue.filter{$0.isFinish == true}
+            print("user true", usersTrue)
         } catch {
             print("error")
         }
         
+        userListTableView.reloadData()
+    }
+    
+    func deleteDataUser(id: Int, with request: NSFetchRequest<User> = User.fetchRequest(), predicate: NSPredicate? = nil){
+        
+        let userPredicate = NSPredicate(format: "id = %@", NSNumber(value: id))
+        
+        if let addtionalPredicate = predicate {
+            request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [userPredicate, addtionalPredicate])
+        } else {
+            request.predicate = userPredicate
+        }
+        
+        do {
+            let object = try manageObjectContext.fetch(request)
+            let objectToDelete = object[0] as NSManagedObject
+            manageObjectContext.delete(objectToDelete)
+            
+            do {
+                try manageObjectContext.save()
+            } catch {
+                print("error save")
+            }
+           
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
+        loadUserFinishTrue()
         userListTableView.reloadData()
     }
     
@@ -131,13 +166,6 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserListTVC
             cell.userData(data: userIndex)
             return cell
-            
-//            let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! UserStoryTVC
-//            cell.userStoryImg.image = UIImage(named: userStoryImages[indexPath.row])
-//            cell.userStoryMed.text = userStoryMedNames[indexPath.row]
-//            cell.userStoryUnit.text = userStoryUnits[indexPath.row]
-//            cell.userStoryDosis.text = userStoryDosiss[indexPath.row]
-//            return cell
         
         default:
             let userIndex = usersFalse[indexPath.row]
@@ -152,12 +180,19 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let delete = UIContextualAction(style: .normal, title: "Selesai") { (action, view, completionHandler) in
                 
-                self.ext.showAlertConfirmation(on: self, title: "Pengobatan Selesai", message: "Data pengobatan anda akan tersimpan di Riwayat Pengguna", status: "selsai")
+                let alert = UIAlertController(title: "Pengobatan Selesai", message: "Data pengobatan anda akan tersimpan di Riwayat Pengguna", preferredStyle: .alert)
                 
-                self.usersFalse[indexPath.row].setValue(true, forKey: "isFinish")
-                self.saveData()
-                self.userListTableView.reloadData()
-                completionHandler(true)
+                alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { action in
+                    
+                    self.usersFalse[indexPath.row].setValue(true, forKey: "isFinish")
+                    self.saveData()
+                    self.loadUserFinishFalse()
+                    self.userListTableView.reloadData()
+                    completionHandler(true)
+                    
+                }))
+                
+                self.present(alert, animated: true)
                 
             }
             delete.backgroundColor = UIColor(red: 0.99, green: 0.26, blue: 0.38, alpha: 1.00)
@@ -177,13 +212,13 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
                 
                 let alert = UIAlertController(title: "Hapus Riwayat", message: "Apakah anda yakin ingin menghapus riwayat ini?", preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Tidak", style: .destructive, handler: { action in
+                alert.addAction(UIAlertAction(title: "Tidak", style: .default, handler: { action in
                     
                 }))
                 
-                alert.addAction(UIAlertAction(title: "Yakin", style: .destructive, handler: { action in
+                alert.addAction(UIAlertAction(title: "Yakin", style: .default, handler: { [self] action in
                     
-                    print("hapus")
+                    deleteDataUser(id: Int(self.usersTrue[indexPath.row].id))
                     
                 }))
                 
@@ -209,6 +244,22 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             let swipe = UISwipeActionsConfiguration(actions: [delete, change])
             return swipe
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rencana = UIStoryboard(name: "UserMedicine", bundle: nil)
+        let vc = rencana.instantiateViewController(identifier: "UserMedicine") as! UserMedicine
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            vc.userSelected = usersFalse[indexPath.row]
+        case 1:
+            vc.userSelected = usersTrue[indexPath.row]
+        default:
+            vc.userSelected = usersFalse[indexPath.row]
+        }
+        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

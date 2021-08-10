@@ -36,18 +36,12 @@ class UserController: UIViewController {
         loadData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print("user selected: ", userSelected)
-    }
-    
     @IBAction func imageTapped(_ sender: Any) {
         showAction()
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
-        
         status == "edit" ? updateData() : addData()
-        
     }
     
 }

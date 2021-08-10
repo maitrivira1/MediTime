@@ -27,7 +27,6 @@ extension ScheduleListTVC: Setup{
     func setupUI() {}
     
     func userData(data: Time, index: Int){
-        
         let timeFormat = DateFormatter()
         timeFormat.dateFormat = "HH : mm"
         

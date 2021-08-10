@@ -14,7 +14,7 @@ class Extension: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { action in
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             
             if status == "berhasil"{
                 vc.navigationController?.popToRootViewController(animated: true)

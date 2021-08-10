@@ -42,6 +42,8 @@
 		B049CB00269F2C5C00D56891 /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CAFF269F2C5C00D56891 /* UserController.swift */; };
 		B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B049CB01269F2C6D00D56891 /* MedicineController.swift */; };
 		B057AC4526A18CE400742538 /* NoneCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B057AC4426A18CE400742538 /* NoneCVC.swift */; };
+		B077E83326C0DFB500782436 /* UserMedicine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B077E83226C0DFB500782436 /* UserMedicine.storyboard */; };
+		B077E83526C0E04600782436 /* UserMedicine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B077E83426C0E04600782436 /* UserMedicine.swift */; };
 		B08A0ED926AC71BC00521158 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08A0ED826AC71BC00521158 /* Protocol.swift */; };
 		B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A31E9326AE531C00B4F864 /* UserListTVC.swift */; };
 		B0A31E9626AE531C00B4F864 /* UserListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0A31E9426AE531C00B4F864 /* UserListTVC.xib */; };
@@ -95,6 +97,8 @@
 		B049CAFF269F2C5C00D56891 /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		B049CB01269F2C6D00D56891 /* MedicineController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicineController.swift; sourceTree = "<group>"; };
 		B057AC4426A18CE400742538 /* NoneCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoneCVC.swift; sourceTree = "<group>"; };
+		B077E83226C0DFB500782436 /* UserMedicine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserMedicine.storyboard; sourceTree = "<group>"; };
+		B077E83426C0E04600782436 /* UserMedicine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMedicine.swift; sourceTree = "<group>"; };
 		B08A0ED826AC71BC00521158 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 		B0A31E9326AE531C00B4F864 /* UserListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListTVC.swift; sourceTree = "<group>"; };
 		B0A31E9426AE531C00B4F864 /* UserListTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserListTVC.xib; sourceTree = "<group>"; };
@@ -199,6 +203,7 @@
 				B0A31E9326AE531C00B4F864 /* UserListTVC.swift */,
 				B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */,
 				B007673E26BD87C500230349 /* UserStoryTVC.swift */,
+				B077E83426C0E04600782436 /* UserMedicine.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 				B0A31E9426AE531C00B4F864 /* UserListTVC.xib */,
 				B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */,
 				B007673C26BD87B400230349 /* UserStoryTVC.xib */,
+				B077E83226C0DFB500782436 /* UserMedicine.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -330,6 +336,7 @@
 				B0A31E9626AE531C00B4F864 /* UserListTVC.xib in Resources */,
 				B024C45626A978A8005A5931 /* Poppins-LightItalic.ttf in Resources */,
 				B024C46326A978A8005A5931 /* Poppins-MediumItalic.ttf in Resources */,
+				B077E83326C0DFB500782436 /* UserMedicine.storyboard in Resources */,
 				B024C45B26A978A8005A5931 /* Poppins-ExtraBold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,6 +366,7 @@
 				B0AC4255269D75600023EC10 /* SceneDelegate.swift in Sources */,
 				B036BADD26B7E0E80030CEB5 /* Extension.swift in Sources */,
 				B0A4477326BFC3B200172807 /* User+CoreDataProperties.swift in Sources */,
+				B077E83526C0E04600782436 /* UserMedicine.swift in Sources */,
 				B0A4477026BFC3B200172807 /* Medicine+CoreDataClass.swift in Sources */,
 				B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */,
 				B0AC425D269D75600023EC10 /* MediTime.xcdatamodeld in Sources */,

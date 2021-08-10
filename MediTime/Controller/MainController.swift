@@ -17,7 +17,7 @@ class MainController: UIViewController {
     @IBOutlet weak var todayLabel: UILabel!
     
     var userSelected = ""
-    var index = IndexPath(item: 0, section: 0)
+    var index = IndexPath(item: 0, section: 1)
     var clicked = false
     
     var users = [User]()
@@ -34,8 +34,6 @@ class MainController: UIViewController {
         
         setupUI()
         permission()
-        
-        collectionView(userCollectionView, didSelectItemAt: index)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -52,7 +50,11 @@ class MainController: UIViewController {
             addMedicineButton.backgroundColor = UIColor(red: 0.94, green: 0.96, blue: 0.56, alpha: 1.00)
         }
         
+        self.userCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
         collectionView(userCollectionView, didSelectItemAt: index)
+        
+        userCollectionView.reloadData()
+        medicineTableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -210,7 +212,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     
 }
 
-extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout{
+extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
@@ -237,7 +239,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
         let collectionCell = userCollectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
 
         setupCell(cell: collectionCell, index: indexPath, type: cellID)
-
+        
         return collectionCell
     }
     
@@ -255,16 +257,8 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
     func setupUserCell(cell: UserCVC, indexPath: IndexPath) {
         let userIndex = users[indexPath.row]
         cell.userData(data: userIndex)
-    }
-
-    func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
-        cell.setup()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
+        if index == indexPath {
             cell.changeBackgroundSelected()
-            
             cell.layer.cornerRadius = 15.0
             cell.layer.borderWidth = 0.0
             cell.layer.shadowColor = UIColor.black.cgColor
@@ -272,7 +266,24 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
             cell.layer.shadowRadius = 5.0
             cell.layer.shadowOpacity = 0.5
             cell.layer.masksToBounds = false
+        }else{
+            cell.changeBackgrounUnselected()
+            cell.layer.borderWidth = 0.0
+            cell.layer.shadowColor = UIColor.black.cgColor
+            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+            cell.layer.shadowRadius = 0.0
+            cell.layer.shadowOpacity = 0
+            cell.layer.masksToBounds = false
         }
+    }
+
+    func setupNoneCell(cell: NoneCVC, indexPath: IndexPath) {
+        cell.setup()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.index = indexPath
+        self.userCollectionView.reloadData()
         
         if indexPath.row == users.count{
             return
@@ -281,19 +292,7 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate, 
             todayLabel.text = "Obat \(userSelected) hari ini"
             index = IndexPath(row: indexPath.row, section: indexPath.section)
             loadDataMedicine()
-        }
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        if let cell = collectionView.cellForItem(at: indexPath) as? UserCVC {
-            cell.changeBackgrounUnselected()
             
-            cell.layer.borderWidth = 0.0
-            cell.layer.shadowColor = UIColor.black.cgColor
-            cell.layer.shadowOffset = CGSize(width: 0, height: 0)
-            cell.layer.shadowRadius = 0.0
-            cell.layer.shadowOpacity = 0
-            cell.layer.masksToBounds = false
         }
     }
     

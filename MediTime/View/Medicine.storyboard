@@ -98,25 +98,8 @@
                                                                     <constraint firstItem="sLW-Gh-XrF" firstAttribute="top" secondItem="9ZQ-Wb-JIv" secondAttribute="top" constant="5" id="utO-ak-Hvc"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aii-JG-aVq" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="35" width="414" height="10"/>
-                                                                <subviews>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zve-wb-Loz">
-                                                                        <rect key="frame" x="16" y="4" width="398" height="1"/>
-                                                                        <color key="backgroundColor" systemColor="systemGray4Color"/>
-                                                                    </view>
-                                                                </subviews>
-                                                                <color key="backgroundColor" red="0.92156862750000001" green="1" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="trailing" secondItem="Zve-wb-Loz" secondAttribute="trailing" id="2uW-cq-xJJ"/>
-                                                                    <constraint firstItem="Zve-wb-Loz" firstAttribute="top" secondItem="Aii-JG-aVq" secondAttribute="top" constant="4" id="Jnm-ct-WQ3"/>
-                                                                    <constraint firstItem="Zve-wb-Loz" firstAttribute="leading" secondItem="Aii-JG-aVq" secondAttribute="leading" constant="16" id="K7x-p9-nxP"/>
-                                                                    <constraint firstAttribute="bottom" secondItem="Zve-wb-Loz" secondAttribute="bottom" constant="5" id="Ppt-UE-iMQ"/>
-                                                                    <constraint firstAttribute="height" constant="10" id="eCh-EA-HO6"/>
-                                                                </constraints>
-                                                            </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6JE-8m-CnT" userLabel="obat">
-                                                                <rect key="frame" x="0.0" y="45" width="414" height="90"/>
+                                                                <rect key="frame" x="0.0" y="35" width="414" height="90"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RUF-Ri-5kP">
                                                                         <rect key="frame" x="10" y="10" width="394" height="70"/>
@@ -258,7 +241,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pH1-Jh-AuE" userLabel="nama">
-                                                                <rect key="frame" x="0.0" y="135" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="125" width="414" height="35"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-rx-Nzf">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="35"/>
@@ -271,6 +254,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Nama Obat" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JwM-pz-mJa">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="35"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -287,7 +271,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOr-7o-dCS" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="170" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="160" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlD-Vf-JUy">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -304,7 +288,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffG-c6-qpI" userLabel="unit">
-                                                                <rect key="frame" x="0.0" y="180" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="170" width="414" height="35"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="D9g-gK-Ws4">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="35"/>
@@ -317,6 +301,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Unit Obat" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mnI-6P-Lhw">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="35"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
@@ -333,7 +318,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arX-zT-Z1g" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="215" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="205" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g3c-mx-RcA">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -350,7 +335,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIQ-NR-pnU" userLabel="jumlah obat">
-                                                                <rect key="frame" x="0.0" y="225" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="215" width="414" height="35"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="E6c-Kk-2NX">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="35"/>
@@ -363,6 +348,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Isi Total Obat" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0gI-5F-lb1">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="35"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
@@ -379,7 +365,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NOZ-rl-yBw" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="260" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="250" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbW-Ce-WId">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -396,7 +382,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X5E-qW-M1I" userLabel="dosis">
-                                                                <rect key="frame" x="0.0" y="270" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="260" width="414" height="35"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="rYU-Xy-ZAH">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="35"/>
@@ -409,6 +395,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pilih Dosis Obat" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="48g-Mx-UZa">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="35"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -425,7 +412,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2T7-IL-0dC" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="305" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="295" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23i-Du-A81">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -442,7 +429,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rvl-ij-zRz" userLabel="jumlah pemakaian">
-                                                                <rect key="frame" x="0.0" y="315" width="414" height="36"/>
+                                                                <rect key="frame" x="0.0" y="305" width="414" height="36"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bwY-NV-9Ei">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="36"/>
@@ -455,6 +442,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Jumlah sekali minum" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P83-QS-rGs">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="36"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                             </textField>
@@ -471,7 +459,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XhA-wR-stM" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="351" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="341" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYo-Yb-vMq">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -488,7 +476,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ac6-EA-FTZ" userLabel="waktu makan">
-                                                                <rect key="frame" x="0.0" y="361" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="351" width="414" height="35"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="RHL-p7-Nzk">
                                                                         <rect key="frame" x="16" y="0.0" width="382" height="35"/>
@@ -501,6 +489,7 @@
                                                                             </label>
                                                                             <textField opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Pilih Waktu Makan" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qmn-IH-t5p">
                                                                                 <rect key="frame" x="191" y="0.0" width="191" height="35"/>
+                                                                                <color key="tintColor" systemColor="systemGray4Color"/>
                                                                                 <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                 <textInputTraits key="textInputTraits"/>
                                                                             </textField>
@@ -517,7 +506,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCT-RB-KWq" userLabel="line">
-                                                                <rect key="frame" x="0.0" y="396" width="414" height="10"/>
+                                                                <rect key="frame" x="0.0" y="386" width="414" height="10"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WiB-cF-AeO">
                                                                         <rect key="frame" x="16" y="4" width="398" height="1"/>
@@ -534,7 +523,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iAA-Lb-ge3" userLabel="habis obat">
-                                                                <rect key="frame" x="0.0" y="406" width="414" height="35"/>
+                                                                <rect key="frame" x="0.0" y="396" width="414" height="35"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat akan habis dalam 5 hari" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feh-0y-IcV">
                                                                         <rect key="frame" x="0.0" y="0.0" width="398" height="25"/>
@@ -553,7 +542,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V77-C3-qoY" userLabel="jadwal minum">
-                                                                <rect key="frame" x="0.0" y="441" width="414" height="45"/>
+                                                                <rect key="frame" x="0.0" y="431" width="414" height="45"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jadwal Minum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Utv-dM-qod">
                                                                         <rect key="frame" x="16" y="16" width="398" height="29"/>
@@ -572,10 +561,10 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NVq-rv-fdn" userLabel="table">
-                                                                <rect key="frame" x="0.0" y="486" width="414" height="337.5"/>
+                                                                <rect key="frame" x="0.0" y="476" width="414" height="347.5"/>
                                                                 <subviews>
                                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uOb-nK-ibx">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="321.5"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="331.5"/>
                                                                         <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <prototypes>
                                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleListTVC" id="Bcr-rZ-9KC">
@@ -668,6 +657,7 @@
                         <outlet property="hariView" destination="iAA-Lb-ge3" id="MHO-w3-uRC"/>
                         <outlet property="imageButton" destination="C4A-43-lps" id="y3P-Lf-eL9"/>
                         <outlet property="jadwalView" destination="V77-C3-qoY" id="QmY-Hm-1be"/>
+                        <outlet property="jumlahObatLabel" destination="okS-la-xJ5" id="qfL-bh-gRp"/>
                         <outlet property="jumlahObatTextField" destination="0gI-5F-lb1" id="7q0-QC-jjr"/>
                         <outlet property="jumlahPemakaiTextField" destination="P83-QS-rGs" id="5ld-04-GkW"/>
                         <outlet property="jumlahPemakaianLine" destination="XhA-wR-stM" id="Rna-zG-iyh"/>
@@ -679,6 +669,7 @@
                         <outlet property="scheduleTable" destination="uOb-nK-ibx" id="i6v-Ur-UD1"/>
                         <outlet property="tableView" destination="NVq-rv-fdn" id="WBk-Au-Zt7"/>
                         <outlet property="tetesButton" destination="s9V-fm-Ubs" id="NcM-H3-ePp"/>
+                        <outlet property="unitLabel" destination="6cc-YO-Dg0" id="84o-aH-nke"/>
                         <outlet property="unitLine" destination="arX-zT-Z1g" id="gQQ-KJ-heV"/>
                         <outlet property="unitTextField" destination="mnI-6P-Lhw" id="zG2-kb-74l"/>
                         <outlet property="unitView" destination="ffG-c6-qpI" id="bzi-iA-0BZ"/>

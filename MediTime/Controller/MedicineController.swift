@@ -24,6 +24,8 @@ class MedicineController: UIViewController {
     @IBOutlet weak var dosisTextField: UITextField!
     @IBOutlet weak var jumlahPemakaiTextField: UITextField!
     @IBOutlet weak var eatingTextField: UITextField!
+    @IBOutlet weak var unitLabel: UILabel!
+    @IBOutlet weak var jumlahObatLabel: UILabel!
     
     @IBOutlet weak var unitView: UIView!
     @IBOutlet weak var unitLine: UIView!
@@ -94,6 +96,7 @@ class MedicineController: UIViewController {
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         saveAllData()
+        
     }
     
     func saveAllData(){
@@ -113,7 +116,10 @@ class MedicineController: UIViewController {
             
             for _ in 0..<waktu{
                 
+                let dayTime = Calendar.current.date(bySettingHour: jam[waktu - 1], minute: 0, second: 0, of: date)!
+                
                 addData(id: id, date: timeFormat.string(from: date), time: jam[waktu - 1])
+                makeNotification(date: dayTime)
                 
                 id+=1
                 jam[waktu - 1] += interval[waktu - 1]
@@ -327,6 +333,7 @@ extension MedicineController: Setup{
             eatingLine.isHidden = false
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
+            jumlahObatLabel.text = "Jumlah Obat (mL)"
             
             if hariLabel.text != ""{
                 hariLabel.isHidden = false
@@ -348,6 +355,7 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = false
             hariLabel.isHidden = true
             hariView.isHidden = true
+            jumlahObatLabel.text = "Jumlah Obat"
             
         }else if type == "oles"{
             
@@ -359,6 +367,14 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = true
             hariLabel.isHidden = true
             hariView.isHidden = true
+            jumlahObatLabel.text = "Jumlah Obat"
+            
+        }else if type == "padat"{
+            
+            unitLabel.text = "Unit (mg)"
+            jumlahObatLabel.text = "Jumlah Obat"
+            unitView.isHidden = false
+            unitLine.isHidden = false
             
         }else{
             
@@ -368,6 +384,7 @@ extension MedicineController: Setup{
             eatingLine.isHidden = false
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
+            unitLabel.text = "Unit (mg)"
             
             if hariLabel.text != ""{
                 hariLabel.isHidden = false
@@ -396,8 +413,7 @@ extension MedicineController: Setup{
         let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
 
-        let uuidString = UUID().uuidString
-        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: String(userSelected!.id), content: content, trigger: trigger)
         center.add(request)
         
         center.add(request, withCompletionHandler: { error in
