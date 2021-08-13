@@ -26,6 +26,16 @@ class Extension: UIViewController, UIImagePickerControllerDelegate, UINavigation
         
     }
     
+    func showCrash(on vc: UIViewController){
+        let alert = UIAlertController(title: "title", message: "Terjadi Kesalahan Sistem", preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            
+        }))
+        
+        vc.present(alert, animated: true)
+    }
+    
     //action
     func showActionSheet(on vc: UIViewController){
         let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)

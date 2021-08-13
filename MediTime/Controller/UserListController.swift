@@ -23,7 +23,11 @@ class UserListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        if let context = appDelegate?.persistentContainer.viewContext{
+            manageObjectContext = context
+        }else{
+            ext.showCrash(on: self)
+        }
         
         loadUserFinishFalse()
         loadUserFinishTrue()
@@ -43,7 +47,12 @@ class UserListController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let index = sender as? Int ?? 0
         if segue.identifier == "UserController" {
-            let destinationVC = segue.destination as! UserController
+            
+            guard let destinationVC = segue.destination as? UserController else{
+                ext.showCrash(on: self)
+                return
+            }
+            
             destinationVC.userSelected = usersFalse[index]
             destinationVC.status = "edit"
         }
@@ -158,18 +167,30 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             let userIndex = usersFalse[indexPath.row]
-            let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserListTVC
+            
+            guard let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserListTVC else{
+                fatalError("DequeueReusableCell failed while casting")
+            }
+            
             cell.userData(data: userIndex)
             return cell
         case 1:
             let userIndex = usersTrue[indexPath.row]
-            let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserListTVC
+            
+            guard let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserListTVC else{
+                fatalError("DequeueReusableCell failed while casting")
+            }
+            
             cell.userData(data: userIndex)
             return cell
         
         default:
             let userIndex = usersFalse[indexPath.row]
-            let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! UserListTVC
+            
+            guard let cell = userListTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? UserListTVC else{
+                fatalError("DequeueReusableCell failed while casting")
+            }
+            
             cell.userData(data: userIndex)
             return cell
         }
@@ -248,7 +269,10 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let rencana = UIStoryboard(name: "UserMedicine", bundle: nil)
-        let vc = rencana.instantiateViewController(identifier: "UserMedicine") as! UserMedicine
+        
+        guard let vc = rencana.instantiateViewController(identifier: "UserMedicine") as? UserMedicine else{
+            fatalError("DequeueReusableCell failed while casting")
+        }
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:

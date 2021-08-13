@@ -26,13 +26,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="URW-Tp-K2W">
-                                <rect key="frame" x="0.0" y="88" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E92-Lx-QbY" userLabel="Daftar Pengguna">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Dx-Jr-V8I">
-                                                <rect key="frame" x="16" y="20" width="382" height="20"/>
+                                                <rect key="frame" x="16" y="20" width="358" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daftar Pengguna Obat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6ZS-Yf-Uib">
                                                         <rect key="frame" x="0.0" y="0.0" width="191" height="20"/>
@@ -44,7 +44,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-By-SmL">
-                                                        <rect key="frame" x="191" y="0.0" width="191" height="20"/>
+                                                        <rect key="frame" x="191" y="0.0" width="167" height="20"/>
                                                         <state key="normal">
                                                             <attributedString key="attributedTitle">
                                                                 <fragment content="Lihat Semua">
@@ -73,10 +73,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-0C-1M3" userLabel="Collection View">
-                                        <rect key="frame" x="0.0" y="40" width="414" height="180"/>
+                                        <rect key="frame" x="0.0" y="40" width="390" height="180"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bXQ-cW-s4R">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="165"/>
                                                 <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Bns-b5-iKb">
                                                     <size key="itemSize" width="300" height="160"/>
@@ -207,37 +207,37 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSW-ZS-fbw">
-                                        <rect key="frame" x="0.0" y="220" width="414" height="536"/>
+                                        <rect key="frame" x="0.0" y="220" width="390" height="536"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DES-3y-NRt">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="536"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="536"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96q-qi-D8q" userLabel="Title">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2hc-no-tI8">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x96-Ea-7Mc" userLabel="hari ini">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
-                                                                                <rect key="frame" x="16" y="10" width="382" height="33"/>
+                                                                                <rect key="frame" x="16" y="10" width="358" height="33"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Hari Ini" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5D-3c-5ej">
-                                                                                        <rect key="frame" x="0.0" y="7.6666666666666838" width="262" height="25.333333333333329"/>
+                                                                                        <rect key="frame" x="0.0" y="7.6666666666666838" width="238" height="25.333333333333329"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="262" id="iFP-4R-dPy"/>
+                                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="238" id="i4P-o7-5cO"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                         <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuE-Eg-dgk">
-                                                                                        <rect key="frame" x="262" y="4" width="120" height="29"/>
+                                                                                        <rect key="frame" x="238" y="4" width="120" height="29"/>
                                                                                         <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="IdQ-NS-NOY"/>
+                                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="awx-vJ-UhM"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                                                         <state key="normal" title="+ Tambah Obat">
@@ -269,10 +269,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5W-FH-hjj" userLabel="Table View">
-                                                        <rect key="frame" x="0.0" y="60" width="414" height="476"/>
+                                                        <rect key="frame" x="0.0" y="60" width="390" height="476"/>
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-Tf-g6t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="476"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="390" height="476"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -325,7 +325,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028.985507246377" y="124.55357142857142"/>
+            <point key="canvasLocation" x="882" y="124"/>
         </scene>
         <!--MedicineController-->
         <scene sceneID="4yJ-if-vdP">

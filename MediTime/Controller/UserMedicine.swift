@@ -14,6 +14,7 @@ class UserMedicine: UIViewController {
     var userSelected: User?
     var medicines = [Medicine]()
     var filterMedicine = [Medicine]()
+    let ext = Extension()
     
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -21,7 +22,11 @@ class UserMedicine: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        if let context = appDelegate?.persistentContainer.viewContext{
+            manageObjectContext = context
+        }else{
+            ext.showCrash(on: self)
+        }
         
         loadDataMedicine()
         
@@ -88,7 +93,11 @@ extension UserMedicine: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let medicineIndex = medicines[indexPath.row]
-        let cell = userMedtableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as! UserStoryTVC
+        
+        guard let cell = userMedtableView.dequeueReusableCell(withIdentifier: "cell2", for: indexPath) as? UserStoryTVC else{
+            fatalError("DequeueReusableCell failed while casting")
+        }
+        cell.selectionStyle = .none
         cell.userData(data: medicineIndex)
         return cell
     }

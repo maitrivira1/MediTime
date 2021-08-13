@@ -22,12 +22,20 @@ class MainController: UIViewController {
     
     var users = [User]()
     var medicines = [Medicine]()
+    let ext = Extension()
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        
+        self.userCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
+        
+        if let context = appDelegate?.persistentContainer.viewContext{
+            manageObjectContext = context
+        }else{
+            ext.showCrash(on: self)
+        }
         
         loadDataUser()
         loadDataMedicine()
@@ -59,9 +67,12 @@ class MainController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "medicineController" {
-            let destinationVC = segue.destination as! MedicineController
-            destinationVC.userSelected = users[index.row]
-            destinationVC.status = "create"
+            
+            if let destinationVC = segue.destination as? MedicineController{
+                destinationVC.userSelected = users[index.row]
+                destinationVC.status = "create"
+            }
+            
         }
     }
     
@@ -193,12 +204,15 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let userIndex = medicines[indexPath.row]
-        let tableCell = medicineTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as! MedicineTVC
         
-        tableCell.selectionStyle = .none
-        tableCell.userData(with: userIndex)
+        guard let cell = medicineTableView.dequeueReusableCell(withIdentifier: "MedicineTVC", for: indexPath) as? MedicineTVC else{
+            fatalError("DequeueReusableCell failed while casting")
+        }
         
-        return tableCell
+        cell.selectionStyle = .none
+        cell.userData(with: userIndex)
+        
+        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -246,9 +260,21 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
     func setupCell(cell: UICollectionViewCell, index: IndexPath, type: String) {
         switch(type) {
             case "UserCVC":
-                setupUserCell(cell: cell as! UserCVC, indexPath: index)
+                
+                guard let userCell = cell as? UserCVC else{
+                    ext.showCrash(on: self)
+                    return
+                }
+                
+                setupUserCell(cell: userCell, indexPath: index)
             case "UserNone":
-                setupNoneCell(cell: cell as! NoneCVC, indexPath: index)
+                
+                guard let noneCell = cell as? NoneCVC else{
+                    ext.showCrash(on: self)
+                    return
+                }
+                
+                setupNoneCell(cell: noneCell, indexPath: index)
             default:
                 break
         }
@@ -288,11 +314,10 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
         if indexPath.row == users.count{
             return
         }else{
-            userSelected = "\(users[indexPath.row].name!)"
+            userSelected = "\(users[indexPath.row].name ?? "")"
             todayLabel.text = "Obat \(userSelected) hari ini"
             index = IndexPath(row: indexPath.row, section: indexPath.section)
             loadDataMedicine()
-            
         }
     }
     

@@ -23,8 +23,12 @@ extension UserCVC: Setup{
     func userData(data: User){
         userName.text = data.name
         userSick.text = data.sick
-        userImg.image = UIImage(data: (data.photo)!)
         
+        guard let photo = data.photo else{
+            return
+        }
+        
+        userImg.image = UIImage(data: photo)
         userView.layer.cornerRadius = 8
         userImg.layer.cornerRadius = (userImg.frame.width / 2)
     }

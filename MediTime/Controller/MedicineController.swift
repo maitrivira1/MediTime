@@ -78,10 +78,13 @@ class MedicineController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        if let context = appDelegate?.persistentContainer.viewContext{
+            manageObjectContext = context
+        }else{
+            ext.showCrash(on: self)
+        }
         
         setupUI()
-        print("user selected medicine controller", userSelected!)
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {
@@ -89,7 +92,13 @@ class MedicineController: UIViewController {
     }
     
     @IBAction func bentukObatTapped(_ sender: UIButton) {
-        type = sender.currentTitle!
+        
+        guard let title = sender.currentTitle else{
+            ext.showCrash(on: self)
+            return
+        }
+        
+        type = title
         getMedicine()
         showDay()
     }
@@ -116,10 +125,15 @@ class MedicineController: UIViewController {
             
             for _ in 0..<waktu{
                 
-                let dayTime = Calendar.current.date(bySettingHour: jam[waktu - 1], minute: 0, second: 0, of: date)!
+                let dayTime = Calendar.current.date(bySettingHour: jam[waktu - 1], minute: 0, second: 0, of: date)
+                
+                guard let day = dayTime else{
+                    ext.showCrash(on: self)
+                    return
+                }
                 
                 addData(id: id, date: timeFormat.string(from: date), time: jam[waktu - 1])
-                makeNotification(date: dayTime)
+                makeNotification(date: day)
                 
                 id+=1
                 jam[waktu - 1] += interval[waktu - 1]
@@ -128,7 +142,12 @@ class MedicineController: UIViewController {
             
             dateComponent.day = 1
             let currentTime = Calendar.current.date(byAdding: dateComponent, to: date)
-            date = currentTime!
+            
+            guard let current = currentTime else {
+                ext.showCrash(on: self)
+                return
+            }
+            date = current
             jam = [9 ,8, 7, 6]
             
         }
@@ -232,24 +251,31 @@ extension MedicineController: Setup{
         guard let dosisText = dosisTextField.text, !dosisText.isEmpty else{
             return
         }
-        dosisSelected =  Int(dosisText.prefix(1))!
+        dosisSelected =  Int(dosisText.prefix(1)) ?? 0
         
         jadwalView.isHidden = false
         tableView.isHidden = false
         
-        let timeOneFirst = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date())!
+        let timeOneFirst = Calendar.current.date(bySettingHour: 9, minute: 0, second: 0, of: Date())
 
-        let timeTwoFirst = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: Date())!
-        let timeTwoSecond = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: Date())!
+        let timeTwoFirst = Calendar.current.date(bySettingHour: 8, minute: 0, second: 0, of: Date())
+        let timeTwoSecond = Calendar.current.date(bySettingHour: 20, minute: 0, second: 0, of: Date())
 
-        let timeThreeFirst = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: Date())!
-        let timeThreeSecond = Calendar.current.date(bySettingHour: 15, minute: 0, second: 0, of: Date())!
-        let timeThreeThird = Calendar.current.date(bySettingHour: 23, minute: 0, second: 0, of: Date())!
+        let timeThreeFirst = Calendar.current.date(bySettingHour: 7, minute: 0, second: 0, of: Date())
+        let timeThreeSecond = Calendar.current.date(bySettingHour: 15, minute: 0, second: 0, of: Date())
+        let timeThreeThird = Calendar.current.date(bySettingHour: 23, minute: 0, second: 0, of: Date())
 
-        let timeFourFirst = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: Date())!
-        let timeFourSecond = Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: Date())!
-        let timeFourThird = Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: Date())!
-        let timeFourFouth = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())!
+        let timeFourFirst = Calendar.current.date(bySettingHour: 6, minute: 0, second: 0, of: Date())
+        let timeFourSecond = Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: Date())
+        let timeFourThird = Calendar.current.date(bySettingHour: 18, minute: 0, second: 0, of: Date())
+        let timeFourFouth = Calendar.current.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
+        
+        guard let timeOneFirst = timeOneFirst, let timeTwoFirst = timeTwoFirst, let timeTwoSecond = timeTwoSecond,
+              let timeThreeFirst = timeThreeFirst, let timeThreeSecond = timeThreeSecond, let timeThreeThird = timeThreeThird,
+              let timeFourFirst = timeFourFirst, let timeFourSecond = timeFourSecond, let timeFourThird = timeFourThird, let timeFourFouth = timeFourFouth else{
+            ext.showCrash(on: self)
+            return
+        }
         
         times = []
         
@@ -412,8 +438,13 @@ extension MedicineController: Setup{
         
         let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
+        
+        guard let user = userSelected else{
+            ext.showCrash(on: self)
+            return
+        }
 
-        let request = UNNotificationRequest(identifier: String(userSelected!.id), content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: String(user.id), content: content, trigger: trigger)
         center.add(request)
         
         center.add(request, withCompletionHandler: { error in
@@ -437,7 +468,7 @@ extension MedicineController : SetupData{
               var pemakaian = jumlahPemakaiTextField.text,
               var waktu = eatingTextField.text,
               !type.isEmpty,
-              profileImage != nil
+              profileImage != nil, let image = profileImage
         else{
             self.ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
             return
@@ -453,7 +484,7 @@ extension MedicineController : SetupData{
         }
         
         let medicine = Medicine(context: self.context)
-        let photo = profileImage!.jpegData(compressionQuality: 1)
+        let photo = image.jpegData(compressionQuality: 1)
         
         medicine.bentukObat = type
         medicine.date = date

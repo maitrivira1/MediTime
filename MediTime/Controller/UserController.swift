@@ -30,7 +30,11 @@ class UserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        manageObjectContext = appDelegate?.persistentContainer.viewContext as! NSManagedObjectContext
+        if let context = appDelegate?.persistentContainer.viewContext{
+            manageObjectContext = context
+        }else{
+            ext.showCrash(on: self)
+        }
 
         setupUI()
         loadData()
@@ -58,9 +62,15 @@ extension UserController: Setup{
         self.view.addGestureRecognizer(tap)
         
         if status == "edit"{
-            nameTextfield.text = userSelected?.name
-            sickTextfield.text = userSelected?.sick
-            profileImageButton.setImage(UIImage(data: userSelected!.photo!), for: .normal)
+            
+            guard let user = userSelected, let photo = userSelected?.photo else {
+                ext.showCrash(on: self)
+                return
+            }
+            
+            nameTextfield.text = user.name
+            sickTextfield.text = user.sick
+            profileImageButton.setImage(UIImage(data: photo), for: .normal)
         }
     }
     
@@ -94,17 +104,23 @@ extension UserController: SetupData{
     
     func addData() {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
-        let newUser = NSManagedObject(entity: entity!, insertInto: manageObjectContext)
+        
+        guard let newEntity = entity else{
+            ext.showCrash(on: self)
+            return
+        }
+        
+        let newUser = NSManagedObject(entity: newEntity, insertInto: manageObjectContext)
         
         guard let name = nameTextfield.text, !name.isEmpty,
               let sick = sickTextfield.text, !sick.isEmpty,
-              profileImage != nil
+              profileImage != nil, let profile = profileImage
         else{
             self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
             return
         }
         
-        let photo = profileImage!.jpegData(compressionQuality: 1)
+        let photo = profile.jpegData(compressionQuality: 1)
         
         let id = users.count + 1
         newUser.setValue(id, forKey: "id")
@@ -131,13 +147,13 @@ extension UserController: SetupData{
         
         guard let name = nameTextfield.text, !name.isEmpty,
               let sick = sickTextfield.text, !sick.isEmpty,
-              profileImage != nil
+              profileImage != nil, let profile = profileImage
         else{
             self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
             return
         }
         
-        let photo = profileImage!.jpegData(compressionQuality: 1)
+        let photo = profile.jpegData(compressionQuality: 1)
         
         userSelected?.setValue(name, forKey: "name")
         userSelected?.setValue(sick, forKey: "sick")

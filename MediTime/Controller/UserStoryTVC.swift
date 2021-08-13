@@ -26,7 +26,12 @@ class UserStoryTVC: UITableViewCell {
     }
     
     func userData(data: Medicine){
-        userStoryImg.image = UIImage(data: (data.photo)!)
+        
+        guard let photo = data.photo else{
+            return
+        }
+        
+        userStoryImg.image = UIImage(data: photo)
         userStoryMed.text = data.nama
         
         let timeFormat = DateFormatter()
