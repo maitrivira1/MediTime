@@ -15,8 +15,10 @@ class MainController: UIViewController {
     @IBOutlet weak var userCollectionView: UICollectionView!
     @IBOutlet weak var medicineTableView: UITableView!
     @IBOutlet weak var todayLabel: UILabel!
+    @IBOutlet weak var userImageView: UIImageView!
     
-    var userSelected = ""
+    var userSelected: String = ""
+    var userImageSelected: Data? = nil
     var index = IndexPath(item: 0, section: 1)
     var clicked = false
     
@@ -91,6 +93,8 @@ extension MainController: Setup{
         roundedView.layer.shadowRadius = 3
         
         addMedicineButton.layer.cornerRadius = 10
+        
+        userImageView.layer.cornerRadius = (userImageView.frame.width / 2)
         
         medicineTableView.delegate = self
         medicineTableView.dataSource = self
@@ -314,8 +318,16 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
         if indexPath.row == users.count{
             return
         }else{
-            userSelected = "\(users[indexPath.row].name ?? "")"
+            userSelected = users[indexPath.row].name ?? ""
+            userImageSelected = users[indexPath.row].photo
             todayLabel.text = "Obat \(userSelected) hari ini"
+            
+            if let image = userImageSelected {
+                userImageView.image = UIImage(data: image)
+            }else{
+                userImageView.image = UIImage(systemName: "photo")
+            }
+            
             index = IndexPath(row: indexPath.row, section: indexPath.section)
             loadDataMedicine()
         }

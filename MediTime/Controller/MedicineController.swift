@@ -434,7 +434,7 @@ extension MedicineController: Setup{
         let content = UNMutableNotificationContent()
         content.title = "Hore... waktunya minum obat"
         content.sound = .default
-        content.body = "Cek jadwal obat sekarang yuk"
+        content.body = "Cek jadwal obat \(userSelected?.name ?? "") sekarang yuk"
         
         let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)

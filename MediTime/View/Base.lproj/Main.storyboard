@@ -140,7 +140,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="118" height="133"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aeB-Aq-c2v">
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="aeB-Aq-c2v">
                                                                     <rect key="frame" x="28" y="12.666666666666664" width="62" height="58.999999999999993"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     <constraints>
@@ -221,23 +221,29 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x96-Ea-7Mc" userLabel="hari ini">
                                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
                                                                                 <rect key="frame" x="16" y="10" width="358" height="33"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Hari Ini" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5D-3c-5ej">
-                                                                                        <rect key="frame" x="0.0" y="7.6666666666666838" width="238" height="25.333333333333329"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user6" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-aJ-GMb">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="238" id="i4P-o7-5cO"/>
+                                                                                            <constraint firstAttribute="width" constant="33" id="xfZ-NY-PHu"/>
+                                                                                        </constraints>
+                                                                                    </imageView>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Obat Hari Ini" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5D-3c-5ej">
+                                                                                        <rect key="frame" x="38" y="7.6666666666666838" width="205" height="25.333333333333329"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="205" id="i4P-o7-5cO"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Poppins-Regular" family="Poppins" pointSize="18"/>
                                                                                         <color key="textColor" red="0.023529411760000001" green="0.32549019610000002" blue="0.28235294119999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuE-Eg-dgk">
-                                                                                        <rect key="frame" x="238" y="4" width="120" height="29"/>
+                                                                                        <rect key="frame" x="248" y="4" width="110" height="29"/>
                                                                                         <color key="backgroundColor" red="0.93725490196078431" green="0.95686274509803915" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="120" id="awx-vJ-UhM"/>
+                                                                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="130" id="awx-vJ-UhM"/>
                                                                                         </constraints>
                                                                                         <fontDescription key="fontDescription" name="Poppins-SemiBold" family="Poppins" pointSize="12"/>
                                                                                         <state key="normal" title="+ Tambah Obat">
@@ -321,6 +327,7 @@
                         <outlet property="roundedView" destination="mSW-ZS-fbw" id="742-CH-4IK"/>
                         <outlet property="todayLabel" destination="Q5D-3c-5ej" id="l50-89-oGI"/>
                         <outlet property="userCollectionView" destination="bXQ-cW-s4R" id="8Jz-GB-lGR"/>
+                        <outlet property="userImageView" destination="Arn-aJ-GMb" id="RcE-YI-iNo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -335,7 +342,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vDz-VI-GSY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1688" y="202"/>
+            <point key="canvasLocation" x="1688" y="178"/>
         </scene>
         <!--UserList-->
         <scene sceneID="uPc-Ok-3Rs">
@@ -345,7 +352,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JaL-u4-Mu2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1641" y="38"/>
+            <point key="canvasLocation" x="1638" y="70"/>
         </scene>
         <!--UserController-->
         <scene sceneID="RS3-5O-a1K">
@@ -392,6 +399,7 @@
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" width="256" height="256"/>
+        <image name="user6" width="420" height="382"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
