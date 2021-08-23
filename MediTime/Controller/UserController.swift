@@ -21,8 +21,6 @@ class UserController: UIViewController {
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    weak var delegate: UserDataDelegate?
-    
     let ext = Extension()
     
     var profileImage: UIImage? = nil

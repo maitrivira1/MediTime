@@ -27,7 +27,6 @@
 		B024C46426A978A8005A5931 /* Poppins-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45226A978A8005A5931 /* Poppins-ExtraLightItalic.ttf */; };
 		B024C46526A978A8005A5931 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45326A978A8005A5931 /* Poppins-Light.ttf */; };
 		B024C46626A978A8005A5931 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B024C45426A978A8005A5931 /* Poppins-Italic.ttf */; };
-		B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B024C46726A97A22005A5931 /* DatabaseHandler.swift */; };
 		B030C50A26A01BEE00DB8797 /* UserCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B030C50926A01BEE00DB8797 /* UserCVC.swift */; };
 		B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */; };
 		B036BAD326B786740030CEB5 /* ScheduleListTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B036BAD126B786740030CEB5 /* ScheduleListTVC.xib */; };
@@ -81,7 +80,6 @@
 		B024C45226A978A8005A5931 /* Poppins-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		B024C45326A978A8005A5931 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		B024C45426A978A8005A5931 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
-		B024C46726A97A22005A5931 /* DatabaseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseHandler.swift; sourceTree = "<group>"; };
 		B030C50926A01BEE00DB8797 /* UserCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCVC.swift; sourceTree = "<group>"; };
 		B033AEB126BCD67D00EF5776 /* MediTime.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MediTime.entitlements; sourceTree = "<group>"; };
 		B036BAD026B786740030CEB5 /* ScheduleListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleListTVC.swift; sourceTree = "<group>"; };
@@ -233,7 +231,6 @@
 				B0AC4254269D75600023EC10 /* SceneDelegate.swift */,
 				B0AC425E269D75600023EC10 /* Assets.xcassets */,
 				B0AC4263269D75600023EC10 /* Info.plist */,
-				B024C46726A97A22005A5931 /* DatabaseHandler.swift */,
 				B08A0ED826AC71BC00521158 /* Protocol.swift */,
 				B036BADC26B7E0E80030CEB5 /* Extension.swift */,
 			);
@@ -355,7 +352,6 @@
 				B049CB02269F2C6D00D56891 /* MedicineController.swift in Sources */,
 				B03CA011269F018900C12518 /* MedicineTVC.swift in Sources */,
 				B036BAD226B786740030CEB5 /* ScheduleListTVC.swift in Sources */,
-				B024C46826A97A22005A5931 /* DatabaseHandler.swift in Sources */,
 				B0A31E9526AE531C00B4F864 /* UserListTVC.swift in Sources */,
 				B049CB00269F2C5C00D56891 /* UserController.swift in Sources */,
 				B007673F26BD87C500230349 /* UserStoryTVC.swift in Sources */,

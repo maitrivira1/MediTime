@@ -439,12 +439,9 @@ extension MedicineController: Setup{
         let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
         
-        guard let user = userSelected else{
-            ext.showCrash(on: self)
-            return
-        }
+        let uuidString = UUID().uuidString
 
-        let request = UNNotificationRequest(identifier: String(user.id), content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: uuidString, content: content, trigger: trigger)
         center.add(request)
         
         center.add(request, withCompletionHandler: { error in

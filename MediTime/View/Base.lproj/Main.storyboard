@@ -224,7 +224,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
                                                                                 <rect key="frame" x="16" y="10" width="358" height="33"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user6" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-aJ-GMb">
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-aJ-GMb">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="33" id="xfZ-NY-PHu"/>
@@ -399,7 +399,6 @@
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" width="256" height="256"/>
-        <image name="user6" width="420" height="382"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

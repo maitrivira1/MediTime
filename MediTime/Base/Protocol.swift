@@ -12,7 +12,3 @@ protocol Setup {
 }
 
 protocol SetupData { }
-
-protocol UserDataDelegate: AnyObject{
-    func saveUserData(_ data: [User])
-}
