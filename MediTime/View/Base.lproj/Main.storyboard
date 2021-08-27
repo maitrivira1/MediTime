@@ -224,8 +224,8 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q8a-LT-srh">
                                                                                 <rect key="frame" x="16" y="10" width="358" height="33"/>
                                                                                 <subviews>
-                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-aJ-GMb">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="33" height="33"/>
+                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-aJ-GMb">
+                                                                                        <rect key="frame" x="0.0" y="1.6666666666666625" width="33" height="30.000000000000007"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" constant="33" id="xfZ-NY-PHu"/>
                                                                                         </constraints>
@@ -254,6 +254,10 @@
                                                                                         </connections>
                                                                                     </button>
                                                                                 </subviews>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="Arn-aJ-GMb" firstAttribute="top" secondItem="Q8a-LT-srh" secondAttribute="top" id="btO-bL-ta1"/>
+                                                                                    <constraint firstItem="Arn-aJ-GMb" firstAttribute="leading" secondItem="Q8a-LT-srh" secondAttribute="leading" id="inP-VD-XLT"/>
+                                                                                </constraints>
                                                                             </stackView>
                                                                         </subviews>
                                                                         <constraints>
@@ -398,6 +402,7 @@
     <color key="tintColor" red="0.023529411764705882" green="0.32549019607843138" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="photo" catalog="system" width="128" height="93"/>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="plus" width="256" height="256"/>
         <systemColor name="systemOrangeColor">
             <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
