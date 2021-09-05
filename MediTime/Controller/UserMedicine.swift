@@ -37,7 +37,7 @@ class UserMedicine: UIViewController {
 extension UserMedicine: Setup{
     
     func setupUI() {
-        navigationItem.title = "User"
+        navigationItem.title = userSelected?.name
         userMedtableView.register(UINib(nibName: "UserStoryTVC", bundle: nil), forCellReuseIdentifier: "cell2")
         userMedtableView.delegate = self
         userMedtableView.dataSource = self

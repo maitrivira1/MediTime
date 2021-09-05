@@ -46,13 +46,15 @@ class MainController: UIViewController {
         permission()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         loadDataUser()
         loadDataMedicine()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
-    
+        
         if users.count == 0{
+            todayLabel.text = "Obat hari ini"
+            userImageView.image = UIImage(systemName: "photo")
             addMedicineButton.isEnabled = false
             addMedicineButton.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.00)
         }else{

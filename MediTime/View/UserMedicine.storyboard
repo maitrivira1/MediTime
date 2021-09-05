@@ -17,11 +17,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CWt-sf-VkC">
-                                <rect key="frame" x="0.0" y="74" width="414" height="822"/>
+                                <rect key="frame" x="0.0" y="49" width="414" height="847"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="414" id="AuU-kx-5cw"/>
-                                    <constraint firstAttribute="height" constant="822" id="Zeh-ou-KPB"/>
+                                    <constraint firstAttribute="height" constant="847" id="XKn-6m-1iC"/>
                                 </constraints>
                             </tableView>
                         </subviews>
@@ -31,7 +31,7 @@
                             <constraint firstItem="CWt-sf-VkC" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="3yz-yk-fwv"/>
                             <constraint firstAttribute="bottom" secondItem="CWt-sf-VkC" secondAttribute="bottom" id="f6Q-b4-1YL"/>
                             <constraint firstItem="CWt-sf-VkC" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="tW0-YU-pqx"/>
-                            <constraint firstItem="CWt-sf-VkC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="30" id="z5Z-jD-GG2"/>
+                            <constraint firstItem="CWt-sf-VkC" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="z5Z-jD-GG2"/>
                         </constraints>
                     </view>
                     <connections>

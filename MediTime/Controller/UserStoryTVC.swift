@@ -27,18 +27,25 @@ class UserStoryTVC: UITableViewCell {
     
     func userData(data: Medicine){
         
-        guard let photo = data.photo else{
+        guard let photo = data.photo, let date = data.date else{
             return
         }
         
         userStoryImg.image = UIImage(data: photo)
         userStoryMed.text = data.nama
         
+        let year = date.prefix(4)
+        let index = date.index(date.startIndex, offsetBy: 5)
+        var middle = date.suffix(from: index)
+        middle = middle.prefix(2)
+        let day = date.suffix(2)
+        
+        userStoryUnit.text = "\(day)-\(middle)-\(year)"
+        
         let timeFormat = DateFormatter()
         timeFormat.dateFormat = "HH : mm"
         
-        userStoryUnit.text = ("\(String(data.time)).00")
-        userStoryDosis.text = data.date
+        userStoryDosis.text = ("\(String(data.time)).00")
     }
     
 }

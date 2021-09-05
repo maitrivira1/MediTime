@@ -153,13 +153,44 @@ extension UserListController: SetupData{
 extension UserListController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        let userFalseCount = usersFalse.count
+        let userTrueCount = usersTrue.count
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            return usersFalse.count
+            if userFalseCount == 0{
+                tableView.separatorStyle  = .none
+                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
+                noDataLabel.text          = "Belum Ada Data"
+                noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
+                noDataLabel.numberOfLines = 2
+                noDataLabel.textAlignment = .center
+                noDataLabel.font          = UIFont(name: "Poppins-Regular", size: 16)
+                tableView.backgroundView  = noDataLabel
+            }else{
+                tableView.separatorStyle = .singleLine
+                tableView.backgroundView = nil
+                return userFalseCount
+            }
+            return userFalseCount
         case 1:
-            return usersTrue.count
+            if userTrueCount == 0{
+                tableView.separatorStyle  = .none
+                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
+                noDataLabel.text          = "Belum Ada Data"
+                noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
+                noDataLabel.numberOfLines = 2
+                noDataLabel.textAlignment = .center
+                noDataLabel.font          = UIFont(name: "Poppins-Regular", size: 16)
+                tableView.backgroundView  = noDataLabel
+            }else{
+                tableView.separatorStyle = .singleLine
+                tableView.backgroundView = nil
+                return userTrueCount
+            }
+            return userTrueCount
         default:
-            return usersFalse.count
+            return userFalseCount
         }
     }
     
