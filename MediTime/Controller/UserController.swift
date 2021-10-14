@@ -20,7 +20,7 @@ class UserController: UIViewController {
     var status = ""
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
+    var statusName = false
     let ext = Extension()
     
     var profileImage: UIImage? = nil
@@ -100,6 +100,16 @@ extension UserController: Setup{
 
 extension UserController: SetupData{
     
+    func loadData(){
+        let userRequest:NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            try users = manageObjectContext.fetch(userRequest)
+        } catch {
+            print("error")
+        }
+    }
+    
     func addData() {
         let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
         
@@ -118,25 +128,38 @@ extension UserController: SetupData{
             return
         }
         
-        let photo = profile.jpegData(compressionQuality: 1)
-        
-        let id = users.count + 1
-        newUser.setValue(id, forKey: "id")
-        newUser.setValue(name, forKey: "name")
-        newUser.setValue(photo, forKey: "photo")
-        newUser.setValue(sick, forKey: "sick")
-        
-        do {
-            try manageObjectContext.save()
-            print("save: \(newUser)")
-            
-            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
-            
-        } catch let error as NSError {
-            print("error: \(error)")
-            
-            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
+        for i in users {
+            if name != i.name {
+                statusName = true
+            } else {
+                self.ext.showAlertConfirmation(on: self , title: "Nama Sudah Ada", message: "Nama yang anda masukan sudah ada", status: "kosong")
+            }
         }
+        
+        if statusName == true {
+            
+            let photo = profile.jpegData(compressionQuality: 1)
+            
+            let id = users.count + 1
+            newUser.setValue(id, forKey: "id")
+            newUser.setValue(name, forKey: "name")
+            newUser.setValue(photo, forKey: "photo")
+            newUser.setValue(sick, forKey: "sick")
+            
+            do {
+                try manageObjectContext.save()
+                print("save: \(newUser)")
+                
+                ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
+                
+            } catch let error as NSError {
+                print("error: \(error)")
+                
+                ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
+            }
+            
+        }
+        
     }
     
     func updateData(){
@@ -169,16 +192,6 @@ extension UserController: SetupData{
         
     }
     
-    func loadData(){
-        let userRequest:NSFetchRequest<User> = User.fetchRequest()
-        
-        do {
-            try users = manageObjectContext.fetch(userRequest)
-        } catch {
-            print("error")
-        }
-    }
-
 }
 
 extension UserController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
