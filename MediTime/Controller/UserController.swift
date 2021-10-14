@@ -16,6 +16,7 @@ class UserController: UIViewController {
     @IBOutlet weak var sickTextfield: UITextField!
     
     var users = [User]()
+    var usersName = [User]()
     var userSelected: User?
     var status = ""
     var manageObjectContext = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
@@ -36,6 +37,7 @@ class UserController: UIViewController {
 
         setupUI()
         loadData()
+        print(users)
     }
     
     @IBAction func imageTapped(_ sender: Any) {
@@ -110,15 +112,23 @@ extension UserController: SetupData{
         }
     }
     
-    func addData() {
-        let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
+    func loadDataName(){
+        let userRequest:NSFetchRequest<User> = User.fetchRequest()
         
-        guard let newEntity = entity else{
-            ext.showCrash(on: self)
-            return
+        do {
+            try usersName = manageObjectContext.fetch(userRequest)
+            usersName = usersName.filter{$0.name == nameTextfield.text}
+            
+            if usersName.isEmpty {
+                statusName = true
+            }
+            
+        } catch {
+            print("error")
         }
-        
-        let newUser = NSManagedObject(entity: newEntity, insertInto: manageObjectContext)
+    }
+    
+    func addData() {
         
         guard let name = nameTextfield.text, !name.isEmpty,
               let sick = sickTextfield.text, !sick.isEmpty,
@@ -128,15 +138,18 @@ extension UserController: SetupData{
             return
         }
         
-        for i in users {
-            if name != i.name {
-                statusName = true
-            } else {
-                self.ext.showAlertConfirmation(on: self , title: "Nama Sudah Ada", message: "Nama yang anda masukan sudah ada", status: "kosong")
-            }
-        }
+        loadDataName()
         
         if statusName == true {
+            
+            let entity = NSEntityDescription.entity(forEntityName: "User", in: manageObjectContext)
+            
+            guard let newEntity = entity else{
+                ext.showCrash(on: self)
+                return
+            }
+            
+            let newUser = NSManagedObject(entity: newEntity, insertInto: manageObjectContext)
             
             let photo = profile.jpegData(compressionQuality: 1)
             
@@ -158,6 +171,9 @@ extension UserController: SetupData{
                 ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
             }
             
+        } else {
+            self.ext.showAlertConfirmation(on: self , title: "Nama telah terdaftar", message: "Nama yang Anda inputkan telah terdaftar", status: "gagal")
+            return
         }
         
     }
