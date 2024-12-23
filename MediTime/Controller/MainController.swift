@@ -10,6 +10,8 @@ import CoreData
 
 class MainController: UIViewController {
     
+    @IBOutlet weak var seeAllButton: UIButton!
+    @IBOutlet weak var listOfUser: UILabel!
     @IBOutlet weak var roundedView: UIView!
     @IBOutlet weak var addMedicineButton: UIButton!
     @IBOutlet weak var userCollectionView: UICollectionView!
@@ -31,8 +33,6 @@ class MainController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.userCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
-        
         if let context = appDelegate?.persistentContainer.viewContext{
             manageObjectContext = context
         }else{
@@ -50,10 +50,9 @@ class MainController: UIViewController {
         loadDataUser()
         loadDataMedicine()
         
-        navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back".localized(), style:.plain, target:nil, action:nil)
         
-        if users.count == 0{
-            todayLabel.text = "Obat hari ini"
+        if users.count == 0 {
             userImageView.image = UIImage(systemName: "photo")
             addMedicineButton.isEnabled = false
             addMedicineButton.backgroundColor = UIColor(red: 0.91, green: 0.91, blue: 0.91, alpha: 1.00)
@@ -62,7 +61,9 @@ class MainController: UIViewController {
             addMedicineButton.backgroundColor = UIColor(red: 0.94, green: 0.96, blue: 0.56, alpha: 1.00)
         }
         
-        self.userCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
+        if users.count > 0 {
+            self.userCollectionView.selectItem(at: index, animated: true, scrollPosition: [])
+        }
         collectionView(userCollectionView, didSelectItemAt: index)
         
         userCollectionView.reloadData()
@@ -106,6 +107,13 @@ extension MainController: Setup{
         medicineTableView.separatorStyle = .none
         medicineTableView.backgroundColor = .white
         medicineTableView.tableFooterView = UIView()
+        
+        todayLabel.text = "today.drugs".localized()
+        listOfUser.text = "list.user.drugs".localized()
+        seeAllButton.setTitle("see.all".localized(), for: .normal)
+        seeAllButton.underline()
+        
+        addMedicineButton.setTitle("add.drugs".localized(), for: .normal)
     }
     
     func permission(){
@@ -184,7 +192,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
         if medicineCount == 0 && userCount == 0{
             tableView.separatorStyle  = .none
             let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
-            noDataLabel.text          = "Tambah pengguna, lalu tambahkan obat yang ingin diingatkan"
+            noDataLabel.text          = "empty.state.drugs.and.user".localized()
             noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
             noDataLabel.numberOfLines = 2
             noDataLabel.textAlignment = .center
@@ -193,7 +201,7 @@ extension MainController: UITableViewDataSource, UITableViewDelegate{
         }else if medicineCount == 0 {
             tableView.separatorStyle  = .none
             let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
-            noDataLabel.text          = "Tambahkan obat yang ingin diingatkan"
+            noDataLabel.text          = "empty.state.drugs".localized()
             noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
             noDataLabel.numberOfLines = 2
             noDataLabel.textAlignment = .center
@@ -317,12 +325,16 @@ extension MainController: UICollectionViewDataSource, UICollectionViewDelegate{
         self.index = indexPath
         self.userCollectionView.reloadData()
         
-        if indexPath.row == users.count{
+        if users.count == 0 {
+            todayLabel.text = "today.drugs".localized()
+        }
+        
+        if indexPath.row == users.count {
             return
         }else{
             userSelected = users[indexPath.row].name ?? ""
             userImageSelected = users[indexPath.row].photo
-            todayLabel.text = "Obat \(userSelected) hari ini"
+            todayLabel.text = String(format: "today.drugs.user".localized(), userSelected)
             
             if let image = userImageSelected {
                 userImageView.image = UIImage(data: image)

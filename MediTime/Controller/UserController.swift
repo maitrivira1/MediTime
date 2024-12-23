@@ -14,6 +14,9 @@ class UserController: UIViewController {
     @IBOutlet weak var profileImageButton: UIButton!
     @IBOutlet weak var nameTextfield: UITextField!
     @IBOutlet weak var sickTextfield: UITextField!
+    @IBOutlet weak var addPhoto: UILabel!
+    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var disease: UILabel!
     
     var users = [User]()
     var usersName = [User]()
@@ -53,7 +56,7 @@ class UserController: UIViewController {
 extension UserController: Setup{
     
     func setupUI(){
-        navigationItem.title = "Isi Data Pengguna"
+        navigationItem.title = "fill.user.data".localized()
         navigationItem.largeTitleDisplayMode = .never
         
         saveButton.layer.cornerRadius = 12
@@ -61,7 +64,7 @@ extension UserController: Setup{
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         self.view.addGestureRecognizer(tap)
         
-        if status == "edit"{
+        if status == "edit" {
             
             guard let user = userSelected, let photo = userSelected?.photo else {
                 ext.showCrash(on: self)
@@ -72,6 +75,12 @@ extension UserController: Setup{
             sickTextfield.text = user.sick
             profileImageButton.setImage(UIImage(data: photo), for: .normal)
         }
+        
+        addPhoto.text = "add.photo".localized()
+        name.text = "name".localized()
+        nameTextfield.placeholder = "name.placeholder".localized()
+        disease.text = "disease".localized()
+        sickTextfield.placeholder = "disease.placeholder".localized()
     }
     
     @objc func dismissKeyboard(){
@@ -134,7 +143,10 @@ extension UserController: SetupData{
               let sick = sickTextfield.text, !sick.isEmpty,
               profileImage != nil, let profile = profileImage
         else{
-            self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            self.ext.showAlertConfirmation(on: self , 
+                                           title: "fill.user.data".localized(),
+                                           message: "fill.user.data.warning".localized(),
+                                           status: "kosong")
             return
         }
         
@@ -161,18 +173,23 @@ extension UserController: SetupData{
             
             do {
                 try manageObjectContext.save()
-                print("save: \(newUser)")
-                
-                ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
+                ext.showAlertConfirmation(on: self , 
+                                          title: "fill.user.data".localized(),
+                                          message: "fill.user.data.success".localized(),
+                                          status: "berhasil")
                 
             } catch let error as NSError {
-                print("error: \(error)")
-                
-                ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
+                ext.showAlertConfirmation(on: self , 
+                                          title: "fill.user.data".localized(),
+                                          message: "fill.user.data.failed".localized(),
+                                          status: "gagal")
             }
             
         } else {
-            self.ext.showAlertConfirmation(on: self , title: "Nama telah terdaftar", message: "Nama yang Anda inputkan telah terdaftar", status: "gagal")
+            self.ext.showAlertConfirmation(on: self , 
+                                           title: "fill.user.data.already.exist.title".localized(),
+                                           message: "fill.user.data.already.exist".localized(),
+                                           status: "gagal")
             return
         }
         
@@ -186,7 +203,10 @@ extension UserController: SetupData{
               let sick = sickTextfield.text, !sick.isEmpty,
               profileImage != nil, let profile = profileImage
         else{
-            self.ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            self.ext.showAlertConfirmation(on: self , 
+                                           title: "fill.user.data".localized(),
+                                           message: "fill.user.data.warning".localized(),
+                                           status: "kosong")
             return
         }
         
@@ -199,11 +219,17 @@ extension UserController: SetupData{
         do{
             try manageObjectContext.save()
             
-            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Berhasil ditambahkan", status: "berhasil")
+            ext.showAlertConfirmation(on: self , 
+                                      title: "fill.user.data".localized(),
+                                      message: "fill.user.data.success".localized(),
+                                      status: "berhasil")
         } catch{
             print(error)
             
-            ext.showAlertConfirmation(on: self , title: "Isi Data Pengguna", message: "Gagal ditambahkan", status: "gagal")
+            ext.showAlertConfirmation(on: self , 
+                                      title: "fill.user.data".localized(), 
+                                      message: "fill.user.data.failed".localized(),
+                                      status: "gagal")
         }
         
     }

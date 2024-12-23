@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -568,7 +569,7 @@
                                                                         <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                         <prototypes>
                                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleListTVC" id="Bcr-rZ-9KC">
-                                                                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                                                                <rect key="frame" x="0.0" y="50" width="414" height="43.5"/>
                                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bcr-rZ-9KC" id="q2L-Va-Amy">
                                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -648,11 +649,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPhoto" destination="ArR-eX-NEp" id="DCe-sL-CkL"/>
                         <outlet property="cairButton" destination="i0C-Py-Pc6" id="50D-9p-VU8"/>
+                        <outlet property="dailyUsage" destination="FIm-CX-qiw" id="HJb-fV-QlF"/>
+                        <outlet property="dosePerDay" destination="ESU-cU-eh7" id="fei-vU-LfU"/>
                         <outlet property="dosisTextField" destination="48g-Mx-UZa" id="SSz-t3-Hnr"/>
+                        <outlet property="drugsName" destination="g48-zv-6nV" id="tOh-B9-rWW"/>
                         <outlet property="eatingLine" destination="pCT-RB-KWq" id="SKO-YF-0bv"/>
                         <outlet property="eatingTextField" destination="qmn-IH-t5p" id="X3v-yJ-luY"/>
+                        <outlet property="eatingTime" destination="ZBT-Kp-E67" id="iA5-70-fKL"/>
                         <outlet property="eatingView" destination="Ac6-EA-FTZ" id="3xT-s6-dNz"/>
+                        <outlet property="eyeDrops" destination="3Wq-iQ-0Y1" id="KZq-TB-ccC"/>
+                        <outlet property="formOfDrugs" destination="sLW-Gh-XrF" id="Bxg-03-SJV"/>
                         <outlet property="hariLabel" destination="feh-0y-IcV" id="XCz-wh-Es2"/>
                         <outlet property="hariView" destination="iAA-Lb-ge3" id="MHO-w3-uRC"/>
                         <outlet property="imageButton" destination="C4A-43-lps" id="y3P-Lf-eL9"/>
@@ -662,13 +670,17 @@
                         <outlet property="jumlahPemakaiTextField" destination="P83-QS-rGs" id="5ld-04-GkW"/>
                         <outlet property="jumlahPemakaianLine" destination="XhA-wR-stM" id="Rna-zG-iyh"/>
                         <outlet property="jumlahPemakaianView" destination="Rvl-ij-zRz" id="aze-dj-xaE"/>
+                        <outlet property="liquid" destination="qNI-Ps-7hi" id="m8A-Tp-ioY"/>
                         <outlet property="namaTextField" destination="JwM-pz-mJa" id="XUE-IV-zX0"/>
                         <outlet property="olesButton" destination="QL5-PC-VLN" id="iKP-hR-xPM"/>
                         <outlet property="padatButton" destination="CWD-9Z-5gM" id="nPN-lp-dG9"/>
-                        <outlet property="saveButton" destination="OTw-P7-4fc" id="8cj-7g-MsA"/>
+                        <outlet property="saveButton" destination="OTw-P7-4fc" id="QAw-cX-Dkz"/>
                         <outlet property="scheduleTable" destination="uOb-nK-ibx" id="i6v-Ur-UD1"/>
+                        <outlet property="solid" destination="EMu-6W-xbV" id="hKf-CC-XyU"/>
                         <outlet property="tableView" destination="NVq-rv-fdn" id="WBk-Au-Zt7"/>
                         <outlet property="tetesButton" destination="s9V-fm-Ubs" id="NcM-H3-ePp"/>
+                        <outlet property="topical" destination="UDV-e7-ZQB" id="RMh-D5-yz2"/>
+                        <outlet property="totalDrugs" destination="okS-la-xJ5" id="tq8-yQ-YWY"/>
                         <outlet property="unitLabel" destination="6cc-YO-Dg0" id="84o-aH-nke"/>
                         <outlet property="unitLine" destination="arX-zT-Z1g" id="gQQ-KJ-heV"/>
                         <outlet property="unitTextField" destination="mnI-6P-Lhw" id="zG2-kb-74l"/>
@@ -687,7 +699,7 @@
         <image name="plus" width="256" height="256"/>
         <image name="tetes ijo" width="147" height="147"/>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxi-sp-SNG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oxi-sp-SNG">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -27,7 +27,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="URW-Tp-K2W">
-                                <rect key="frame" x="0.0" y="88" width="390" height="756"/>
+                                <rect key="frame" x="0.0" y="91" width="390" height="753"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E92-Lx-QbY" userLabel="Daftar Pengguna">
                                         <rect key="frame" x="0.0" y="0.0" width="390" height="40"/>
@@ -44,18 +44,11 @@
                                                         <color key="textColor" red="0.023529411764705882" green="0.32549019607843138" blue="0.28235294117647058" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-By-SmL">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lsZ-By-SmL">
                                                         <rect key="frame" x="191" y="0.0" width="167" height="20"/>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Lihat Semua">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" metaFont="system" size="15"/>
-                                                                        <integer key="NSUnderline" value="1"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                                        <state key="normal" title="Lihat Semua">
+                                                            <color key="titleColor" red="0.082352941176470587" green="0.4823529411764706" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                         <connections>
                                                             <segue destination="TY7-DE-v7G" kind="show" id="4Hx-oI-Oki"/>
@@ -129,6 +122,7 @@
                                                         </collectionViewCellContentView>
                                                         <size key="customSize" width="118" height="133"/>
                                                         <connections>
+                                                            <outlet property="addUsers" destination="7n5-3c-9dK" id="T2A-WS-XMe"/>
                                                             <outlet property="addView" destination="MKN-HJ-wO8" id="sEv-p8-sBI"/>
                                                             <outlet property="btnAdd" destination="gCZ-bo-3aN" id="SlS-Sv-Irj"/>
                                                             <segue destination="MoG-mC-JkR" kind="show" identifier="userController" id="UNG-WP-ESE"/>
@@ -208,10 +202,10 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSW-ZS-fbw">
-                                        <rect key="frame" x="0.0" y="220" width="390" height="536"/>
+                                        <rect key="frame" x="0.0" y="220" width="390" height="533"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DES-3y-NRt">
-                                                <rect key="frame" x="0.0" y="0.0" width="390" height="536"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="390" height="533"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="96q-qi-D8q" userLabel="Title">
                                                         <rect key="frame" x="0.0" y="0.0" width="390" height="60"/>
@@ -280,10 +274,10 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q5W-FH-hjj" userLabel="Table View">
-                                                        <rect key="frame" x="0.0" y="60" width="390" height="476"/>
+                                                        <rect key="frame" x="0.0" y="60" width="390" height="473"/>
                                                         <subviews>
                                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-Tf-g6t">
-                                                                <rect key="frame" x="0.0" y="0.0" width="390" height="476"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="390" height="473"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -328,8 +322,10 @@
                     <navigationItem key="navigationItem" id="ohy-VG-TAd"/>
                     <connections>
                         <outlet property="addMedicineButton" destination="WuE-Eg-dgk" id="CNV-eb-KWQ"/>
+                        <outlet property="listOfUser" destination="6ZS-Yf-Uib" id="NIe-PJ-zsJ"/>
                         <outlet property="medicineTableView" destination="bRQ-Tf-g6t" id="BYY-Ws-zP4"/>
                         <outlet property="roundedView" destination="mSW-ZS-fbw" id="742-CH-4IK"/>
+                        <outlet property="seeAllButton" destination="lsZ-By-SmL" id="a7M-Qc-lwD"/>
                         <outlet property="todayLabel" destination="Q5D-3c-5ej" id="l50-89-oGI"/>
                         <outlet property="userCollectionView" destination="bXQ-cW-s4R" id="8Jz-GB-lGR"/>
                         <outlet property="userImageView" destination="Arn-aJ-GMb" id="RcE-YI-iNo"/>
@@ -375,7 +371,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="oxi-sp-SNG" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fYs-VH-SIG">
-                        <rect key="frame" x="0.0" y="44" width="390" height="44"/>
+                        <rect key="frame" x="0.0" y="47" width="390" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="barTintColor" red="0.92156862745098034" green="1" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -405,7 +401,7 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" width="256" height="256"/>
         <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

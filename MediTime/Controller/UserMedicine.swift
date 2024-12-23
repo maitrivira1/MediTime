@@ -76,7 +76,7 @@ extension UserMedicine: UITableViewDelegate, UITableViewDataSource {
         if medicineCount == 0{
             tableView.separatorStyle  = .none
             let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
-            noDataLabel.text          = "Belum ada data"
+            noDataLabel.text          = "no.data".localized()
             noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
             noDataLabel.numberOfLines = 2
             noDataLabel.textAlignment = .center

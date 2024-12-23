@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -22,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="dal-hQ-VID">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlt-c9-LgG" userLabel="top margin">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
@@ -73,7 +74,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iLq-GI-vE3" userLabel="input">
-                                        <rect key="frame" x="0.0" y="202" width="414" height="616"/>
+                                        <rect key="frame" x="0.0" y="202" width="414" height="612"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OQ3-eu-9Gd" userLabel="nama">
                                                 <rect key="frame" x="0.0" y="10" width="414" height="40"/>
@@ -172,7 +173,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUq-r7-vJY" userLabel="button">
-                                                <rect key="frame" x="16" y="556" width="382" height="50"/>
+                                                <rect key="frame" x="16" y="552" width="382" height="50"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VoE-TC-s5W">
                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="50"/>
@@ -232,6 +233,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addPhoto" destination="09W-3W-5TQ" id="BVB-bZ-ovA"/>
+                        <outlet property="disease" destination="WPA-5n-26P" id="WIe-w0-mfn"/>
+                        <outlet property="name" destination="4xa-9I-D7M" id="Nbz-5U-FhN"/>
                         <outlet property="nameTextfield" destination="OtK-WR-k43" id="CLR-TT-ojF"/>
                         <outlet property="profileImageButton" destination="1N7-k0-FOg" id="LFk-AY-h9o"/>
                         <outlet property="saveButton" destination="VoE-TC-s5W" id="jHf-RD-scC"/>
@@ -246,7 +250,7 @@
     <resources>
         <image name="plus" width="256" height="256"/>
         <systemColor name="systemGray4Color">
-            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

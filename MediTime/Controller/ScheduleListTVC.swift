@@ -30,7 +30,7 @@ extension ScheduleListTVC: Setup{
         let timeFormat = DateFormatter()
         timeFormat.dateFormat = "HH : mm"
         
-        nameLabel.text = String("Waktu Minum \(index + 1)")
+        nameLabel.text = String("\("drink.time".localized()) \(index + 1)")
         timeLabel.text = String("\(timeFormat.string(from: data.fullDate))")
     }
     

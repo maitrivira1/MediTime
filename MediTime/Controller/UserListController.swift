@@ -35,7 +35,7 @@ class UserListController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style:.plain, target:nil, action:nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "back".localized(), style:.plain, target:nil, action:nil)
     }
     
     @IBAction func segmentedChange(_ sender: UISegmentedControl) {
@@ -63,7 +63,7 @@ class UserListController: UIViewController {
 extension UserListController: Setup{
     
     func setupUI(){
-        navigationItem.title = "Daftar Pengguna"
+        navigationItem.title = "listofusers".localized()
         navigationItem.largeTitleDisplayMode = .never
         
         self.userListTableView.register(UINib(nibName: "UserListTVC", bundle: nil), forCellReuseIdentifier: "cell")
@@ -71,7 +71,8 @@ extension UserListController: Setup{
         
         self.userListTableView.delegate = self
         self.userListTableView.dataSource = self
-        
+        self.segmentedControl.setTitle("on.treatment".localized(), forSegmentAt: 0)
+        self.segmentedControl.setTitle("history.users".localized(), forSegmentAt: 1)
         userListTableView.tableFooterView = UIView()
     }
     
@@ -161,7 +162,7 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             if userFalseCount == 0{
                 tableView.separatorStyle  = .none
                 let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
-                noDataLabel.text          = "Belum Ada Data"
+                noDataLabel.text          = "no.data".localized()
                 noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
                 noDataLabel.numberOfLines = 2
                 noDataLabel.textAlignment = .center
@@ -174,10 +175,10 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             }
             return userFalseCount
         case 1:
-            if userTrueCount == 0{
+            if userTrueCount == 0 {
                 tableView.separatorStyle  = .none
                 let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: tableView.bounds.size.height))
-                noDataLabel.text          = "Belum Ada Data"
+                noDataLabel.text          = "no.data".localized()
                 noDataLabel.textColor     = UIColor(red: 0.64, green: 0.64, blue: 0.64, alpha: 1.00)
                 noDataLabel.numberOfLines = 2
                 noDataLabel.textAlignment = .center
@@ -230,9 +231,9 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            let delete = UIContextualAction(style: .normal, title: "Selesai") { (action, view, completionHandler) in
+            let delete = UIContextualAction(style: .normal, title: "done".localized()) { (action, view, completionHandler) in
                 
-                let alert = UIAlertController(title: "Pengobatan Selesai", message: "Data pengobatan anda akan tersimpan di Riwayat Pengguna", preferredStyle: .alert)
+                let alert = UIAlertController(title: "medication.done".localized(), message: "medication.done.message".localized(), preferredStyle: .alert)
                 
                 alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: { action in
                     
@@ -249,7 +250,7 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             }
             delete.backgroundColor = UIColor(red: 0.99, green: 0.26, blue: 0.38, alpha: 1.00)
             
-            let change = UIContextualAction(style: .normal, title: "Ubah") { (action, view, completionHandler) in
+            let change = UIContextualAction(style: .normal, title: "edit".localized()) { (action, view, completionHandler) in
                 
                 self.performSegue(withIdentifier: "UserController", sender: indexPath.row)
                 
@@ -260,15 +261,15 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             let swipe = UISwipeActionsConfiguration(actions: [delete, change])
             return swipe
         case 1:
-            let delete = UIContextualAction(style: .normal, title: "Hapus") { (action, view, completionHandler) in
+            let delete = UIContextualAction(style: .normal, title: "delete".localized()) { (action, view, completionHandler) in
                 
-                let alert = UIAlertController(title: "Hapus Riwayat", message: "Apakah anda yakin ingin menghapus riwayat ini?", preferredStyle: .alert)
+                let alert = UIAlertController(title: "delete.history".localized(), message: "delete.history.message".localized(), preferredStyle: .alert)
                 
-                alert.addAction(UIAlertAction(title: "Tidak", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: "no".localized(), style: .default, handler: { action in
                     
                 }))
                 
-                alert.addAction(UIAlertAction(title: "Yakin", style: .default, handler: { [self] action in
+                alert.addAction(UIAlertAction(title: "yes".localized(), style: .default, handler: { [self] action in
                     
                     deleteDataUser(id: Int(self.usersTrue[indexPath.row].id))
                     
@@ -282,14 +283,12 @@ extension UserListController: UITableViewDelegate, UITableViewDataSource {
             let swipe = UISwipeActionsConfiguration(actions: [delete])
             return swipe
         default:
-            let delete = UIContextualAction(style: .normal, title: "Selesai") { (action, view, completionHandler) in
-                print("Selesai")
+            let delete = UIContextualAction(style: .normal, title: "done".localized()) { (action, view, completionHandler) in
                 completionHandler(true)
             }
             delete.backgroundColor = .red
             
-            let change = UIContextualAction(style: .normal, title: "Ubah") { (action, view, completionHandler) in
-                print("Ubah")
+            let change = UIContextualAction(style: .normal, title: "edit".localized()) { (action, view, completionHandler) in
                 completionHandler(true)
             }
             change.backgroundColor = .green

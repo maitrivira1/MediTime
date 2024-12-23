@@ -66,7 +66,7 @@ extension MedicineTVC: Setup{
         
         eatBackground.isHidden = data.bentukObat == "tetes" || data.bentukObat == "oles" ? true : false
         
-        let jenis = data.bentukObat == "padat" ? "Pil" : data.bentukObat == "cair" ? "Sendok" : data.bentukObat == "tetes" ? "Tetes" : "Oles"
+        let jenis = data.bentukObat == "padat" ? "Pil" : data.bentukObat == "cair" ? "spoon".localized() : data.bentukObat == "tetes" ? "drops".localized() : "topical2".localized()
         
         medicineName.text = data.nama
         medicineAmount.text = "\(data.jumlahPemakaian ?? "0") \(jenis)"

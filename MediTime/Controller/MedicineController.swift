@@ -10,7 +10,7 @@ import CoreData
 
 class MedicineController: UIViewController {
     
-    @IBOutlet weak var saveButton: UIView!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imageButton: UIButton!
     
     @IBOutlet weak var padatButton: UIButton!
@@ -39,6 +39,17 @@ class MedicineController: UIViewController {
     @IBOutlet weak var scheduleTable: UITableView!
     @IBOutlet weak var hariView: UIView!
     @IBOutlet weak var hariLabel: UILabel!
+    @IBOutlet weak var addPhoto: UILabel!
+    @IBOutlet weak var formOfDrugs: UILabel!
+    @IBOutlet weak var solid: UILabel!
+    @IBOutlet weak var liquid: UILabel!
+    @IBOutlet weak var eyeDrops: UILabel!
+    @IBOutlet weak var topical: UILabel!
+    @IBOutlet weak var drugsName: UILabel!
+    @IBOutlet weak var totalDrugs: UILabel!
+    @IBOutlet weak var dosePerDay: UILabel!
+    @IBOutlet weak var dailyUsage: UILabel!
+    @IBOutlet weak var eatingTime: UILabel!
     
     var medicine = [Medicine]()
     var userSelected: User?
@@ -52,8 +63,11 @@ class MedicineController: UIViewController {
     
     let toolbar = UIToolbar()
     
-    let dosis = ["1 x sehari", "2 x sehari", "3 x sehari", "4 x sehari"]
-    let eat = ["Sebelum Makan", "Sesudah Makan"]
+    let dosis = ["1 x \("days".localized())",
+                 "2 x \("days".localized())",
+                 "3 x \("days".localized())",
+                 "4 x \("days".localized())"]
+    let eat = ["\("before.eating".localized())", "\("after.eating".localized())"]
     
     var jumlahObat = 0
     var jumlahPemakaian = 0
@@ -159,7 +173,7 @@ extension MedicineController: Setup{
     
     func setupUI(){
         
-        navigationItem.title = "Keterangan Obat"
+        navigationItem.title = "drugs.information".localized()
         navigationItem.largeTitleDisplayMode = .never
         
         dosisPicker.delegate = self
@@ -177,8 +191,8 @@ extension MedicineController: Setup{
         
         toolbar.sizeToFit()
         
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(dismissKeyboard))
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(dismissKeyboard))
+        let cancelButton = UIBarButtonItem(title: "cancel".localized(), style: .plain, target: self, action: #selector(dismissKeyboard))
+        let doneButton = UIBarButtonItem(title: "done".localized(), style: UIBarButtonItem.Style.done, target: self, action: #selector(dismissKeyboard))
         let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         toolbar.setItems([cancelButton, spaceButton, doneButton], animated: true)
         self.toolbar.tintColor = UIColor.systemBlue
@@ -204,6 +218,26 @@ extension MedicineController: Setup{
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        addPhoto.text = "add.photo".localized()
+        formOfDrugs.text = "form.of.drugs".localized()
+        solid.text = "solid".localized()
+        liquid.text = "liquid".localized()
+        eyeDrops.text = "eye.drops".localized()
+        topical.text = "topical".localized()
+        drugsName.text = "drugs.name".localized()
+        totalDrugs.text = "total.drugs".localized()
+        dosePerDay.text = "dose.per.day".localized()
+        dailyUsage.text = "daily.usage".localized()
+        eatingTime.text = "meal.time".localized()
+        
+        namaTextField.placeholder = "drugs.name.placeholder".localized()
+        unitTextField.placeholder = "unit.placeholder".localized()
+        jumlahObatTextField.placeholder = "total.drugs.placeholder".localized()
+        dosisTextField.placeholder = "dose.choose".localized()
+        jumlahPemakaiTextField.placeholder = "daily.usage.placeholder".localized()
+        eatingTextField.placeholder = "meal.time.placeholder".localized()
+        saveButton.setTitle("save".localized(), for: .normal)
     }
     
     @objc func dismissKeyboard(){
@@ -299,7 +333,7 @@ extension MedicineController: Setup{
         scheduleTable.reloadData()
     }
     
-    func showDay(){
+    func showDay() {
         
         guard let obatText = jumlahObatTextField.text, !obatText.isEmpty,
             let pemakaianText = jumlahPemakaiTextField.text, !pemakaianText.isEmpty,
@@ -310,11 +344,12 @@ extension MedicineController: Setup{
         
         hariLabel.isHidden = false
         hariView.isHidden = false
-        hariLabel.text = "Obat akan habis dalam \(getDay()) hari"
         
+        let days = String(getDay())
+        hariLabel.text = "run.out".localized().replacingOccurrences(of: "%@", with: days)
     }
     
-    func getDay() -> Int{
+    func getDay() -> Int {
         
         if type == "padat" || type == "cair" {
             
@@ -359,7 +394,7 @@ extension MedicineController: Setup{
             eatingLine.isHidden = false
             jumlahPemakaianView.isHidden = false
             jumlahPemakaianLine.isHidden = false
-            jumlahObatLabel.text = "Jumlah Obat (mL)"
+            jumlahObatLabel.text = "\("total.drugs".localized()) (mL)"
             
             if hariLabel.text != ""{
                 hariLabel.isHidden = false
@@ -381,7 +416,7 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = false
             hariLabel.isHidden = true
             hariView.isHidden = true
-            jumlahObatLabel.text = "Jumlah Obat"
+            jumlahObatLabel.text = "total.drugs".localized()
             
         }else if type == "oles"{
             
@@ -393,12 +428,12 @@ extension MedicineController: Setup{
             jumlahPemakaianLine.isHidden = true
             hariLabel.isHidden = true
             hariView.isHidden = true
-            jumlahObatLabel.text = "Jumlah Obat"
+            jumlahObatLabel.text = "total.drugs".localized()
             
         }else if type == "padat"{
             
             unitLabel.text = "Unit (mg)"
-            jumlahObatLabel.text = "Jumlah Obat"
+            jumlahObatLabel.text = "total.drugs".localized()
             unitView.isHidden = false
             unitLine.isHidden = false
             
@@ -432,9 +467,9 @@ extension MedicineController: Setup{
         
         let center = UNUserNotificationCenter.current()
         let content = UNMutableNotificationContent()
-        content.title = "Hore... waktunya minum obat"
+        content.title = "notif.title".localized()
         content.sound = .default
-        content.body = "Cek jadwal obat \(userSelected?.name ?? "") sekarang yuk"
+        content.body = String(format: "notif.desc".localized(), userSelected?.name ?? "")
         
         let dataComponents = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second], from: date)
         let trigger = UNCalendarNotificationTrigger(dateMatching: dataComponents, repeats: false)
@@ -467,7 +502,9 @@ extension MedicineController : SetupData{
               !type.isEmpty,
               profileImage != nil, let image = profileImage
         else{
-            self.ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Silahkan masukan foto dan lengkapi data", status: "kosong")
+            self.ext.showAlertConfirmation(on: self, 
+                                           title: "drugs.information".localized(),
+                                           message: "fill.user.data.warning".localized(), status: "kosong")
             return
         }
         
@@ -501,14 +538,16 @@ extension MedicineController : SetupData{
         
         do {
             try context.save()
-            print("save: \(medicine)")
-            
-            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Berhasil ditambahkan", status: "berhasil")
+            ext.showAlertConfirmation(on: self,
+                                      title: "drugs.information".localized(),
+                                      message: "fill.user.data.success".localized(),
+                                      status: "berhasil")
             
         } catch let error as NSError {
-            print("error: \(error)")
-            
-            ext.showAlertConfirmation(on: self , title: "Keterangan Obat", message: "Gagal ditambahkan", status: "gagal")
+            ext.showAlertConfirmation(on: self,
+                                      title: "drugs.information".localized(),
+                                      message: "fill.user.data.failed".localized(),
+                                      status: "gagal")
         }
     }
     
