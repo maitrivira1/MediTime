@@ -40,11 +40,10 @@ class UserController: UIViewController {
 
         setupUI()
         loadData()
-        print(users)
     }
     
     @IBAction func imageTapped(_ sender: Any) {
-        showAction()
+        showAction(sender)
     }
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -87,8 +86,10 @@ extension UserController: Setup{
         self.view.endEditing(true)
     }
     
-    func showAction(){
-        let actionsheet = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
+    func showAction(_ sender: Any){
+        let actionsheet = UIAlertController(title: "", 
+                                            message: "Choose the photo from",
+                                            preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         
         let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
             self.showImagePickerController()
@@ -98,12 +99,18 @@ extension UserController: Setup{
             self.showCameraController()
         }
         
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive) { (action) in }
         
         actionsheet.addAction(galleryButton)
         actionsheet.addAction(cameraButton)
         actionsheet.addAction(cancelButton)
         
+        if let popoverController = actionsheet.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.barButtonItem = sender as? UIBarButtonItem
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
         present(actionsheet, animated: true, completion: nil)
     }
     
