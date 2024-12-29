@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import Photos
 
 class MedicineController: UIViewController {
     
@@ -605,21 +606,108 @@ extension MedicineController: UIPickerViewDelegate, UIPickerViewDataSource{
 extension MedicineController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func showImagePickerController(){
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        imagePickerController.allowsEditing = true
-        imagePickerController.sourceType = .photoLibrary
-        imagePickerController.view.tintColor = UIColor.systemBlue
-        present(imagePickerController, animated: true, completion: nil)
+        let photos = PHPhotoLibrary.authorizationStatus()
+        
+        switch photos {
+        case .notDetermined:
+            PHPhotoLibrary.requestAuthorization({ status in
+                switch status {
+                case .authorized:
+                    self.goToPhotoLibrary()
+                case .limited:
+                    self.showAlertSelectAllPhoto()
+                case .denied:
+                    DispatchQueue.main.async {
+                        self.showAlertGoToSettings(title: "permission.gallery".localized())
+                    }
+                default:
+                    DispatchQueue.main.async {
+                        self.showAlertGoToSettings(title: "permission.gallery".localized())
+                    }
+                }
+            })
+        case .authorized:
+            self.goToPhotoLibrary()
+        case .limited:
+            self.showAlertSelectAllPhoto()
+        case .restricted: fallthrough
+        case .denied :
+            DispatchQueue.main.async {
+                self.showAlertGoToSettings(title: "permission.gallery".localized())
+            }
+        default:
+            DispatchQueue.main.async {
+                self.showAlertGoToSettings(title: "permission.gallery".localized())
+            }
+        }
     }
     
     func showCameraController(){
-        let imageCameraController = UIImagePickerController()
-        imageCameraController.view.tintColor = UIColor.systemBlue
-        imageCameraController.delegate = self
-        imageCameraController.allowsEditing = true
-        imageCameraController.sourceType = .camera
-        present(imageCameraController, animated: true, completion: nil)
+        AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
+            if response {
+                let imageCameraController = UIImagePickerController()
+                imageCameraController.view.tintColor = UIColor.systemBlue
+                imageCameraController.delegate = self
+                imageCameraController.allowsEditing = true
+                imageCameraController.sourceType = .camera
+                self.present(imageCameraController, animated: true, completion: nil)
+            } else {
+                DispatchQueue.main.async {
+                    self.showAlertGoToSettings(title: "permission.camera".localized())
+                }
+            }
+        }
+    }
+    
+    func showAlertGoToSettings(title: String) {
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+            self.goToSettings()
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func showAlertSelectAllPhoto() {
+        let alertController = UIAlertController(title: "permission.select.all.photo".localized(),
+                                                message: "",
+                                                preferredStyle: .alert)
+
+        let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+            self.goToSettings()
+        }
+        alertController.addAction(settingsAction)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        alertController.addAction(cancelAction)
+
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    func goToSettings() {
+        guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
+            return
+        }
+
+        if UIApplication.shared.canOpenURL(settingsUrl) {
+            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                print("Settings opened: \(success)")
+            })
+        }
+    }
+    
+    func goToPhotoLibrary() {
+        DispatchQueue.main.async {
+            let imagePickerController = UIImagePickerController()
+            imagePickerController.delegate = self
+            imagePickerController.allowsEditing = true
+            imagePickerController.sourceType = .photoLibrary
+            imagePickerController.view.tintColor = UIColor.systemBlue
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

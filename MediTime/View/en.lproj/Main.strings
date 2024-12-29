@@ -60,3 +60,6 @@
 "drops" = "Drops";
 "topical2" = "Topical";
 "drink.time" = "Drink Time";
+"permission.gallery" = "You need allow access to your Photo Library. Go to Settings?";
+"permission.camera" = "You need allow access to your Camera. Go to Settings?";
+"permission.select.all.photo" = "Plese allow access to All Photos";

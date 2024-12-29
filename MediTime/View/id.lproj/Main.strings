@@ -60,3 +60,6 @@
 "drops" = "Tetes";
 "topical2" = "Oles";
 "drink.time" = "Waktu Minum";
+"permission.gallery" = "Anda harus mengizinkan akses ke Photo Library anda. Pergi ke Halaman Pengaturan?";
+"permission.camera" = "Anda harus mengizinkan akses ke Kamera anda. Pergi ke Halaman Pengaturan?";
+"permission.select.all.photo" = "Silahkan atur izin akses ke semua Photo Library Anda";
