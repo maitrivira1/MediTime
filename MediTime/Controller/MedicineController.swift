@@ -102,7 +102,7 @@ class MedicineController: UIViewController {
     }
     
     @IBAction func imageTapped(_ sender: UIButton) {
-        showAction()
+        showAction(sender)
     }
     
     @IBAction func bentukObatTapped(_ sender: UIButton) {
@@ -258,9 +258,11 @@ extension MedicineController: Setup{
         }
     }
     
-    func showAction(){
+    func showAction(_ sender: Any) {
         
-        let action = UIAlertController(title: "", message: "Choose the photo from", preferredStyle: .actionSheet)
+        let actionsheet = UIAlertController(title: "",
+                                            message: "Choose the photo from",
+                                            preferredStyle: UIDevice.current.userInterfaceIdiom == .pad ? .alert : .actionSheet)
         
         let galleryButton = UIAlertAction(title: "Gallery", style: .default) { (action) in
             self.showImagePickerController()
@@ -270,13 +272,20 @@ extension MedicineController: Setup{
             self.showCameraController()
         }
         
-        let cancelButton = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
+        let cancelButton = UIAlertAction(title: "Cancel", style: .destructive) { (action) in }
         
-        action.addAction(galleryButton)
-        action.addAction(cameraButton)
-        action.addAction(cancelButton)
+        actionsheet.addAction(galleryButton)
+        actionsheet.addAction(cameraButton)
+        actionsheet.addAction(cancelButton)
         
-        present(action, animated: true, completion: nil)
+        if let popoverController = actionsheet.popoverPresentationController {
+            popoverController.sourceView = self.view
+            popoverController.barButtonItem = sender as? UIBarButtonItem
+            popoverController.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
+        present(actionsheet, animated: true, completion: nil)
         
     }
     
