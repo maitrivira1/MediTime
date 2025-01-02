@@ -645,12 +645,14 @@ extension MedicineController: UIImagePickerControllerDelegate, UINavigationContr
     func showCameraController(){
         AVCaptureDevice.requestAccess(for: AVMediaType.video) { response in
             if response {
-                let imageCameraController = UIImagePickerController()
-                imageCameraController.view.tintColor = UIColor.systemBlue
-                imageCameraController.delegate = self
-                imageCameraController.allowsEditing = true
-                imageCameraController.sourceType = .camera
-                self.present(imageCameraController, animated: true, completion: nil)
+                DispatchQueue.main.async {
+                    let imageCameraController = UIImagePickerController()
+                    imageCameraController.view.tintColor = UIColor.systemBlue
+                    imageCameraController.delegate = self
+                    imageCameraController.allowsEditing = true
+                    imageCameraController.sourceType = .camera
+                    self.present(imageCameraController, animated: true, completion: nil)
+                }
             } else {
                 DispatchQueue.main.async {
                     self.showAlertGoToSettings(title: "permission.camera".localized())
